@@ -107,6 +107,7 @@ The backend needs to be responsive for the forms
 Data for forms to be stored
 Admin page security and access control stuff
 Replace ai generated images with actual images of staff and alumni
+Organize file structure
 
 Personalized 4-Year Journey Simulator — Quick quiz → custom 4-year roadmap with academics, internships, projects, and career outcomes  
 
