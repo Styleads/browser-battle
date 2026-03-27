@@ -188,6 +188,58 @@
                 display: none !important;
             }
         }
+
+        /* Study Program Specific Styles */
+        .tab-btn {
+            position: relative;
+            width: 100%;
+            height: 120px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            text-align: left;
+            padding-left: 2rem;
+            background-color: #F1F4FA;
+            color: #64748B;
+            border: 2px solid transparent;
+        }
+
+        .tab-btn.active {
+            background-color: white;
+            color: #002C5F;
+            border: 4px solid #002C5F;
+        }
+
+        /* Horizontal branching line for active tab */
+        @media (min-width: 1024px) {
+            .tab-btn.active::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: -42px;
+                /* Reaches the border-left of the right column */
+                width: 40px;
+                height: 2px;
+                background-color: #ccc;
+                transform: translateY(-50%);
+            }
+        }
+
+        .program-card {
+            border-radius: 8px;
+            border: 1px solid #E2E8F0;
+            background: white;
+            padding: 2.5rem;
+            text-align: left;
+            transition: border-color 0.2s ease;
+        }
+
+        .program-card:hover {
+            border-color: #002C5F;
+        }
     </style>
     <!-- Top Navigation Shell -->
     <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-blue-950/80 backdrop-blur-xl shadow-sm">
@@ -199,11 +251,11 @@
             <div
                 class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
                 <a class="text-blue-900 dark:text-blue-100 border-b-2 border-yellow-500 pb-1 hover:translate-y-[-1px] transition-transform duration-300"
-                    href="#" onclick="showHomepage()">Homepage</a>
+                    href="index.html" onclick="showHomepage()">Homepage</a>
                 <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
-                    href="#">Academics</a>
+                    href="academics.html">Academics</a>
                 <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
-                    href="#">Admissions</a>
+                    href="admissions.html">Admissions</a>
                 <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
                     href="#">Campus</a>
                 <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
@@ -225,21 +277,21 @@
     </nav>
     <div class="mobile-only font-headline" id="mobile-drawer">
         <nav class="flex flex-col py-4">
-            <a class="drawer-link group" href="#" onclick="showHomepage()">
+            <a class="drawer-link group" href="index.html" onclick="showHomepage()">
                 <span class="material-symbols-outlined drawer-icon">home</span>
                 <div>
                     Homepage
                     <span class="drawer-desc">Back to university main portal</span>
                 </div>
             </a>
-            <a class="drawer-link group" href="#">
+            <a class="drawer-link group" href="academics.html">
                 <span class="material-symbols-outlined drawer-icon">school</span>
                 <div>
                     Academics
                     <span class="drawer-desc">Faculties and departments</span>
                 </div>
             </a>
-            <a class="drawer-link group" href="#">
+            <a class="drawer-link group" href="admissions.html">
                 <span class="material-symbols-outlined drawer-icon">login</span>
                 <div>
                     Admissions
@@ -338,55 +390,93 @@
                     </div>
                 </div>
             </section>
-            <!-- Section 1: Quick Access -->
-            <section class="py-32 px-12 max-w-7xl mx-auto">
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div
-                        class="flex flex-col items-center p-8 bg-surface-container-low rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary-container/5">
-                        <div
-                            class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary transition-colors">
-                            <span
-                                class="material-symbols-outlined text-primary group-hover:text-white text-3xl">school</span>
-                        </div>
-                        <h3 class="font-headline font-bold text-primary mb-2">Study Programs</h3>
-                        <p class="text-xs text-on-surface-variant text-center leading-relaxed">Find your path in
-                            engineering, technology, or social science.</p>
+        <!-- Rebuilt 'CHOOSE A STUDY PROGRAMME' Section -->
+        <section class="py-24 bg-white px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-4">
+                    <h2 class="text-3xl font-black text-primary tracking-tight font-headline uppercase">CHOOSE A STUDY
+                        PROGRAMME</h2>
+                    <a class="inline-flex items-center gap-2 text-primary font-black text-sm tracking-widest uppercase hover:gap-4 transition-all"
+                        href="study-programme.html">
+                        View all study programmes <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="flex flex-col lg:flex-row gap-0">
+                    <!-- Left Column -->
+                    <div class="w-full lg:w-1/4 flex flex-col gap-4 pr-10">
+                        <button class="tab-btn active" data-target="bachelor-content">BACHELOR</button>
+                        <button class="tab-btn" data-target="master-content">MASTER</button>
+                        <button class="tab-btn" data-target="other-content">OTHER</button>
                     </div>
-                    <div
-                        class="flex flex-col items-center p-8 bg-surface-container-low rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary-container/5">
-                        <div
-                            class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary transition-colors">
-                            <span
-                                class="material-symbols-outlined text-primary group-hover:text-white text-3xl">science</span>
+                    <!-- Right Column (with vertical line border) -->
+                    <div class="flex-1 border-l-2 border-[#ccc] pl-10">
+                        <!-- Bachelor Content -->
+                        <div class="tab-content grid grid-cols-1 md:grid-cols-2 gap-6" id="bachelor-content">
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Business Studies
+                                    and Public Policy</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Engineering
+                                    &amp; Technology</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Information
+                                    Technology (IT)</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Life Sciences
+                                    &amp; Medicine</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Natural
+                                    Sciences</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Social
+                                    Sciences</span></a>
                         </div>
-                        <h3 class="font-headline font-bold text-primary mb-2">Research Centers</h3>
-                        <p class="text-xs text-on-surface-variant text-center leading-relaxed">Interdisciplinary
-                            research that makes a global impact.</p>
-                    </div>
-                    <div
-                        class="flex flex-col items-center p-8 bg-surface-container-low rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary-container/5">
-                        <div
-                            class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary transition-colors">
-                            <span
-                                class="material-symbols-outlined text-primary group-hover:text-white text-3xl">map</span>
+                        <!-- Master Content -->
+                        <div class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6" id="master-content">
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Applied
+                                    Physics</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Computer
+                                    Science</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Computer
+                                    Science</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Computer
+                                    Science</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Interaction
+                                    Technology</span></a>
                         </div>
-                        <h3 class="font-headline font-bold text-primary mb-2">Campus Map</h3>
-                        <p class="text-xs text-on-surface-variant text-center leading-relaxed">Navigate our 146-hectare
-                            park-like smart campus.</p>
-                    </div>
-                    <div
-                        class="flex flex-col items-center p-8 bg-surface-container-low rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary-container/5">
-                        <div
-                            class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary transition-colors">
-                            <span
-                                class="material-symbols-outlined text-primary group-hover:text-white text-3xl">work</span>
+                        <!-- Other Content -->
+                        <div class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6" id="other-content">
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Pre-masters</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Computer
+                                    Science</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">PhD</span></a>
                         </div>
-                        <h3 class="font-headline font-bold text-primary mb-2">Vacancies</h3>
-                        <p class="text-xs text-on-surface-variant text-center leading-relaxed">Join our vibrant academic
-                            and administrative community.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
             <!-- Section 2: Latest from UT (News) -->
             <section class="py-24 bg-surface-container-low">
                 <div class="max-w-7xl mx-auto px-12">
@@ -1067,7 +1157,29 @@
             hamburgerBtn.addEventListener('click', () => {
                 mobileDrawer.classList.toggle('active');
             });
-        }</script>
+        }
+
+        // Handle tab switching
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+
+                // Toggle active class on buttons
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+
+                // Hide all content divs
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+
+                // Show the targeted content div
+                document.getElementById(targetId).classList.remove('hidden');
+            });
+        });
+    </script>
 </body>
 
 </html>
