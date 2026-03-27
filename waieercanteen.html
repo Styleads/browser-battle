@@ -175,7 +175,6 @@
     class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
     <!-- TopNavBar Component -->
     <!-- Top Navigation Shell -->
-    <!-- Top Navigation Shell -->
     <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-blue-950/80 backdrop-blur-xl shadow-sm">
         <div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
             <div class="text-xl font-bold text-blue-900 dark:text-white uppercase tracking-wider font-headline cursor-pointer"
@@ -184,20 +183,18 @@
             </div>
             <div
                 class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
-                <a class="text-blue-900 dark:text-blue-100 border-b-2 border-yellow-500 pb-1 hover:translate-y-[-1px] transition-transform duration-300"
-                    href="#" onclick="showHomepage()">Homepage</a>
                 <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
-                    href="#">Academics</a>
+                    href="index.html" onclick="showHomepage()">Homepage</a>
                 <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
-                    href="#">Admissions</a>
+                    href="academics.html">Academics</a>
                 <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
-                    href="#">Campus</a>
+                    href="admissions.html">Admissions</a>
                 <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
-                    href="#">Placements</a>
+                    href="campus.html">Campus</a>
                 <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
-                    href="#">Notable Alumni</a>
+                    href="placements.html">Placements</a>
                 <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
-                    href="#">Clubs</a>
+                    href="alumni.html">Notable Alumni</a>
             </div>
             <div class="flex items-center space-x-6">
                 <button
@@ -211,106 +208,46 @@
     </nav>
     <div class="mobile-only font-headline" id="mobile-drawer">
         <nav class="flex flex-col py-4">
-            <a class="drawer-link group" href="#" onclick="showHomepage()">
+            <a class="drawer-link group" href="index.html" onclick="showHomepage()">
                 <span class="material-symbols-outlined drawer-icon">home</span>
                 <div>
                     Homepage
                     <span class="drawer-desc">Back to university main portal</span>
                 </div>
             </a>
-            <a class="drawer-link group" href="#">
+            <a class="drawer-link group" href="academics.html">
                 <span class="material-symbols-outlined drawer-icon">school</span>
                 <div>
                     Academics
                     <span class="drawer-desc">Faculties and departments</span>
                 </div>
             </a>
-            <a class="drawer-link group" href="#">
+            <a class="drawer-link group" href="admissions.html">
                 <span class="material-symbols-outlined drawer-icon">login</span>
                 <div>
                     Admissions
                     <span class="drawer-desc">Apply for your degree</span>
                 </div>
             </a>
-            <a class="drawer-link group" href="#">
+            <a class="drawer-link group" href="campus.html">
                 <span class="material-symbols-outlined drawer-icon">apartment</span>
                 <div>
                     Campus
                     <span class="drawer-desc">Student life and facilities</span>
                 </div>
             </a>
-            <a class="drawer-link group" href="#">
+            <a class="drawer-link group" href="placements.html">
                 <span class="material-symbols-outlined drawer-icon">work</span>
                 <div>
                     Placements
                     <span class="drawer-desc">Career services and industry links</span>
                 </div>
             </a>
-            <a class="drawer-link group" href="#">
+            <a class="drawer-link group" href="alumni.html">
                 <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
                 <div>
                     Notable Alumni
                     <span class="drawer-desc">Our global impact makers</span>
-                </div>
-            </a>
-            <a class="drawer-link group" href="#">
-                <span class="material-symbols-outlined drawer-icon">groups</span>
-                <div>
-                    Clubs
-                    <span class="drawer-desc">Join student organizations</span>
-                </div>
-            </a>
-        </nav>
-    </div>
-    <div class="mobile-only font-headline" id="mobile-drawer">
-        <nav class="flex flex-col py-4">
-            <a class="drawer-link group" href="#" onclick="showHomepage()">
-                <span class="material-symbols-outlined drawer-icon">home</span>
-                <div>
-                    Homepage
-                    <span class="drawer-desc">Back to university main portal</span>
-                </div>
-            </a>
-            <a class="drawer-link group" href="#">
-                <span class="material-symbols-outlined drawer-icon">school</span>
-                <div>
-                    Academics
-                    <span class="drawer-desc">Faculties and departments</span>
-                </div>
-            </a>
-            <a class="drawer-link group" href="#">
-                <span class="material-symbols-outlined drawer-icon">login</span>
-                <div>
-                    Admissions
-                    <span class="drawer-desc">Apply for your degree</span>
-                </div>
-            </a>
-            <a class="drawer-link group" href="#">
-                <span class="material-symbols-outlined drawer-icon">apartment</span>
-                <div>
-                    Campus
-                    <span class="drawer-desc">Student life and facilities</span>
-                </div>
-            </a>
-            <a class="drawer-link group" href="#">
-                <span class="material-symbols-outlined drawer-icon">work</span>
-                <div>
-                    Placements
-                    <span class="drawer-desc">Career services and industry links</span>
-                </div>
-            </a>
-            <a class="drawer-link group" href="#">
-                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
-                <div>
-                    Notable Alumni
-                    <span class="drawer-desc">Our global impact makers</span>
-                </div>
-            </a>
-            <a class="drawer-link group" href="#">
-                <span class="material-symbols-outlined drawer-icon">groups</span>
-                <div>
-                    Clubs
-                    <span class="drawer-desc">Join student organizations</span>
                 </div>
             </a>
         </nav>
