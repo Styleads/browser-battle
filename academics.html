@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Academics | University of Twente</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed": "#ffddb4",
+                        "primary-fixed-dim": "#abc7ff",
+                        "tertiary-fixed": "#ffdad9",
+                        "inverse-surface": "#2d3135",
+                        "surface-container-highest": "#dfe3e8",
+                        "primary": "#002C5F",
+                        "on-tertiary-fixed": "#410008",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#002c5f",
+                        "error-container": "#ffdad6",
+                        "on-background": "#181c20",
+                        "outline-variant": "#c4c6d1",
+                        "secondary-fixed-dim": "#ffb955",
+                        "surface-container-low": "#f1f4fa",
+                        "on-primary-container": "#7695ce",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d7dae0",
+                        "surface": "#f7f9ff",
+                        "surface-tint": "#3f5e94",
+                        "on-error": "#ffffff",
+                        "background": "#f7f9ff",
+                        "surface-container": "#ebeef4",
+                        "secondary-container": "#F5A623",
+                        "outline": "#747780",
+                        "surface-container-high": "#e5e8ee",
+                        "on-secondary-container": "#6b4500",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-surface": "#181c20",
+                        "on-primary-fixed": "#001b3f",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eef1f7",
+                        "on-secondary-fixed": "#291800",
+                        "surface-bright": "#f7f9ff",
+                        "primary-fixed": "#d7e3ff",
+                        "secondary": "#F5A623",
+                        "on-primary-fixed-variant": "#25467a",
+                        "on-surface-variant": "#43474f",
+                        "on-tertiary-fixed-variant": "#92001f",
+                        "surface-variant": "#dfe3e8",
+                        "tertiary": "#C60C30",
+                        "tertiary-container": "#620011",
+                        "on-tertiary-container": "#ff5c65",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb3b2",
+                        "inverse-primary": "#abc7ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "label": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-headline {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0, 44, 95, 0.92) 0%, rgba(0, 24, 57, 0.75) 100%);
+        }
+
+        /* Study Program Specific Styles */
+        .tab-btn {
+            position: relative;
+            width: 100%;
+            height: 120px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            text-align: left;
+            padding-left: 2rem;
+            background-color: #F1F4FA;
+            color: #64748B;
+            border: 2px solid transparent;
+        }
+
+        .tab-btn.active {
+            background-color: white;
+            color: #002C5F;
+            border: 4px solid #002C5F;
+        }
+
+        /* Horizontal branching line for active tab */
+        @media (min-width: 1024px) {
+            .tab-btn.active::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: -42px;
+                /* Reaches the border-left of the right column */
+                width: 40px;
+                height: 2px;
+                background-color: #ccc;
+                transform: translateY(-50%);
+            }
+        }
+
+        .program-card {
+            border-radius: 8px;
+            border: 1px solid #E2E8F0;
+            background: white;
+            padding: 2.5rem;
+            text-align: left;
+            transition: border-color 0.2s ease;
+        }
+
+        .program-card:hover {
+            border-color: #002C5F;
+        }
+
+        @media (max-width: 1024px) {
+            .mobile-only {
+                display: block !important;
+            }
+
+            .desktop-only {
+                display: none !important;
+            }
+
+            #mobile-drawer {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 72px);
+                background-color: #002C5F;
+                z-index: 40;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                overflow-y: auto;
+                pointer-events: none;
+            }
+
+            #mobile-drawer.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .drawer-link {
+                display: flex;
+                align-items: center;
+                padding: 1.5rem 2rem;
+                color: white;
+                font-weight: 700;
+                font-size: 1.25rem;
+                border-left: 4px solid transparent;
+                transition: all 0.2s ease;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .drawer-link:hover,
+            .drawer-link.active {
+                border-left-color: #F5A623;
+                color: #F5A623;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            .drawer-icon {
+                color: #C60C30;
+                margin-right: 1rem;
+                font-size: 24px;
+            }
+
+            .drawer-desc {
+                display: block;
+                font-size: 0.75rem;
+                color: #5F6368;
+                font-weight: 400;
+                text-transform: none;
+                letter-spacing: normal;
+                margin-top: 0.25rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-only {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface selection:bg-secondary-fixed antialiased">
+    <!-- Top Navigation Shell -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-blue-950/80 backdrop-blur-xl shadow-sm">
+        <div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+            <div class="text-xl font-bold text-blue-900 dark:text-white uppercase tracking-wider font-headline">
+                University of Twente
+            </div>
+            <div
+                class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="index.html">Homepage</a>
+                <a class="text-blue-900 dark:text-blue-100 border-b-2 border-yellow-500 pb-1 hover:translate-y-[-1px] transition-transform duration-300"
+                    href="academics.html">Academics</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Admissions</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Campus</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Placements</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Notable Alumni</a><a
+                    class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Clubs</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <button
+                    class="px-6 py-3 rounded-[8px] font-headline font-bold tracking-tight hover:translate-y-[-2px] transition-all shadow-md active:scale-95 duration-200 whitespace-nowrap bg-[#002C5F] text-[#F5A623] desktop-only">Apply
+                    Now</button>
+            </div><button class="mobile-only text-primary dark:text-white p-2 focus:outline-none" id="hamburger-btn">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-only font-headline" id="mobile-drawer">
+        <nav class="flex flex-col py-4">
+            <a class="drawer-link group" href="index.html">
+                <span class="material-symbols-outlined drawer-icon">home</span>
+                <div>
+                    Homepage
+                    <span class="drawer-desc">Back to university main portal</span>
+                </div>
+            </a>
+            <a class="drawer-link group active" href="academics.html">
+                <span class="material-symbols-outlined drawer-icon">school</span>
+                <div>
+                    Academics
+                    <span class="drawer-desc">Faculties and departments</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">login</span>
+                <div>
+                    Admissions
+                    <span class="drawer-desc">Apply for your degree</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">apartment</span>
+                <div>
+                    Campus
+                    <span class="drawer-desc">Student life and facilities</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">work</span>
+                <div>
+                    Placements
+                    <span class="drawer-desc">Career services and industry links</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
+                <div>
+                    Notable Alumni
+                    <span class="drawer-desc">Our global impact makers</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">groups</span>
+                <div>
+                    Clubs
+                    <span class="drawer-desc">Join student organizations</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <main class="pt-16">
+        <!-- Hero Section -->
+        <section class="relative h-[600px] flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img alt="University Campus" class="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhK3-xoUG50CQxyyAJ1061aZJkgatiQOvtVaJSH4YgIAEV9USu1v5w2qIGpOOHY277LB1B39_PEuy5swn4YXaXbdiY9g5zzVOb-B2YlWkWPBdfgyeqWR62z90B-oZvreY0E3jtZYrEknPPfsJNqml-t_28SzpheQP2RTiXZZ3OxiiN0LuMIpXInjHm3FtTo42vOGuNtVFgZXvJ5apqUBON_hg7TVVzpPxszAX9CPqm6xuADe-RpJaH2sOn7VujO2CSebd5YcvyJ4w" />
+                <div class="absolute inset-0 hero-gradient"></div>
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+                <div class="max-w-3xl">
+                    <span
+                        class="inline-block px-4 py-1 rounded-full bg-secondary text-white text-xs font-extrabold uppercase tracking-widest mb-6">Educational
+                        Excellence</span>
+                    <h1
+                        class="text-6xl md:text-8xl font-headline font-extrabold text-white tracking-tighter mb-6 leading-none">
+                        Academics</h1>
+                    <p class="text-xl md:text-2xl text-white/90 font-medium leading-relaxed max-w-2xl">
+                        Empowering the next generation of global citizens through our unique <span
+                            class="text-[#F5A623] font-bold">high-tech human-touch</span> approach.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Rebuilt 'CHOOSE A STUDY PROGRAMME' Section -->
+        <section class="py-24 bg-white px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-4">
+                    <h2 class="text-3xl font-black text-primary tracking-tight font-headline uppercase">CHOOSE A STUDY
+                        PROGRAMME</h2>
+                    <a class="inline-flex items-center gap-2 text-primary font-black text-sm tracking-widest uppercase hover:gap-4 transition-all"
+                        href="study-programme.html">
+                        View all study programmes <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="flex flex-col lg:flex-row gap-0">
+                    <!-- Left Column -->
+                    <div class="w-full lg:w-1/4 flex flex-col gap-4 pr-10">
+                        <button class="tab-btn active" data-target="bachelor-content">BACHELOR</button>
+                        <button class="tab-btn" data-target="master-content">MASTER</button>
+                        <button class="tab-btn" data-target="other-content">OTHER</button>
+                    </div>
+                    <!-- Right Column (with vertical line border) -->
+                    <div class="flex-1 border-l-2 border-[#ccc] pl-10">
+                        <!-- Bachelor Content -->
+                        <div class="tab-content grid grid-cols-1 md:grid-cols-2 gap-6" id="bachelor-content">
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Business Studies
+                                    and Public Policy</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Engineering
+                                    &amp; Technology</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Information
+                                    Technology (IT)</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Life Sciences
+                                    &amp; Medicine</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Natural
+                                    Sciences</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Social
+                                    Sciences</span></a>
+                        </div>
+                        <!-- Master Content -->
+                        <div class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6" id="master-content">
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Applied
+                                    Physics</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Computer
+                                    Science</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Computer
+                                    Science</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Computer
+                                    Science</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Interaction
+                                    Technology</span></a>
+                        </div>
+                        <!-- Other Content -->
+                        <div class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6" id="other-content">
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Pre-masters</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">Computer
+                                    Science</span></a>
+                            <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                                href="about:blank" target="_blank"><span
+                                    class="text-sm font-black text-slate-800 tracking-widest uppercase">PhD</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Research Themes Section -->
+        <section class="py-24 bg-slate-50 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16">
+                    <h2 class="text-4xl font-headline font-black text-primary tracking-tight mb-4 uppercase">Research
+                        Themes</h2>
+                    <div class="h-1.5 w-20 bg-[#F5A623]"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <!-- Theme 1 -->
+                    <div class="md:col-span-2 group relative overflow-hidden rounded-lg bg-primary min-h-[400px]">
+                        <img alt="Digital Security"
+                            class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeANQB8YofO4IqKiTmykNfSH89zTQ8Mdu8xMNZiehhytMUXeuBPdh0EDY9_rWWGjskR7q57wK10Okjn-oxHqBllfgntsUUmNoqcX-julXuLOOacD1icqv6r_4gKZ90pPHH4sFqwZdLv2j1X8nntx0qs0RqVPdS0wQJCIQ17TKmlCaLeS04HMwaa0LAEgrkQCzSG9NbU6n0baXlLEZOqydyAExKcotSsDJI24erspR3oTmiZOtsGX2Hs2gXdUq8FCeKwihQWz-5g3Y" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#002C5F] via-transparent to-transparent p-10 flex flex-col justify-end">
+                            <div class="mb-4">
+                                <span class="material-symbols-outlined text-[#F5A623] text-4xl"
+                                    style="font-variation-settings: 'FILL' 1;">security</span>
+                            </div>
+                            <h4 class="text-3xl font-headline font-bold text-white mb-2">Digital Society</h4>
+                            <p class="text-white/80 max-w-md text-sm">Creating a safe, resilient, and inclusive digital
+                                world for everyone through advanced cybersecurity and AI.</p>
+                        </div>
+                    </div>
+                    <!-- Theme 2 -->
+                    <div
+                        class="group relative overflow-hidden rounded-lg bg-white shadow-sm hover:shadow-md transition-all border-b-4 border-[#F5A623]">
+                        <div class="p-8 flex flex-col h-full">
+                            <span class="material-symbols-outlined text-primary text-4xl mb-6">medical_services</span>
+                            <h4 class="text-xl font-headline font-bold text-primary mb-3">Health Technology</h4>
+                            <p class="text-on-surface-variant text-sm flex-grow">Revolutionizing healthcare with
+                                robotics, e-health, and personalized medical engineering.</p>
+                            <button
+                                class="mt-8 text-primary font-bold inline-flex items-center gap-2 group-hover:translate-x-2 transition-transform text-sm uppercase">
+                                Read more <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Theme 3 -->
+                    <div
+                        class="group relative overflow-hidden rounded-lg bg-white shadow-sm hover:shadow-md transition-all border-b-4 border-[#002C5F]">
+                        <div class="p-8 flex flex-col h-full">
+                            <span
+                                class="material-symbols-outlined text-primary text-4xl mb-6">precision_manufacturing</span>
+                            <h4 class="text-xl font-headline font-bold text-primary mb-3">Smart Systems</h4>
+                            <p class="text-on-surface-variant text-sm flex-grow">Designing the future of production
+                                through smart materials and automated systems.</p>
+                            <button
+                                class="mt-8 text-primary font-bold inline-flex items-center gap-2 group-hover:translate-x-2 transition-transform text-sm uppercase">
+                                Read more <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Call to Action -->
+        <section class="py-24 bg-[#002C5F] relative overflow-hidden">
+            <div
+                class="absolute top-0 right-0 -mt-24 -mr-24 w-96 h-96 bg-[#F5A623] rounded-full blur-[120px] opacity-10">
+            </div>
+            <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+                <h2 class="text-4xl md:text-6xl font-headline font-black text-white mb-10 tracking-tight">Ready to start
+                    your journey?</h2>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <button
+                        class="w-full sm:w-auto px-12 py-4 bg-[#F5A623] text-white font-black rounded uppercase tracking-widest hover:scale-105 transition-all">
+                        Apply Now
+                    </button>
+                    <button
+                        class="w-full sm:w-auto px-12 py-4 border-2 border-white text-white font-black rounded uppercase tracking-widest hover:bg-white hover:text-primary transition-all">
+                        Contact Admissions
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-slate-50 dark:bg-slate-950 w-full border-t border-slate-200">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-16 px-8 py-16 max-w-screen-2xl mx-auto">
+            <!-- Col 1 -->
+            <div>
+                <div class="text-xl font-black text-[#002C5F] mb-6 uppercase tracking-tighter">University of Twente
+                </div>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">Pioneering in technology and
+                    social sciences to address the challenges of today and tomorrow. The Entrepreneurial University
+                    since 1961.</p>
+                <div class="flex space-x-4">
+                    <a class="text-[#002C5F] hover:text-[#F5A623] transition-colors" href="#"><span
+                            class="material-symbols-outlined">language</span></a>
+                    <a class="text-[#002C5F] hover:text-[#F5A623] transition-colors" href="#"><span
+                            class="material-symbols-outlined">alternate_email</span></a>
+                    <a class="text-[#002C5F] hover:text-[#F5A623] transition-colors" href="#"><span
+                            class="material-symbols-outlined">share</span></a>
+                </div>
+            </div>
+            <!-- Col 2 -->
+            <div>
+                <h4 class="text-[#002C5F] font-black text-sm mb-6 uppercase tracking-widest">Quick Links</h4>
+                <ul class="space-y-4">
+                    <li><a class="text-slate-600 text-sm hover:text-[#F5A623] hover:underline underline-offset-4 transition-all"
+                            href="#">Educational Offer</a></li>
+                    <li><a class="text-slate-600 text-sm hover:text-[#F5A623] hover:underline underline-offset-4 transition-all"
+                            href="#">Research Institutes</a></li>
+                    <li><a class="text-slate-600 text-sm hover:text-[#F5A623] hover:underline underline-offset-4 transition-all"
+                            href="#">Student Portal</a></li>
+                    <li><a class="text-slate-600 text-sm hover:text-[#F5A623] hover:underline underline-offset-4 transition-all"
+                            href="#">Employee Portal</a></li>
+                </ul>
+            </div>
+            <!-- Col 3 -->
+            <div>
+                <h4 class="text-[#002C5F] font-black text-sm mb-6 uppercase tracking-widest">Contact Us</h4>
+                <ul class="space-y-4 text-slate-600 text-sm">
+                    <li class="flex items-start gap-3"><span class="material-symbols-outlined text-base">pin_drop</span>
+                        Drienerlolaan 5, 7522 NB Enschede, NL</li>
+                    <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base">call</span>
+                        +31 (0)53 489 9111</li>
+                    <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base">mail</span>
+                        info@utwente.nl</li>
+                </ul>
+            </div>
+            <!-- Col 4 -->
+            <div>
+                <h4 class="text-[#002C5F] font-black text-sm mb-6 uppercase tracking-widest">Stay Connected</h4>
+                <p class="text-xs text-slate-500 mb-6">Subscribe to our monthly newsletter for research breakthroughs
+                    and campus updates.</p>
+                <div class="flex">
+                    <input
+                        class="bg-white border border-slate-200 rounded-l px-4 py-2.5 w-full focus:ring-1 focus:ring-[#F5A623] outline-none text-sm"
+                        placeholder="Your Email" type="email" />
+                    <button
+                        class="bg-[#F5A623] text-white px-6 py-2.5 rounded-r font-black text-sm uppercase tracking-widest hover:bg-[#e0951d] transition-colors">Join</button>
+                </div>
+            </div>
+        </div>
+        <div
+            class="border-t border-slate-200 py-8 px-8 max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-slate-500 text-xs">© 2024 University of Twente. The Entrepreneurial University.</p>
+            <div class="flex gap-8 text-xs text-slate-500 uppercase font-bold tracking-widest">
+                <a class="hover:text-[#F5A623]" href="#">Privacy Policy</a>
+                <a class="hover:text-[#F5A623]" href="#">Cookie Statement</a>
+                <a class="hover:text-[#F5A623]" href="#">Disclaimer</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        (function () {
+            const btn = document.getElementById('hamburger-btn');
+            const drawer = document.getElementById('mobile-drawer');
+            const links = drawer.querySelectorAll('.drawer-link');
+            const icon = btn.querySelector('.material-symbols-outlined');
+
+            if (btn && drawer) {
+                btn.addEventListener('click', () => {
+                    const isOpen = drawer.classList.toggle('active');
+                    icon.textContent = isOpen ? 'close' : 'menu';
+                    document.body.style.overflow = isOpen ? 'hidden' : '';
+                });
+
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        drawer.classList.remove('active');
+                        icon.textContent = 'menu';
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+        })();
+
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+
+                // Toggle active class on buttons
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+
+                // Hide all content divs
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+
+                // Show the targeted content div
+                document.getElementById(targetId).classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+
+</html>

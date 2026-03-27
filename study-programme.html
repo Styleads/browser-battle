@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Study Programmes | University of Twente</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-fixed-dim": "#ffb955",
+                        "secondary-container": "#feae2c",
+                        "surface-container": "#edeeef",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#ffddb4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "surface-dim": "#d9dadb",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#abc7ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#7695ce",
+                        "on-tertiary-fixed": "#351000",
+                        "on-primary-fixed-variant": "#25467a",
+                        "background": "#f8f9fa",
+                        "surface-variant": "#e1e3e4",
+                        "primary": "#001839",
+                        "surface-bright": "#f8f9fa",
+                        "outline": "#747780",
+                        "on-background": "#191c1d",
+                        "on-secondary-fixed": "#291800",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#723615",
+                        "primary-container": "#002c5f",
+                        "on-surface-variant": "#43474f",
+                        "tertiary-container": "#511d00",
+                        "primary-fixed": "#d7e3ff",
+                        "on-surface": "#191c1d",
+                        "secondary": "#835500",
+                        "outline-variant": "#c4c6d1",
+                        "inverse-primary": "#abc7ff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-high": "#e7e8e9",
+                        "tertiary-fixed": "#ffdbcc",
+                        "tertiary": "#300e00",
+                        "surface-tint": "#3f5e94",
+                        "on-secondary-container": "#6b4500",
+                        "on-primary-fixed": "#001b3f",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-tertiary-container": "#d0815a"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .editorial-shadow {
+            box-shadow: 0 24px 48px -12px rgba(25, 28, 29, 0.06);
+        }
+
+        .bg-primary-gradient {
+            background: linear-gradient(135deg, #001839 0%, #002c5f 100%);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+    <!-- TopAppBar -->
+    <nav
+        class="sticky top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm transition-all duration-300">
+        <div class="flex justify-between items-center h-20 px-8 max-w-screen-2xl mx-auto">
+            <div class="flex items-center gap-8">
+                <a class="text-xl font-bold text-blue-900 dark:text-white uppercase tracking-tighter font-headline"
+                    href="#">
+                    University of Twente
+                </a>
+                <div
+                    class="hidden lg:flex items-center gap-6 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+                    <a class="text-blue-900 dark:text-white border-b-2 border-amber-500 pb-1"
+                        href="about:blank">Education</a>
+                    <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white pb-1 transition-all duration-300"
+                        href="about:blank">Research</a>
+                    <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white pb-1 transition-all duration-300"
+                        href="about:blank">Innovation</a>
+                    <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white pb-1 transition-all duration-300"
+                        href="about:blank">Campus</a>
+                    <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white pb-1 transition-all duration-300"
+                        href="about:blank">About</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-full transition-all duration-300">
+                    <span class="material-symbols-outlined text-blue-900 dark:text-blue-100">search</span>
+                </button>
+                <button
+                    class="px-6 py-2 rounded-lg bg-primary-gradient text-white font-medium text-sm scale-95 active:scale-90 transition-transform">
+                    Login
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="max-w-screen-xl mx-auto px-8 py-16">
+        <!-- Hero Section Header -->
+        <header class="mb-24">
+            <span class="text-secondary font-bold tracking-widest uppercase text-xs mb-4 block">Academic Vanguard</span>
+            <h1 class="text-6xl font-extrabold font-headline tracking-tighter text-primary leading-none mb-6">
+                Study Programmes
+            </h1>
+            <p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed">
+                Discover our world-class education where technology meets humanity. From cutting-edge engineering to
+                social sciences, find the path that defines your future.
+            </p>
+        </header>
+        <!-- Bachelors Section -->
+        <section class="mb-32" id="bachelors">
+            <div class="flex items-baseline gap-4 mb-12 border-b border-outline-variant/20 pb-4">
+                <h2 class="text-4xl font-bold font-headline text-primary tracking-tight">Bachelors</h2>
+                <span class="text-on-surface-variant font-medium">Undergraduate Excellence</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">Creative Technology</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Develop innovative solutions
+                            using the latest technologies while considering the human impact and user experience in
+                            every design choice.</p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-primary-gradient text-white font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">Civil Engineering</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Design the future of
+                            infrastructure by combining technical engineering expertise with management skills and
+                            environmental awareness.</p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-primary-gradient text-white font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">Business Information Technology
+                        </h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Bridge the gap between business
+                            management and computer science to lead digital transformations in modern global
+                            enterprises.</p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-primary-gradient text-white font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">Psychology</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Explore human behavior through a
+                            unique lens of technology, focusing on how digital advancements influence our mental
+                            processes and social interactions.</p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-primary-gradient text-white font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">Communication Science</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Analyze how information flows in
+                            a networked society and master the art of strategic communication in the digital age.</p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-primary-gradient text-white font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">Applied Mathematics</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Apply sophisticated mathematical
+                            models to solve complex real-world challenges in healthcare, logistics, and sustainable
+                            energy.</p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-primary-gradient text-white font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+            </div>
+        </section>
+        <!-- Masters Section -->
+        <section class="mb-32 py-16 bg-surface-container-low rounded-[2rem] px-8" id="masters">
+            <div class="flex items-baseline gap-4 mb-12 border-b border-outline-variant/20 pb-4">
+                <h2 class="text-4xl font-bold font-headline text-primary tracking-tight">Masters</h2>
+                <span class="text-on-surface-variant font-medium">Specialized Research</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">Computer Science</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Master the complexities of data
+                            science, cyber security, and software engineering in a research-led environment.</p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-secondary-container text-on-secondary-container font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">Interaction Technology</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Focus on the future of
+                            human-computer interaction, combining AI with social intelligence and advanced design.</p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-secondary-container text-on-secondary-container font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">Embedded Systems</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Design the hidden brains behind
+                            modern devices, from autonomous vehicles to high-performance medical equipment.</p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-secondary-container text-on-secondary-container font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">Nanotechnology</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Work at the atomic level to
+                            create revolutionary new materials and devices in world-class cleanroom facilities.</p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-secondary-container text-on-secondary-container font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">Philosophy of Science</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Critically examine the impact of
+                            technology on society and the ethical frameworks that guide scientific progress.</p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-secondary-container text-on-secondary-container font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">Business Administration</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Lead innovation-driven
+                            organizations by mastering entrepreneurship, finance, and strategic management in a global
+                            context.</p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-secondary-container text-on-secondary-container font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+            </div>
+        </section>
+        <!-- Others Section -->
+        <section class="mb-32" id="others">
+            <div class="flex items-baseline gap-4 mb-12 border-b border-outline-variant/20 pb-4">
+                <h2 class="text-4xl font-bold font-headline text-primary tracking-tight">Others</h2>
+                <span class="text-on-surface-variant font-medium">Lifelong Learning</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">Pre-Master's programs</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Specialized bridge courses
+                            designed to prepare students for a smooth transition into our Master's degree programmes.
+                        </p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-primary-gradient text-white font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">PhD Research</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Conduct high-impact research
+                            alongside world-renowned professors and contribute to global scientific breakthroughs.</p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-primary-gradient text-white font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+                <article
+                    class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow flex flex-col justify-between h-full border border-outline-variant/10">
+                    <div>
+                        <h3 class="text-xl font-bold font-headline text-primary mb-4">Professional Learning/PDEng</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Advanced technological design
+                            training for professionals looking to enhance their industrial engineering expertise.</p>
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full py-3 px-6 bg-primary-gradient text-white font-semibold rounded-lg hover:shadow-lg transition-all active:scale-[0.98]"
+                        href="about:blank">
+                        View Curriculum
+                    </a>
+                </article>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="mb-32 relative overflow-hidden bg-primary-gradient rounded-[2.5rem] p-12 lg:p-20 text-white">
+            <div class="relative z-10 max-w-2xl">
+                <h2 class="text-5xl font-black font-headline tracking-tighter mb-6 leading-[1.1]">Join the Academic
+                    Frontier.</h2>
+                <p class="text-lg text-blue-100 mb-10 opacity-90 leading-relaxed">Applications for the next academic
+                    year are now open. Begin your journey at the University of Twente and become a digital polymath.</p>
+                <div class="flex flex-wrap gap-4">
+                    <button
+                        class="px-8 py-4 bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:-translate-y-1 transition-all">Apply
+                        Now</button>
+                    <button
+                        class="px-8 py-4 border border-white/20 hover:bg-white/10 font-bold rounded-lg transition-all">Download
+                        Brochure</button>
+                </div>
+            </div>
+            <!-- Abstract background shape -->
+            <div
+                class="absolute top-0 right-0 -mr-20 -mt-20 w-[40rem] h-[40rem] bg-secondary opacity-10 rounded-full blur-[100px]">
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full pt-16 pb-8 bg-slate-50 dark:bg-slate-950">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-screen-2xl mx-auto">
+            <div class="flex flex-col gap-6">
+                <div
+                    class="text-lg font-black text-blue-900 dark:text-blue-100 font-headline uppercase tracking-tighter">
+                    University of Twente
+                </div>
+                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                    A leading research university where tech and humanity intersect to create real-world impact.
+                </p>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-blue-900 dark:text-blue-400 text-sm">Main Links</h4>
+                <div class="flex flex-col gap-2 font-['Plus_Jakarta_Sans'] text-sm leading-relaxed">
+                    <a class="text-amber-600 dark:text-amber-400 font-semibold transition-colors"
+                        href="about:blank">Study Programs</a>
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-amber-500 transition-colors"
+                        href="about:blank">Student Services</a>
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-amber-500 transition-colors"
+                        href="about:blank">Library</a>
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-amber-500 transition-colors"
+                        href="about:blank">Alumni</a>
+                </div>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-blue-900 dark:text-blue-400 text-sm">Support</h4>
+                <div class="flex flex-col gap-2 font-['Plus_Jakarta_Sans'] text-sm leading-relaxed">
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-amber-500 transition-colors"
+                        href="about:blank">Contact</a>
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-amber-500 transition-colors"
+                        href="about:blank">Privacy Statement</a>
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-amber-500 transition-colors"
+                        href="about:blank">Disclaimer</a>
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-amber-500 transition-colors"
+                        href="about:blank">Accessibility</a>
+                </div>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-blue-900 dark:text-blue-400 text-sm">Follow Us</h4>
+                <div class="flex gap-4">
+                    <span
+                        class="material-symbols-outlined p-2 bg-slate-100 dark:bg-slate-900 rounded-full text-blue-900 dark:text-blue-100 cursor-pointer hover:bg-secondary-container transition-colors">public</span>
+                    <span
+                        class="material-symbols-outlined p-2 bg-slate-100 dark:bg-slate-900 rounded-full text-blue-900 dark:text-blue-100 cursor-pointer hover:bg-secondary-container transition-colors">hub</span>
+                    <span
+                        class="material-symbols-outlined p-2 bg-slate-100 dark:bg-slate-900 rounded-full text-blue-900 dark:text-blue-100 cursor-pointer hover:bg-secondary-container transition-colors">share</span>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-screen-2xl mx-auto px-8 mt-16 pt-8 border-t border-slate-200/50 dark:border-slate-800/50 text-center">
+            <p class="text-slate-400 text-xs font-['Plus_Jakarta_Sans']">
+                © 2024 University of Twente | High Tech Human Touch
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,11 +1,2361 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+
+        .tonal-shift-bottom {
+            background-image: linear-gradient(to bottom, rgba(248, 249, fa, 0.8), rgba(243, 244, 245, 0.8));
+        }
+
+        .tonal-transition-top {
+            border-top: 1px solid rgba(196, 198, 209, 0.15);
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#f3f4f5",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#edeeef",
+                        "secondary-fixed-dim": "#ffb955",
+                        "secondary-container": "#feae2c",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "surface": "#f8f9fa",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#ffddb4",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d9dadb",
+                        "primary-fixed-dim": "#abc7ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#7695ce",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#351000",
+                        "on-primary-fixed-variant": "#25467a",
+                        "surface-variant": "#e1e3e4",
+                        "primary": "#001839",
+                        "background": "#f8f9fa",
+                        "on-tertiary-fixed-variant": "#723615",
+                        "outline": "#747780",
+                        "surface-bright": "#f8f9fa",
+                        "on-background": "#191c1d",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#291800",
+                        "tertiary-container": "#511d00",
+                        "primary-fixed": "#d7e3ff",
+                        "primary-container": "#002c5f",
+                        "on-surface-variant": "#43474f",
+                        "on-surface": "#191c1d",
+                        "outline-variant": "#c4c6d1",
+                        "secondary": "#835500",
+                        "inverse-primary": "#abc7ff",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed": "#ffdbcc",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-tint": "#3f5e94",
+                        "on-secondary-container": "#6b4500",
+                        "tertiary": "#300e00",
+                        "on-tertiary-container": "#d0815a",
+                        "on-primary-fixed": "#001b3f",
+                        "inverse-on-surface": "#f0f1f2"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        *,
+        ::before,
+        ::after {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        ::backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        /* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: #e5e7eb
+        }
+
+        ::after,
+        ::before {
+            --tw-content: ''
+        }
+
+        :host,
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        body {
+            margin: 0;
+            line-height: inherit
+        }
+
+        hr {
+            height: 0;
+            color: inherit;
+            border-top-width: 1px
+        }
+
+        abbr:where([title]) {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: inherit;
+            font-weight: inherit
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            font-size: 1em
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        table {
+            text-indent: 0;
+            border-color: inherit;
+            border-collapse: collapse
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-feature-settings: inherit;
+            font-variation-settings: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        button,
+        input:where([type=button]),
+        input:where([type=reset]),
+        input:where([type=submit]) {
+            -webkit-appearance: button;
+            background-color: transparent;
+            background-image: none
+        }
+
+        :-moz-focusring {
+            outline: auto
+        }
+
+        :-moz-ui-invalid {
+            box-shadow: none
+        }
+
+        progress {
+            vertical-align: baseline
+        }
+
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        ::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        summary {
+            display: list-item
+        }
+
+        blockquote,
+        dd,
+        dl,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        p,
+        pre {
+            margin: 0
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0
+        }
+
+        legend {
+            padding: 0
+        }
+
+        menu,
+        ol,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        dialog {
+            padding: 0
+        }
+
+        textarea {
+            resize: vertical
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            opacity: 1;
+            color: #9ca3af
+        }
+
+        [role=button],
+        button {
+            cursor: pointer
+        }
+
+        :disabled {
+            cursor: default
+        }
+
+        audio,
+        canvas,
+        embed,
+        iframe,
+        img,
+        object,
+        svg,
+        video {
+            display: block;
+            vertical-align: middle
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto
+        }
+
+        [hidden]:where(:not([hidden=until-found])) {
+            display: none
+        }
+
+        [type='text'],
+        input:where(:not([type])),
+        [type='email'],
+        [type='url'],
+        [type='password'],
+        [type='number'],
+        [type='date'],
+        [type='datetime-local'],
+        [type='month'],
+        [type='search'],
+        [type='tel'],
+        [type='time'],
+        [type='week'],
+        [multiple],
+        textarea,
+        select {
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: #fff;
+            border-color: #6b7280;
+            border-width: 1px;
+            border-radius: 0px;
+            padding-top: 0.5rem;
+            padding-right: 0.75rem;
+            padding-bottom: 0.5rem;
+            padding-left: 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            --tw-shadow: 0 0 #0000;
+        }
+
+        [type='text']:focus,
+        input:where(:not([type])):focus,
+        [type='email']:focus,
+        [type='url']:focus,
+        [type='password']:focus,
+        [type='number']:focus,
+        [type='date']:focus,
+        [type='datetime-local']:focus,
+        [type='month']:focus,
+        [type='search']:focus,
+        [type='tel']:focus,
+        [type='time']:focus,
+        [type='week']:focus,
+        [multiple]:focus,
+        textarea:focus,
+        select:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            --tw-ring-inset: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: #2563eb;
+            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+            border-color: #2563eb
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #6b7280;
+            opacity: 1
+        }
+
+        ::-webkit-datetime-edit-fields-wrapper {
+            padding: 0
+        }
+
+        ::-webkit-date-and-time-value {
+            min-height: 1.5em;
+            text-align: inherit
+        }
+
+        ::-webkit-datetime-edit {
+            display: inline-flex
+        }
+
+        ::-webkit-datetime-edit,
+        ::-webkit-datetime-edit-year-field,
+        ::-webkit-datetime-edit-month-field,
+        ::-webkit-datetime-edit-day-field,
+        ::-webkit-datetime-edit-hour-field,
+        ::-webkit-datetime-edit-minute-field,
+        ::-webkit-datetime-edit-second-field,
+        ::-webkit-datetime-edit-millisecond-field,
+        ::-webkit-datetime-edit-meridiem-field {
+            padding-top: 0;
+            padding-bottom: 0
+        }
+
+        select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+            print-color-adjust: exact
+        }
+
+        [multiple],
+        [size]:where(select:not([size="1"])) {
+            background-image: initial;
+            background-position: initial;
+            background-repeat: unset;
+            background-size: initial;
+            padding-right: 0.75rem;
+            print-color-adjust: unset
+        }
+
+        [type='checkbox'],
+        [type='radio'] {
+            -webkit-appearance: none;
+            appearance: none;
+            padding: 0;
+            print-color-adjust: exact;
+            display: inline-block;
+            vertical-align: middle;
+            background-origin: border-box;
+            -webkit-user-select: none;
+            user-select: none;
+            flex-shrink: 0;
+            height: 1rem;
+            width: 1rem;
+            color: #2563eb;
+            background-color: #fff;
+            border-color: #6b7280;
+            border-width: 1px;
+            --tw-shadow: 0 0 #0000
+        }
+
+        [type='checkbox'] {
+            border-radius: 0px
+        }
+
+        [type='radio'] {
+            border-radius: 100%
+        }
+
+        [type='checkbox']:focus,
+        [type='radio']:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            --tw-ring-inset: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-ring-offset-width: 2px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: #2563eb;
+            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)
+        }
+
+        [type='checkbox']:checked,
+        [type='radio']:checked {
+            border-color: transparent;
+            background-color: currentColor;
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat
+        }
+
+        [type='checkbox']:checked {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+        }
+
+        @media (forced-colors: active) {
+            [type='checkbox']:checked {
+                -webkit-appearance: auto;
+                appearance: auto
+            }
+        }
+
+        [type='radio']:checked {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+        }
+
+        @media (forced-colors: active) {
+            [type='radio']:checked {
+                -webkit-appearance: auto;
+                appearance: auto
+            }
+        }
+
+        [type='checkbox']:checked:hover,
+        [type='checkbox']:checked:focus,
+        [type='radio']:checked:hover,
+        [type='radio']:checked:focus {
+            border-color: transparent;
+            background-color: currentColor
+        }
+
+        [type='checkbox']:indeterminate {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");
+            border-color: transparent;
+            background-color: currentColor;
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        @media (forced-colors: active) {
+            [type='checkbox']:indeterminate {
+                -webkit-appearance: auto;
+                appearance: auto
+            }
+        }
+
+        [type='checkbox']:indeterminate:hover,
+        [type='checkbox']:indeterminate:focus {
+            border-color: transparent;
+            background-color: currentColor
+        }
+
+        [type='file'] {
+            background: unset;
+            border-color: inherit;
+            border-width: 0;
+            border-radius: 0;
+            padding: 0;
+            font-size: unset;
+            line-height: inherit
+        }
+
+        [type='file']:focus {
+            outline: 1px solid ButtonText;
+            outline: 1px auto -webkit-focus-ring-color
+        }
+
+        .fixed {
+            position: fixed
+        }
+
+        .absolute {
+            position: absolute
+        }
+
+        .relative {
+            position: relative
+        }
+
+        .inset-0 {
+            inset: 0px
+        }
+
+        .top-0 {
+            top: 0px
+        }
+
+        .z-0 {
+            z-index: 0
+        }
+
+        .z-10 {
+            z-index: 10
+        }
+
+        .z-20 {
+            z-index: 20
+        }
+
+        .z-50 {
+            z-index: 50
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .-mt-16 {
+            margin-top: -4rem
+        }
+
+        .mb-1 {
+            margin-bottom: 0.25rem
+        }
+
+        .mb-10 {
+            margin-bottom: 2.5rem
+        }
+
+        .mb-16 {
+            margin-bottom: 4rem
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem
+        }
+
+        .mb-20 {
+            margin-bottom: 5rem
+        }
+
+        .mb-3 {
+            margin-bottom: 0.75rem
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem
+        }
+
+        .mr-1 {
+            margin-right: 0.25rem
+        }
+
+        .mt-1 {
+            margin-top: 0.25rem
+        }
+
+        .mt-12 {
+            margin-top: 3rem
+        }
+
+        .mt-16 {
+            margin-top: 4rem
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem
+        }
+
+        .mt-6 {
+            margin-top: 1.5rem
+        }
+
+        .mt-8 {
+            margin-top: 2rem
+        }
+
+        .line-clamp-3 {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3
+        }
+
+        .block {
+            display: block
+        }
+
+        .inline-block {
+            display: inline-block
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .grid {
+            display: grid
+        }
+
+        .hidden {
+            display: none
+        }
+
+        .h-12 {
+            height: 3rem
+        }
+
+        .h-16 {
+            height: 4rem
+        }
+
+        .h-48 {
+            height: 12rem
+        }
+
+        .h-56 {
+            height: 14rem
+        }
+
+        .h-\[870px\] {
+            height: 870px
+        }
+
+        .h-full {
+            height: 100%
+        }
+
+        .w-12 {
+            width: 3rem
+        }
+
+        .w-16 {
+            width: 4rem
+        }
+
+        .w-24 {
+            width: 6rem
+        }
+
+        .w-32 {
+            width: 8rem
+        }
+
+        .w-full {
+            width: 100%
+        }
+
+        .max-w-2xl {
+            max-width: 42rem
+        }
+
+        .max-w-3xl {
+            max-width: 48rem
+        }
+
+        .max-w-6xl {
+            max-width: 72rem
+        }
+
+        .max-w-7xl {
+            max-width: 80rem
+        }
+
+        .max-w-full {
+            max-width: 100%
+        }
+
+        .max-w-md {
+            max-width: 28rem
+        }
+
+        .max-w-xl {
+            max-width: 36rem
+        }
+
+        .flex-1 {
+            flex: 1 1 0%
+        }
+
+        .flex-shrink-0 {
+            flex-shrink: 0
+        }
+
+        .scale-105 {
+            --tw-scale-x: 1.05;
+            --tw-scale-y: 1.05;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .transform {
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .cursor-pointer {
+            cursor: pointer
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr))
+        }
+
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr))
+        }
+
+        .flex-col {
+            flex-direction: column
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap
+        }
+
+        .items-end {
+            align-items: flex-end
+        }
+
+        .items-center {
+            align-items: center
+        }
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .justify-between {
+            justify-content: space-between
+        }
+
+        .gap-10 {
+            gap: 2.5rem
+        }
+
+        .gap-12 {
+            gap: 3rem
+        }
+
+        .gap-4 {
+            gap: 1rem
+        }
+
+        .gap-8 {
+            gap: 2rem
+        }
+
+        .space-x-1> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(0.25rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .space-x-2> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .space-x-3> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .space-x-4> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(1rem * var(--tw-space-x-reverse));
+            margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .space-x-6> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+            margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .space-x-8> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(2rem * var(--tw-space-x-reverse));
+            margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .space-y-4> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+        }
+
+        .overflow-hidden {
+            overflow: hidden
+        }
+
+        .rounded-2xl {
+            border-radius: 1rem
+        }
+
+        .rounded-3xl {
+            border-radius: 1.5rem
+        }
+
+        .rounded-full {
+            border-radius: 0.75rem
+        }
+
+        .rounded-lg {
+            border-radius: 0.25rem
+        }
+
+        .rounded-xl {
+            border-radius: 0.5rem
+        }
+
+        .border {
+            border-width: 1px
+        }
+
+        .border-2 {
+            border-width: 2px
+        }
+
+        .border-b {
+            border-bottom-width: 1px
+        }
+
+        .border-b-2 {
+            border-bottom-width: 2px
+        }
+
+        .border-t {
+            border-top-width: 1px
+        }
+
+        .border-outline-variant\/10 {
+            border-color: rgb(196 198 209 / 0.1)
+        }
+
+        .border-outline-variant\/20 {
+            border-color: rgb(196 198 209 / 0.2)
+        }
+
+        .border-primary {
+            --tw-border-opacity: 1;
+            border-color: rgb(0 24 57 / var(--tw-border-opacity, 1))
+        }
+
+        .border-transparent {
+            border-color: transparent
+        }
+
+        .border-white\/10 {
+            border-color: rgb(255 255 255 / 0.1)
+        }
+
+        .border-white\/20 {
+            border-color: rgb(255 255 255 / 0.2)
+        }
+
+        .border-white\/30 {
+            border-color: rgb(255 255 255 / 0.3)
+        }
+
+        .border-white\/5 {
+            border-color: rgb(255 255 255 / 0.05)
+        }
+
+        .border-yellow-500 {
+            --tw-border-opacity: 1;
+            border-color: rgb(234 179 8 / var(--tw-border-opacity, 1))
+        }
+
+        .bg-blue-950 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(23 37 84 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-primary {
+            --tw-bg-opacity: 1;
+            background-color: rgb(0 24 57 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-secondary-container {
+            --tw-bg-opacity: 1;
+            background-color: rgb(254 174 44 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-surface {
+            --tw-bg-opacity: 1;
+            background-color: rgb(248 249 250 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-surface-container-low {
+            --tw-bg-opacity: 1;
+            background-color: rgb(243 244 245 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-surface-container-lowest {
+            --tw-bg-opacity: 1;
+            background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-white {
+            --tw-bg-opacity: 1;
+            background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-white\/10 {
+            background-color: rgb(255 255 255 / 0.1)
+        }
+
+        .bg-white\/5 {
+            background-color: rgb(255 255 255 / 0.05)
+        }
+
+        .bg-white\/80 {
+            background-color: rgb(255 255 255 / 0.8)
+        }
+
+        .bg-\[radial-gradient\(circle_at_top_right\2c rgba\(254\2c 174\2c 44\2c 0\.15\)\2c transparent\)\] {
+            background-image: radial-gradient(circle at top right, rgba(254, 174, 44, 0.15), transparent)
+        }
+
+        .bg-gradient-to-r {
+            background-image: linear-gradient(to right, var(--tw-gradient-stops))
+        }
+
+        .bg-gradient-to-t {
+            background-image: linear-gradient(to top, var(--tw-gradient-stops))
+        }
+
+        .from-primary\/60 {
+            --tw-gradient-from: rgb(0 24 57 / 0.6) var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(0 24 57 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .from-secondary-container\/20 {
+            --tw-gradient-from: rgb(254 174 44 / 0.2) var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(254 174 44 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .via-primary\/20 {
+            --tw-gradient-to: rgb(0 24 57 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), rgb(0 24 57 / 0.2) var(--tw-gradient-via-position), var(--tw-gradient-to)
+        }
+
+        .to-transparent {
+            --tw-gradient-to: transparent var(--tw-gradient-to-position)
+        }
+
+        .object-cover {
+            object-fit: cover
+        }
+
+        .p-12 {
+            padding: 3rem
+        }
+
+        .p-2 {
+            padding: 0.5rem
+        }
+
+        .p-4 {
+            padding: 1rem
+        }
+
+        .p-6 {
+            padding: 1.5rem
+        }
+
+        .p-8 {
+            padding: 2rem
+        }
+
+        .px-10 {
+            padding-left: 2.5rem;
+            padding-right: 2.5rem
+        }
+
+        .px-12 {
+            padding-left: 3rem;
+            padding-right: 3rem
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem
+        }
+
+        .px-8 {
+            padding-left: 2rem;
+            padding-right: 2rem
+        }
+
+        .py-1\.5 {
+            padding-top: 0.375rem;
+            padding-bottom: 0.375rem
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem
+        }
+
+        .py-24 {
+            padding-top: 6rem;
+            padding-bottom: 6rem
+        }
+
+        .py-32 {
+            padding-top: 8rem;
+            padding-bottom: 8rem
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem
+        }
+
+        .pb-1 {
+            padding-bottom: 0.25rem
+        }
+
+        .pb-8 {
+            padding-bottom: 2rem
+        }
+
+        .pt-16 {
+            padding-top: 4rem
+        }
+
+        .pt-20 {
+            padding-top: 5rem
+        }
+
+        .pt-8 {
+            padding-top: 2rem
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .font-\[\'Plus_Jakarta_Sans\'\] {
+            font-family: 'Plus Jakarta Sans'
+        }
+
+        .font-body {
+            font-family: Inter
+        }
+
+        .font-headline {
+            font-family: Plus Jakarta Sans
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 2rem
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+            line-height: 2.25rem
+        }
+
+        .text-4xl {
+            font-size: 2.25rem;
+            line-height: 2.5rem
+        }
+
+        .text-5xl {
+            font-size: 3rem;
+            line-height: 1
+        }
+
+        .text-\[10px\] {
+            font-size: 10px
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.75rem
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.25rem
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+            line-height: 1rem
+        }
+
+        .font-black {
+            font-weight: 900
+        }
+
+        .font-bold {
+            font-weight: 700
+        }
+
+        .font-extrabold {
+            font-weight: 800
+        }
+
+        .font-light {
+            font-weight: 300
+        }
+
+        .font-medium {
+            font-weight: 500
+        }
+
+        .uppercase {
+            text-transform: uppercase
+        }
+
+        .leading-\[1\.1\] {
+            line-height: 1.1
+        }
+
+        .leading-relaxed {
+            line-height: 1.625
+        }
+
+        .leading-snug {
+            line-height: 1.375
+        }
+
+        .leading-tight {
+            line-height: 1.25
+        }
+
+        .tracking-\[0\.2em\] {
+            letter-spacing: 0.2em
+        }
+
+        .tracking-tight {
+            letter-spacing: -0.025em
+        }
+
+        .tracking-tighter {
+            letter-spacing: -0.05em
+        }
+
+        .tracking-wider {
+            letter-spacing: 0.05em
+        }
+
+        .tracking-widest {
+            letter-spacing: 0.1em
+        }
+
+        .text-blue-100\/40 {
+            color: rgb(219 234 254 / 0.4)
+        }
+
+        .text-blue-100\/80 {
+            color: rgb(219 234 254 / 0.8)
+        }
+
+        .text-blue-800\/70 {
+            color: rgb(30 64 175 / 0.7)
+        }
+
+        .text-blue-900 {
+            --tw-text-opacity: 1;
+            color: rgb(30 58 138 / var(--tw-text-opacity, 1))
+        }
+
+        .text-on-primary {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        .text-on-secondary-container {
+            --tw-text-opacity: 1;
+            color: rgb(107 69 0 / var(--tw-text-opacity, 1))
+        }
+
+        .text-on-surface {
+            --tw-text-opacity: 1;
+            color: rgb(25 28 29 / var(--tw-text-opacity, 1))
+        }
+
+        .text-on-surface-variant {
+            --tw-text-opacity: 1;
+            color: rgb(67 71 79 / var(--tw-text-opacity, 1))
+        }
+
+        .text-primary {
+            --tw-text-opacity: 1;
+            color: rgb(0 24 57 / var(--tw-text-opacity, 1))
+        }
+
+        .text-secondary {
+            --tw-text-opacity: 1;
+            color: rgb(131 85 0 / var(--tw-text-opacity, 1))
+        }
+
+        .text-secondary-container {
+            --tw-text-opacity: 1;
+            color: rgb(254 174 44 / var(--tw-text-opacity, 1))
+        }
+
+        .text-white {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        .text-white\/60 {
+            color: rgb(255 255 255 / 0.6)
+        }
+
+        .text-white\/70 {
+            color: rgb(255 255 255 / 0.7)
+        }
+
+        .text-white\/90 {
+            color: rgb(255 255 255 / 0.9)
+        }
+
+        .text-yellow-500 {
+            --tw-text-opacity: 1;
+            color: rgb(234 179 8 / var(--tw-text-opacity, 1))
+        }
+
+        .mix-blend-overlay {
+            mix-blend-mode: overlay
+        }
+
+        .shadow-2xl {
+            --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .shadow-lg {
+            --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .shadow-md {
+            --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .shadow-sm {
+            --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .shadow-xl {
+            --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .backdrop-blur-md {
+            --tw-backdrop-blur: blur(12px);
+            -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+            backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
+        }
+
+        .backdrop-blur-sm {
+            --tw-backdrop-blur: blur(4px);
+            -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+            backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
+        }
+
+        .backdrop-blur-xl {
+            --tw-backdrop-blur: blur(24px);
+            -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+            backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
+        }
+
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms
+        }
+
+        .transition-colors {
+            transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms
+        }
+
+        .transition-transform {
+            transition-property: transform;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms
+        }
+
+        .duration-1000 {
+            transition-duration: 1000ms
+        }
+
+        .duration-200 {
+            transition-duration: 200ms
+        }
+
+        .duration-300 {
+            transition-duration: 300ms
+        }
+
+        .duration-500 {
+            transition-duration: 500ms
+        }
+
+        .duration-700 {
+            transition-duration: 700ms
+        }
+
+        .selection\:bg-secondary-container\/30 *::selection {
+            background-color: rgb(254 174 44 / 0.3)
+        }
+
+        .selection\:bg-secondary-container\/30::selection {
+            background-color: rgb(254 174 44 / 0.3)
+        }
+
+        .last\:border-0:last-child {
+            border-width: 0px
+        }
+
+        .hover\:translate-y-\[-1px\]:hover {
+            --tw-translate-y: -1px;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .hover\:translate-y-\[-2px\]:hover {
+            --tw-translate-y: -2px;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .hover\:translate-y-\[-4px\]:hover {
+            --tw-translate-y: -4px;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .hover\:border-primary-container\/5:hover {
+            border-color: rgb(0 44 95 / 0.05)
+        }
+
+        .hover\:bg-primary:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(0 24 57 / var(--tw-bg-opacity, 1))
+        }
+
+        .hover\:bg-surface-container:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(237 238 239 / var(--tw-bg-opacity, 1))
+        }
+
+        .hover\:bg-surface-container-low:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(243 244 245 / var(--tw-bg-opacity, 1))
+        }
+
+        .hover\:bg-white:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1))
+        }
+
+        .hover\:bg-white\/20:hover {
+            background-color: rgb(255 255 255 / 0.2)
+        }
+
+        .hover\:pl-1:hover {
+            padding-left: 0.25rem
+        }
+
+        .hover\:text-blue-900:hover {
+            --tw-text-opacity: 1;
+            color: rgb(30 58 138 / var(--tw-text-opacity, 1))
+        }
+
+        .hover\:text-secondary:hover {
+            --tw-text-opacity: 1;
+            color: rgb(131 85 0 / var(--tw-text-opacity, 1))
+        }
+
+        .hover\:text-white:hover {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        .hover\:text-yellow-500:hover {
+            --tw-text-opacity: 1;
+            color: rgb(234 179 8 / var(--tw-text-opacity, 1))
+        }
+
+        .hover\:shadow-xl:hover {
+            --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .active\:scale-95:active {
+            --tw-scale-x: .95;
+            --tw-scale-y: .95;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .group:hover .group-hover\:translate-x-1 {
+            --tw-translate-x: 0.25rem;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .group:hover .group-hover\:scale-100 {
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .group:hover .group-hover\:scale-110 {
+            --tw-scale-x: 1.1;
+            --tw-scale-y: 1.1;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .group\/btn:hover .group-hover\/btn\:border-secondary-container {
+            --tw-border-opacity: 1;
+            border-color: rgb(254 174 44 / var(--tw-border-opacity, 1))
+        }
+
+        .group:hover .group-hover\:bg-primary {
+            --tw-bg-opacity: 1;
+            background-color: rgb(0 24 57 / var(--tw-bg-opacity, 1))
+        }
+
+        .group\/link:hover .group-hover\/link\:pl-1 {
+            padding-left: 0.25rem
+        }
+
+        .group:hover .group-hover\:text-primary {
+            --tw-text-opacity: 1;
+            color: rgb(0 24 57 / var(--tw-text-opacity, 1))
+        }
+
+        .group:hover .group-hover\:text-primary-container {
+            --tw-text-opacity: 1;
+            color: rgb(0 44 95 / var(--tw-text-opacity, 1))
+        }
+
+        .group:hover .group-hover\:text-white {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:bg-blue-950\/80:is(.dark *) {
+            background-color: rgb(23 37 84 / 0.8)
+        }
+
+        .dark\:bg-slate-950:is(.dark *) {
+            --tw-bg-opacity: 1;
+            background-color: rgb(2 6 23 / var(--tw-bg-opacity, 1))
+        }
+
+        .dark\:text-blue-100:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(219 234 254 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-blue-200\/70:is(.dark *) {
+            color: rgb(191 219 254 / 0.7)
+        }
+
+        .dark\:text-white:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-yellow-400:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(250 204 21 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:hover\:text-white:hover:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        @media (min-width: 768px) {
+            .md\:mb-0 {
+                margin-bottom: 0px
+            }
+
+            .md\:ml-10 {
+                margin-left: 2.5rem
+            }
+
+            .md\:mt-0 {
+                margin-top: 0px
+            }
+
+            .md\:flex {
+                display: flex
+            }
+
+            .md\:grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr))
+            }
+
+            .md\:grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr))
+            }
+
+            .md\:flex-row {
+                flex-direction: row
+            }
+
+            .md\:border-r {
+                border-right-width: 1px
+            }
+
+            .md\:p-20 {
+                padding: 5rem
+            }
+
+            .md\:px-24 {
+                padding-left: 6rem;
+                padding-right: 6rem
+            }
+
+            .md\:text-5xl {
+                font-size: 3rem;
+                line-height: 1
+            }
+
+            .md\:text-7xl {
+                font-size: 4.5rem;
+                line-height: 1
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr))
+            }
+        }
+    </style>
+    <style>
+        @media (max-width: 1024px) {
+            .mobile-only {
+                display: block !important;
+            }
+
+            .desktop-only {
+                display: none !important;
+            }
+
+            #mobile-drawer {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 72px);
+                background-color: #002C5F;
+                z-index: 40;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                overflow-y: auto;
+                pointer-events: none;
+            }
+
+            #mobile-drawer.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .drawer-link {
+                display: flex;
+                align-items: center;
+                padding: 1.5rem 2rem;
+                color: white;
+                font-weight: 700;
+                font-size: 1.25rem;
+                border-left: 4px solid transparent;
+                transition: all 0.2s ease;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .drawer-link:hover,
+            .drawer-link.active {
+                border-left-color: #F5A623;
+                color: #F5A623;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            .drawer-icon {
+                color: #C60C30;
+                margin-right: 1rem;
+                font-size: 24px;
+            }
+
+            .drawer-desc {
+                display: block;
+                font-size: 0.75rem;
+                color: #5F6368;
+                font-weight: 400;
+                text-transform: none;
+                letter-spacing: normal;
+                margin-top: 0.25rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-only {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
-<body>
-    <h1>Hello World</h1>
+
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container/30" data-mode="connect">
+    <!-- Top Navigation Shell -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-blue-950/80 backdrop-blur-xl shadow-sm">
+        <div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+            <div class="text-xl font-bold text-blue-900 dark:text-white uppercase tracking-wider font-headline">
+                University of Twente
+            </div>
+            <div
+                class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+                <a class="text-blue-900 dark:text-blue-100 border-b-2 border-yellow-500 pb-1 hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Homepage</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Academics</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Admissions</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Campus</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Placements</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Notable Alumni</a><a
+                    class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Clubs</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <button
+                    class="px-6 py-3 rounded-[8px] font-headline font-bold tracking-tight hover:translate-y-[-2px] transition-all shadow-md active:scale-95 duration-200 whitespace-nowrap bg-[#002C5F] text-[#F5A623] desktop-only">Apply
+                    Now</button>
+            </div><button class="mobile-only text-primary dark:text-white p-2 focus:outline-none" id="hamburger-btn">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-only font-headline" id="mobile-drawer">
+        <nav class="flex flex-col py-4">
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">home</span>
+                <div>
+                    Homepage
+                    <span class="drawer-desc">Back to university main portal</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">school</span>
+                <div>
+                    Academics
+                    <span class="drawer-desc">Faculties and departments</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">login</span>
+                <div>
+                    Admissions
+                    <span class="drawer-desc">Apply for your degree</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">apartment</span>
+                <div>
+                    Campus
+                    <span class="drawer-desc">Student life and facilities</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">work</span>
+                <div>
+                    Placements
+                    <span class="drawer-desc">Career services and industry links</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
+                <div>
+                    Notable Alumni
+                    <span class="drawer-desc">Our global impact makers</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">groups</span>
+                <div>
+                    Clubs
+                    <span class="drawer-desc">Join student organizations</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden group h-[75vh]">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-1000"
+                    data-alt="Modern university campus building with glass facades at twilight, glowing with warm internal lights under a deep blue sky"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOGgfGZnE8FvutnET3twcNxLD56hL7JNNdra_9qePLUwcX2LCQhBCw5EK7zLOsMr1TmBGiQaoK90gkpKKD296rdXAjbvMD74em3VUyBC16vYjiXKwdLu3hOqqR1GZkruxrl4JGUDF6TYawYJMqg-rJ3KiAfvVTVpTE-ZfpHWvkx2x_vJwhMq5dRVaQbng5Fv4KORpLcRR6Xw-sdFtJSjiH9FJlVp7GGKnnrGXwQiukC5K0jGHl9KwG-fFVWZHeStI0ofv-GSb2kNs" />
+                <div class="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/20 to-transparent"></div>
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-secondary-container/20 to-transparent mix-blend-overlay">
+                </div>
+            </div>
+            <div class="relative z-10 h-full flex flex-col justify-center px-12 md:px-24 max-w-7xl mx-auto">
+                <div class="max-w-3xl -mt-12">
+                    <span
+                        class="inline-block px-4 py-1.5 mb-6 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold tracking-widest uppercase">Global
+                        Excellence</span>
+                    <h1
+                        class="text-5xl md:text-7xl font-extrabold text-white font-headline leading-[1.1] mb-8 tracking-tighter">
+                        Where High Tech <br /> Meets Human Touch
+                    </h1>
+                    <p class="text-xl text-white/90 font-light leading-relaxed mb-10 max-w-xl">
+                        A world-class research university in the Netherlands, pioneering digital citizenship and
+                        engineering future societies.
+                    </p>
+                    <div class="flex items-center space-x-6">
+                        <button
+                            class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl font-bold font-headline hover:translate-y-[-4px] transition-all shadow-xl"
+                            onclick="document.querySelector('section.py-32.px-12').scrollIntoView({ behavior: 'smooth' })">Learn
+                            More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Stats Bar -->
+        <section class="relative -mt-16 z-20 px-6">
+            <div
+                class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 bg-surface-container-lowest shadow-2xl rounded-2xl overflow-hidden p-8 gap-8 border border-outline-variant/10">
+                <div class="text-center md:border-r border-outline-variant/20 last:border-0">
+                    <div class="text-3xl font-extrabold text-primary font-headline">13,000+</div>
+                    <div class="text-xs uppercase tracking-widest text-on-surface-variant font-bold mt-1">Students</div>
+                </div>
+                <div class="text-center md:border-r border-outline-variant/20 last:border-0">
+                    <div class="text-3xl font-extrabold text-primary font-headline">100+</div>
+                    <div class="text-xs uppercase tracking-widest text-on-surface-variant font-bold mt-1">Nationalities
+                    </div>
+                </div>
+                <div class="text-center md:border-r border-outline-variant/20 last:border-0">
+                    <div class="text-3xl font-extrabold text-primary font-headline">#203</div>
+                    <div class="text-xs uppercase tracking-widest text-on-surface-variant font-bold mt-1">QS Ranking
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-extrabold text-primary font-headline">1,200+</div>
+                    <div class="text-xs uppercase tracking-widest text-on-surface-variant font-bold mt-1">Startups</div>
+                </div>
+            </div>
+        </section>
+        <!-- Section 1: Quick Access -->
+        <section class="py-32 px-12 max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div
+                    class="flex flex-col items-center p-8 bg-surface-container-low rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary-container/5">
+                    <div
+                        class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary transition-colors">
+                        <span
+                            class="material-symbols-outlined text-primary group-hover:text-white text-3xl">school</span>
+                    </div>
+                    <h3 class="font-headline font-bold text-primary mb-2">Study Programs</h3>
+                    <p class="text-xs text-on-surface-variant text-center leading-relaxed">Find your path in
+                        engineering, technology, or social science.</p>
+                </div>
+                <div
+                    class="flex flex-col items-center p-8 bg-surface-container-low rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary-container/5">
+                    <div
+                        class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary transition-colors">
+                        <span
+                            class="material-symbols-outlined text-primary group-hover:text-white text-3xl">science</span>
+                    </div>
+                    <h3 class="font-headline font-bold text-primary mb-2">Research Centers</h3>
+                    <p class="text-xs text-on-surface-variant text-center leading-relaxed">Interdisciplinary research
+                        that makes a global impact.</p>
+                </div>
+                <div
+                    class="flex flex-col items-center p-8 bg-surface-container-low rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary-container/5">
+                    <div
+                        class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary transition-colors">
+                        <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">map</span>
+                    </div>
+                    <h3 class="font-headline font-bold text-primary mb-2">Campus Map</h3>
+                    <p class="text-xs text-on-surface-variant text-center leading-relaxed">Navigate our 146-hectare
+                        park-like smart campus.</p>
+                </div>
+                <div
+                    class="flex flex-col items-center p-8 bg-surface-container-low rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 group cursor-pointer border border-transparent hover:border-primary-container/5">
+                    <div
+                        class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary transition-colors">
+                        <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">work</span>
+                    </div>
+                    <h3 class="font-headline font-bold text-primary mb-2">Vacancies</h3>
+                    <p class="text-xs text-on-surface-variant text-center leading-relaxed">Join our vibrant academic and
+                        administrative community.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Section 2: Latest from UT (News) -->
+        <section class="py-24 bg-surface-container-low">
+            <div class="max-w-7xl mx-auto px-12">
+                <div class="flex justify-between items-end mb-16">
+                    <div>
+                        <h2 class="text-4xl font-extrabold text-primary font-headline tracking-tight mb-4">Latest from
+                            UT</h2>
+                        <p class="text-on-surface-variant max-w-md">Discover stories of breakthroughs, innovation, and
+                            campus life updates.</p>
+                    </div>
+                    <button class="text-primary font-bold flex items-center space-x-2 group">
+                        <span>View Newsroom</span>
+                        <span
+                            class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <article
+                        class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col group">
+                        <div class="h-56 overflow-hidden">
+                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                data-alt="Close-up of high-tech laboratory robot arm working on a silicon wafer in a cleanroom environment"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuASQdZW5KaNJwc6CshEu39jYtZWqZPlybFDHbtYQkB7XA7QU_qM_S_JLU8dnOoLcBN10PcBFuNMIGBNEdr_xhVRj--fTJ5PLVgfEFFsdYzrN6GkVyPSnocUnXDxniQwi4m6pZE6JNMbo_NvIMDPDL2Pu-Wg_b2AFZewwjxWIxZW0CKHBf_WVYuNDTTz5w1vSZ-efTGPAYUZv_Rf73VXasqs8qu3BLNF-eGT5Jeu_80jzyWW-GmLrcjo6Fg795H7EmFQq0cncLVEY80" />
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col">
+                            <span
+                                class="text-xs font-bold text-secondary tracking-widest uppercase mb-3">Research</span>
+                            <h3
+                                class="text-xl font-bold text-primary font-headline leading-snug mb-4 group-hover:text-primary-container transition-colors">
+                                Breakthrough in Nanophotonics: The Future of Light-Speed Chips</h3>
+                            <p class="text-sm text-on-surface-variant leading-relaxed mb-6 flex-1 line-clamp-3">
+                                University researchers have developed a new method to control light on a scale 100 times
+                                smaller than its wavelength...</p>
+                            <a class="text-sm font-bold text-secondary-container hover:text-secondary flex items-center space-x-1 group/link"
+                                href="#">
+                                <span>Read More</span>
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover/link:pl-1 transition-all">chevron_right</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article
+                        class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col group">
+                        <div class="h-56 overflow-hidden">
+                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                data-alt="Group of diverse university students collaborating around a laptop in a brightly lit modern library space"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwMSSpQDYIyZofDym0TiqFJiCPc9gx2MIeSeDw7ReCuf9VMYVROvhE3OilWk_WHF8mFAuFSRNV36LqGl3Jb3UMjk2XIWvoaITyVfC4I75R5FAZiexmCR1LOJk57wYlyXzJZ81ROMk7wc-sgMsh1A-Q_epvkL-4Ihbxdd9Qw6-zXac3AFynXMU8fTuH_JFgtAsByNuZzRcAHzFTpAX_WhoHpFkcubzjzHIcOkAvv-tvpPv7VDLpC94CO9q1thmn78UN_lgkg_eO6os" />
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col">
+                            <span class="text-xs font-bold text-secondary tracking-widest uppercase mb-3">Student
+                                Life</span>
+                            <h3
+                                class="text-xl font-bold text-primary font-headline leading-snug mb-4 group-hover:text-primary-container transition-colors">
+                                Creating Impact: The Student Union's New Sustainability Hub</h3>
+                            <p class="text-sm text-on-surface-variant leading-relaxed mb-6 flex-1 line-clamp-3">A
+                                student-led initiative is transforming the heart of the campus into a zero-waste zone
+                                with circular economy experiments...</p>
+                            <a class="text-sm font-bold text-secondary-container hover:text-secondary flex items-center space-x-1 group/link"
+                                href="#">
+                                <span>Read More</span>
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover/link:pl-1 transition-all">chevron_right</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article
+                        class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col group">
+                        <div class="h-56 overflow-hidden">
+                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                data-alt="Modern architectural glass building at twilight reflecting a warm sunset with geometric shadows"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYQzAV7u0jb0-gZqhjGZQPmS1tAuE0zBipiA4A9z5Rd3bRIZqQCvSiAV0e0SxQGb6tLAGUbBzGNRIICrF1CApU0s6teE5oJQpAntKKitn6o3rQAFmAuqqY28TgsklZxXfMGwmsu3zKOAMxVUqVtiUFeOv8wWMcoI54Mqf4nybZdNuv_qIeZvtFuMPkyecoOCieWyecdOSouj2gquiVCrBVy_Bhare1vnGxYOlIn6-MWKbAx5JBgD7kJUGd36NWAtQbaN-7a-hC6o4" />
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col">
+                            <span
+                                class="text-xs font-bold text-secondary tracking-widest uppercase mb-3">Innovation</span>
+                            <h3
+                                class="text-xl font-bold text-primary font-headline leading-snug mb-4 group-hover:text-primary-container transition-colors">
+                                Start-up Success: UT Spin-off Secures Series A Funding</h3>
+                            <p class="text-sm text-on-surface-variant leading-relaxed mb-6 flex-1 line-clamp-3">The
+                                novel drone technology developed within the UT aerospace laboratory has attracted major
+                                venture capital to scale production...</p>
+                            <a class="text-sm font-bold text-secondary-container hover:text-secondary flex items-center space-x-1 group/link"
+                                href="#">
+                                <span>Read More</span>
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover/link:pl-1 transition-all">chevron_right</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- Section 3: What's On (Events) -->
+        <section class="py-32 bg-surface">
+            <div class="max-w-7xl mx-auto px-12">
+                <div class="max-w-2xl mb-20">
+                    <h2 class="text-4xl font-extrabold text-primary font-headline tracking-tight mb-6">What's On</h2>
+                    <p class="text-lg text-on-surface-variant font-light">Join our open days, guest lectures, and
+                        vibrant campus festivals. Your journey at UT starts with engagement.</p>
+                </div>
+                <div class="space-y-4">
+                    <!-- Event Item -->
+                    <div
+                        class="group flex flex-col md:flex-row items-center p-6 bg-white hover:bg-surface-container transition-all duration-300 rounded-2xl border-b border-outline-variant/10">
+                        <div
+                            class="w-24 flex-shrink-0 flex flex-col items-center justify-center py-4 bg-secondary-container rounded-xl text-on-secondary-container mb-4 md:mb-0">
+                            <span class="text-2xl font-black font-headline">24</span>
+                            <span class="text-xs font-bold uppercase tracking-wider">OCT</span>
+                        </div>
+                        <div class="flex-1 md:ml-10">
+                            <span
+                                class="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mb-1 block">Master
+                                Class</span>
+                            <h4
+                                class="text-lg font-bold text-primary font-headline group-hover:text-primary transition-colors">
+                                Design for Social Justice in the Digital Age</h4>
+                            <div class="flex items-center space-x-4 mt-2 text-on-surface-variant text-sm">
+                                <span class="flex items-center"><span
+                                        class="material-symbols-outlined text-sm mr-1">schedule</span> 14:00 -
+                                    16:30</span>
+                                <span class="flex items-center"><span
+                                        class="material-symbols-outlined text-sm mr-1">location_on</span> DesignLab,
+                                    Gallery</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 md:mt-0">
+                            <button
+                                class="px-6 py-2 rounded-full border border-primary text-primary font-bold text-sm hover:bg-primary hover:text-white transition-all">Register</button>
+                        </div>
+                    </div>
+                    <!-- Event Item -->
+                    <div
+                        class="group flex flex-col md:flex-row items-center p-6 bg-white hover:bg-surface-container transition-all duration-300 rounded-2xl border-b border-outline-variant/10">
+                        <div
+                            class="w-24 flex-shrink-0 flex flex-col items-center justify-center py-4 bg-secondary-container rounded-xl text-on-secondary-container mb-4 md:mb-0">
+                            <span class="text-2xl font-black font-headline">02</span>
+                            <span class="text-xs font-bold uppercase tracking-wider">NOV</span>
+                        </div>
+                        <div class="flex-1 md:ml-10">
+                            <span
+                                class="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mb-1 block">Open
+                                Day</span>
+                            <h4
+                                class="text-lg font-bold text-primary font-headline group-hover:text-primary transition-colors">
+                                UT Master's Open Day (On-Campus &amp; Online)</h4>
+                            <div class="flex items-center space-x-4 mt-2 text-on-surface-variant text-sm">
+                                <span class="flex items-center"><span
+                                        class="material-symbols-outlined text-sm mr-1">schedule</span> 10:00 -
+                                    17:00</span>
+                                <span class="flex items-center"><span
+                                        class="material-symbols-outlined text-sm mr-1">location_on</span> Waaier
+                                    Building</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 md:mt-0">
+                            <button
+                                class="px-6 py-2 rounded-full border border-primary text-primary font-bold text-sm hover:bg-primary hover:text-white transition-all">Sign
+                                Up</button>
+                        </div>
+                    </div>
+                    <!-- Event Item -->
+                    <div
+                        class="group flex flex-col md:flex-row items-center p-6 bg-white hover:bg-surface-container transition-all duration-300 rounded-2xl border-b border-outline-variant/10">
+                        <div
+                            class="w-24 flex-shrink-0 flex flex-col items-center justify-center py-4 bg-secondary-container rounded-xl text-on-secondary-container mb-4 md:mb-0">
+                            <span class="text-2xl font-black font-headline">15</span>
+                            <span class="text-xs font-bold uppercase tracking-wider">NOV</span>
+                        </div>
+                        <div class="flex-1 md:ml-10">
+                            <span
+                                class="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mb-1 block">Exhibition</span>
+                            <h4
+                                class="text-lg font-bold text-primary font-headline group-hover:text-primary transition-colors">
+                                Bio-Art: Merging Biology with Digital Fabrication</h4>
+                            <div class="flex items-center space-x-4 mt-2 text-on-surface-variant text-sm">
+                                <span class="flex items-center"><span
+                                        class="material-symbols-outlined text-sm mr-1">schedule</span> 09:00 -
+                                    20:00</span>
+                                <span class="flex items-center"><span
+                                        class="material-symbols-outlined text-sm mr-1">location_on</span> Vrijhof
+                                    Culture Center</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 md:mt-0">
+                            <button
+                                class="px-6 py-2 rounded-full border border-primary text-primary font-bold text-sm hover:bg-primary hover:text-white transition-all">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section: High-End Bento Reveal -->
+        <section class="py-24 px-12 max-w-7xl mx-auto">
+            <div
+                class="bg-primary rounded-3xl overflow-hidden relative p-12 md:p-20 flex flex-col md:flex-row items-center justify-between">
+                <div
+                    class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(254,174,44,0.15),transparent)]">
+                </div>
+                <div class="relative z-10 max-w-xl">
+                    <h2
+                        class="text-4xl md:text-5xl font-extrabold text-white font-headline leading-tight mb-6 tracking-tight">
+                        Ready to shape the <span class="text-secondary-container">future?</span></h2>
+                    <p class="text-white/70 text-lg mb-10 leading-relaxed">Join a community where inquisitive minds find
+                        the tools to change the world. Applications for the next semester are now open.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <button
+                            class="bg-secondary-container text-on-secondary-container px-10 py-4 rounded-xl font-bold font-headline shadow-lg hover:translate-y-[-2px] transition-all">Start
+                            Application</button>
+                        <button
+                            class="bg-white/10 text-white backdrop-blur-md border border-white/20 px-10 py-4 rounded-xl font-bold font-headline hover:bg-white/20 transition-all">Request
+                            Brochure</button>
+                    </div>
+                </div>
+                <div class="relative z-10 mt-12 md:mt-0 flex gap-4">
+                    <div
+                        class="w-32 h-48 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 flex flex-col items-center justify-center p-4">
+                        <span class="text-4xl font-headline font-black text-secondary-container">#1</span>
+                        <p class="text-[10px] text-white/60 text-center uppercase tracking-widest mt-2">Valorization
+                            University</p>
+                    </div>
+                    <div
+                        class="w-32 h-48 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 flex flex-col items-center justify-center p-4 mt-8">
+                        <span class="text-4xl font-headline font-black text-secondary-container">40+</span>
+                        <p class="text-[10px] text-white/60 text-center uppercase tracking-widest mt-2">Masters Programs
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full pt-16 pb-8 bg-blue-950 dark:bg-slate-950 tonal-transition-top">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-7xl mx-auto">
+            <div>
+                <div class="text-2xl font-black text-white mb-4">UT</div>
+                <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-blue-100/80 mb-6">
+                    A research university where technology and social sciences go hand in hand. High Tech, Human Touch.
+                </p>
+                <div class="flex space-x-4">
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">public</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">alternate_email</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">share</span></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">UT
+                    Branding</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Brand Identity</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Style Guides</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Press Materials</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Merchandise</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">Quick
+                    Links</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Canvas</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Osiris Student</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Library Services</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Employee Portal</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">
+                    Contact Details</h4>
+                <div class="font-['Plus_Jakarta_Sans'] text-sm text-blue-100/80 space-y-4">
+                    <p>Drienerlolaan 5<br />7522 NB Enschede<br />The Netherlands</p>
+                    <p>T: +31 (0)53 489 9111<br />E: info@utwente.nl</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 pt-8 border-t border-white/5 text-center">
+            <p class="font-['Plus_Jakarta_Sans'] text-xs text-blue-100/40">© 2024 University of Twente. The Digital
+                Polymath Excellence.</p>
+        </div>
+    </footer>
+    <script>
+            (function () {
+                const btn = document.getElementById('hamburger-btn');
+                const drawer = document.getElementById('mobile-drawer');
+                const links = drawer.querySelectorAll('.drawer-link');
+                const icon = btn.querySelector('.material-symbols-outlined');
+
+                btn.addEventListener('click', () => {
+                    const isOpen = drawer.classList.toggle('active');
+                    icon.textContent = isOpen ? 'close' : 'menu';
+                    document.body.style.overflow = isOpen ? 'hidden' : '';
+                });
+
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        drawer.classList.remove('active');
+                        icon.textContent = 'menu';
+                        document.body.style.overflow = '';
+                    });
+                });
+            })();
+    </script>
 </body>
+
 </html>
