@@ -1,7 +1,7 @@
 # browser-battle
 A modern, immersive website for **University of Twente** (Netherlands):
-https://browserbattle.netlify.app/
-## ✨ Project Overview
+[https://browserbattle.netlify.app/
+](https://vercel.com/ukruthikcs25-1768s-projects/browser-battle/9Sx66HpntjyFxqjV8y8kN7mChEqe)## ✨ Project Overview
 
 We created a premium digital experience for University of Twente — one of Europe's innovative technical universities known for its green campus, strong engineering & technology programs, and excellent employability.
 
