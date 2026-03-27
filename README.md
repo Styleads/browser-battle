@@ -107,6 +107,8 @@ Implement actual images(all images in current ones are placeholders)
 
 Personalized 4-Year Journey Simulator — Quick quiz → custom 4-year roadmap with academics, internships, projects, and career outcomes  
 
+Footer contents such as merchandise and student portals are intentional. We need to create new pages for these sections
+
 
 
 
