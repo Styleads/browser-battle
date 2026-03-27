@@ -94,36 +94,163 @@
             outline: none;
             border-bottom: 2px solid #001839 !important;
         }
+
+        @media (max-width: 1024px) {
+            .mobile-only {
+                display: block !important;
+            }
+
+            .desktop-only {
+                display: none !important;
+            }
+
+            #mobile-drawer {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 72px);
+                background-color: #002C5F;
+                z-index: 40;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                overflow-y: auto;
+                pointer-events: none;
+            }
+
+            #mobile-drawer.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .drawer-link {
+                display: flex;
+                align-items: center;
+                padding: 1.5rem 2rem;
+                color: white;
+                font-weight: 700;
+                font-size: 1.25rem;
+                border-left: 4px solid transparent;
+                transition: all 0.2s ease;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .drawer-link:hover,
+            .drawer-link.active {
+                border-left-color: #F5A623;
+                color: #F5A623;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            .drawer-icon {
+                color: #C60C30;
+                margin-right: 1rem;
+                font-size: 24px;
+            }
+
+            .drawer-desc {
+                display: block;
+                font-size: 0.75rem;
+                color: #5F6368;
+                font-weight: 400;
+                text-transform: none;
+                letter-spacing: normal;
+                margin-top: 0.25rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-only {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
 <body class="bg-surface font-body text-on-surface antialiased">
     <!-- TopNavBar (Shared Component) -->
-    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md shadow-sm dark:shadow-none">
-        <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-            <div class="text-2xl font-black text-blue-900 dark:text-blue-50 tracking-tighter">UT Application Portal
+    <!-- Top Navigation Shell -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-blue-950/80 backdrop-blur-xl shadow-sm">
+        <div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+            <div
+                class="text-xl font-bold text-blue-900 dark:text-white uppercase tracking-wider font-headline cursor-pointer">
+                University of Twente
             </div>
-            <div class="hidden md:flex items-center gap-8">
-                <a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors"
-                    href="#">Programs</a>
-                <a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors"
-                    href="#">Requirements</a>
-                <a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors"
-                    href="#">Scholarships</a>
-                <a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors"
-                    href="#">Deadlines</a>
+            <div
+                class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="index.html">Homepage</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="academics.html">Academics</a>
+                <a class="text-blue-900 dark:text-blue-100 border-b-2 border-yellow-500 pb-1 hover:translate-y-[-1px] transition-transform duration-300"
+                    href="admissions.html">Admissions</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="campus.html">Campus</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="placements.html">Placements</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="alumni.html">Notable Alumni</a>
             </div>
-            <div class="flex items-center gap-4">
+            <div class="flex items-center space-x-6">
                 <button
-                    class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors">Sign
-                    In</button>
-                <button
-                    class="bg-primary-container text-white px-6 py-2 rounded-lg font-['Plus_Jakarta_Sans'] font-medium text-sm scale-95 active:scale-90 transition-transform">Apply
+                    class="px-6 py-3 rounded-[8px] font-headline font-bold tracking-tight hover:translate-y-[-2px] transition-all shadow-md active:scale-95 duration-200 whitespace-nowrap bg-[#002C5F] text-[#F5A623] desktop-only"
+                    onclick="window.location.href='admissions.html'">Apply
                     Now</button>
             </div>
+            <button class="mobile-only text-primary dark:text-white p-2 focus:outline-none" id="hamburger-btn">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
         </div>
-        <div class="bg-slate-100/50 dark:bg-slate-800/50 h-[1px] w-full"></div>
     </nav>
+    <div class="mobile-only font-headline" id="mobile-drawer">
+        <nav class="flex flex-col py-4">
+            <a class="drawer-link group" href="index.html">
+                <span class="material-symbols-outlined drawer-icon">home</span>
+                <div>
+                    Homepage
+                    <span class="drawer-desc">Back to university main portal</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="academics.html">
+                <span class="material-symbols-outlined drawer-icon">school</span>
+                <div>
+                    Academics
+                    <span class="drawer-desc">Faculties and departments</span>
+                </div>
+            </a>
+            <a class="drawer-link group active" href="admissions.html">
+                <span class="material-symbols-outlined drawer-icon">login</span>
+                <div>
+                    Admissions
+                    <span class="drawer-desc">Apply for your degree</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="campus.html">
+                <span class="material-symbols-outlined drawer-icon">apartment</span>
+                <div>
+                    Campus
+                    <span class="drawer-desc">Student life and facilities</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="placements.html">
+                <span class="material-symbols-outlined drawer-icon">work</span>
+                <div>
+                    Placements
+                    <span class="drawer-desc">Career services and industry links</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="alumni.html">
+                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
+                <div>
+                    Notable Alumni
+                    <span class="drawer-desc">Our global impact makers</span>
+                </div>
+            </a>
+        </nav>
+    </div>
     <main class="pt-32 pb-24 px-6">
         <div class="max-w-5xl mx-auto">
             <!-- Header Section -->
@@ -325,60 +452,84 @@
                         <button
                             class="flex-1 md:flex-none px-8 py-4 rounded-lg font-bold text-primary hover:bg-surface-container-high transition-all"
                             type="button">Save Draft</button>
-                        <button
+                        <button onclick="window.location.href='success.html'"
                             class="flex-1 md:flex-none px-12 py-4 bg-gradient-to-r from-primary to-primary-container text-white rounded-lg font-bold shadow-lg hover:-translate-y-1 transition-all duration-300"
-                            type="submit">Submit Application</button>
+                            type="button">Submit Application</button>
                     </div>
                 </div>
             </form>
         </div>
     </main>
     <!-- Footer (Shared Component) -->
-    <footer class="bg-slate-100 dark:bg-slate-900 w-full py-12 px-8 border-t border-slate-200 dark:border-slate-800">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            <div class="space-y-4">
-                <div class="text-lg font-bold text-blue-900 dark:text-blue-100 uppercase tracking-widest">UT Application
-                    Portal</div>
-                <p class="text-slate-500 text-xs leading-relaxed uppercase tracking-widest font-semibold">
-                    Providing high tech solutions with a human touch to students worldwide.
+    <!-- Footer -->
+    <footer class="w-full pt-16 pb-8 bg-blue-950 dark:bg-slate-950 tonal-transition-top">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-7xl mx-auto">
+            <div>
+                <div class="text-2xl font-black text-white mb-4">UT</div>
+                <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-blue-100/80 mb-6">
+                    A research university where technology and social sciences go hand in hand. High Tech, Human Touch.
                 </p>
+                <div class="flex space-x-4">
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">public</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">alternate_email</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">share</span></a>
+                </div>
             </div>
-            <div class="space-y-4">
-                <h4
-                    class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest font-semibold text-blue-900 dark:text-blue-400">
-                    Quick Links</h4>
-                <ul class="space-y-2">
-                    <li><a class="text-slate-500 hover:text-blue-900 dark:hover:text-blue-200 text-xs uppercase tracking-widest font-semibold transition-opacity opacity-80 hover:opacity-100 underline decoration-amber-500 underline-offset-4"
-                            href="#">Privacy Policy</a></li>
-                    <li><a class="text-slate-500 hover:text-blue-900 dark:hover:text-blue-200 text-xs uppercase tracking-widest font-semibold transition-opacity opacity-80 hover:opacity-100 underline decoration-amber-500 underline-offset-4"
-                            href="#">Terms of Service</a></li>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">UT
+                    Branding</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Brand Identity</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Style Guides</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Press Materials</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Merchandise</a></li>
                 </ul>
             </div>
-            <div class="space-y-4">
-                <h4
-                    class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest font-semibold text-blue-900 dark:text-blue-400">
-                    Support</h4>
-                <ul class="space-y-2">
-                    <li><a class="text-slate-500 hover:text-blue-900 dark:hover:text-blue-200 text-xs uppercase tracking-widest font-semibold transition-opacity opacity-80 hover:opacity-100 underline decoration-amber-500 underline-offset-4"
-                            href="#">Accessibility</a></li>
-                    <li><a class="text-slate-500 hover:text-blue-900 dark:hover:text-blue-200 text-xs uppercase tracking-widest font-semibold transition-opacity opacity-80 hover:opacity-100 underline decoration-amber-500 underline-offset-4"
-                            href="#">Contact Support</a></li>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">Quick
+                    Links</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Canvas</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Osiris Student</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Library Services</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Employee Portal</a></li>
                 </ul>
             </div>
-            <div class="space-y-4">
-                <h4
-                    class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest font-semibold text-blue-900 dark:text-blue-400">
-                    Cookie Settings</h4>
-                <a class="text-slate-500 hover:text-blue-900 dark:hover:text-blue-200 text-xs uppercase tracking-widest font-semibold transition-opacity opacity-80 hover:opacity-100 underline decoration-amber-500 underline-offset-4"
-                    href="#">Preferences</a>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">
+                    Contact Details</h4>
+                <div class="font-['Plus_Jakarta_Sans'] text-sm text-blue-100/80 space-y-4">
+                    <p>Drienerlolaan 5<br />7522 NB Enschede<br />The Netherlands</p>
+                    <p>T: +31 (0)53 489 9111<br />E: info@utwente.nl</p>
+                </div>
             </div>
         </div>
-        <div
-            class="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-slate-500 text-xs uppercase tracking-widest font-semibold">© 2024 University of Twente - High
-                Tech Human Touch</p>
+        <div class="mt-16 pt-8 border-t border-white/5 text-center">
+            <p class="font-['Plus_Jakarta_Sans'] text-xs text-blue-100/40">© 2024 University of Twente. The Digital
+                Polymath Excellence.</p>
         </div>
     </footer>
+    <script>
+        // Handle mobile menu
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        if (hamburgerBtn && mobileDrawer) {
+            hamburgerBtn.addEventListener('click', () => {
+                mobileDrawer.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 
 </html>
