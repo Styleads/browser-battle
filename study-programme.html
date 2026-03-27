@@ -94,46 +94,169 @@
         .bg-primary-gradient {
             background: linear-gradient(135deg, #001839 0%, #002c5f 100%);
         }
+
+        @media (max-width: 1024px) {
+            .mobile-only {
+                display: block !important;
+            }
+
+            .desktop-only {
+                display: none !important;
+            }
+
+            #mobile-drawer {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 72px);
+                background-color: #002C5F;
+                z-index: 40;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                overflow-y: auto;
+                pointer-events: none;
+            }
+
+            #mobile-drawer.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .drawer-link {
+                display: flex;
+                align-items: center;
+                padding: 1.5rem 2rem;
+                color: white;
+                font-weight: 700;
+                font-size: 1.25rem;
+                border-left: 4px solid transparent;
+                transition: all 0.2s ease;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .drawer-link:hover,
+            .drawer-link.active {
+                border-left-color: #F5A623;
+                color: #F5A623;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            .drawer-icon {
+                color: #C60C30;
+                margin-right: 1rem;
+                font-size: 24px;
+            }
+
+            .drawer-desc {
+                display: block;
+                font-size: 0.75rem;
+                color: #5F6368;
+                font-weight: 400;
+                text-transform: none;
+                letter-spacing: normal;
+                margin-top: 0.25rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-only {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
 <body
     class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
-    <!-- TopAppBar -->
-    <nav
-        class="sticky top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm transition-all duration-300">
-        <div class="flex justify-between items-center h-20 px-8 max-w-screen-2xl mx-auto">
-            <div class="flex items-center gap-8">
-                <a class="text-xl font-bold text-blue-900 dark:text-white uppercase tracking-tighter font-headline"
-                    href="#">
-                    University of Twente
-                </a>
-                <div
-                    class="hidden lg:flex items-center gap-6 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
-                    <a class="text-blue-900 dark:text-white border-b-2 border-amber-500 pb-1"
-                        href="about:blank">Education</a>
-                    <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white pb-1 transition-all duration-300"
-                        href="about:blank">Research</a>
-                    <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white pb-1 transition-all duration-300"
-                        href="about:blank">Innovation</a>
-                    <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white pb-1 transition-all duration-300"
-                        href="about:blank">Campus</a>
-                    <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white pb-1 transition-all duration-300"
-                        href="about:blank">About</a>
-                </div>
+    <!-- Top Navigation Shell -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-blue-950/80 backdrop-blur-xl shadow-sm">
+        <div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+            <div class="text-xl font-bold text-blue-900 dark:text-white uppercase tracking-wider font-headline">
+                University of Twente
             </div>
-            <div class="flex items-center gap-4">
-                <button
-                    class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-full transition-all duration-300">
-                    <span class="material-symbols-outlined text-blue-900 dark:text-blue-100">search</span>
-                </button>
-                <button
-                    class="px-6 py-2 rounded-lg bg-primary-gradient text-white font-medium text-sm scale-95 active:scale-90 transition-transform">
-                    Login
-                </button>
+            <div
+                class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="index.html">Homepage</a>
+                <a class="text-blue-900 dark:text-blue-100 border-b-2 border-yellow-500 pb-1 hover:translate-y-[-1px] transition-transform duration-300"
+                    href="academics.html">Academics</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Admissions</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Campus</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Placements</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Notable Alumni</a><a
+                    class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Clubs</a>
             </div>
+            <div class="flex items-center space-x-6">
+                <button
+                    class="px-6 py-3 rounded-[8px] font-headline font-bold tracking-tight hover:translate-y-[-2px] transition-all shadow-md active:scale-95 duration-200 whitespace-nowrap bg-[#002C5F] text-[#F5A623] desktop-only">Apply
+                    Now</button>
+            </div><button class="mobile-only text-primary dark:text-white p-2 focus:outline-none" id="hamburger-btn">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
         </div>
     </nav>
+    <div class="mobile-only font-headline" id="mobile-drawer">
+        <nav class="flex flex-col py-4">
+            <a class="drawer-link group" href="index.html">
+                <span class="material-symbols-outlined drawer-icon">home</span>
+                <div>
+                    Homepage
+                    <span class="drawer-desc">Back to university main portal</span>
+                </div>
+            </a>
+            <a class="drawer-link group active" href="academics.html">
+                <span class="material-symbols-outlined drawer-icon">school</span>
+                <div>
+                    Academics
+                    <span class="drawer-desc">Faculties and departments</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">login</span>
+                <div>
+                    Admissions
+                    <span class="drawer-desc">Apply for your degree</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">apartment</span>
+                <div>
+                    Campus
+                    <span class="drawer-desc">Student life and facilities</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">work</span>
+                <div>
+                    Placements
+                    <span class="drawer-desc">Career services and industry links</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
+                <div>
+                    Notable Alumni
+                    <span class="drawer-desc">Our global impact makers</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">groups</span>
+                <div>
+                    Clubs
+                    <span class="drawer-desc">Join student organizations</span>
+                </div>
+            </a>
+        </nav>
+    </div>
     <main class="max-w-screen-xl mx-auto px-8 py-16">
         <!-- Hero Section Header -->
         <header class="mb-24">
@@ -440,6 +563,30 @@
             </p>
         </div>
     </footer>
+    <script>
+        (function () {
+            const btn = document.getElementById('hamburger-btn');
+            const drawer = document.getElementById('mobile-drawer');
+            const links = drawer.querySelectorAll('.drawer-link');
+            const icon = btn.querySelector('.material-symbols-outlined');
+
+            if (btn && drawer) {
+                btn.addEventListener('click', () => {
+                    const isOpen = drawer.classList.toggle('active');
+                    icon.textContent = isOpen ? 'close' : 'menu';
+                    document.body.style.overflow = isOpen ? 'hidden' : '';
+                });
+
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        drawer.classList.remove('active');
+                        icon.textContent = 'menu';
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+        })();
+    </script>
 </body>
 
 </html>
