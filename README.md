@@ -47,39 +47,89 @@ English Proficiency: IELTS 6.0–6.5 (Bachelor’s) | 6.5 (Master’s) | Equival
 
 Tuition Fees (Non-EU students, 2026-2027)
 
+
 ***Bachelor’s***: Approx. €12,300 – €16,400 per year
 ***Master’s***: €18,200 (alpha/gamma programs) – €21,700 (beta/technical programs)
 
-**Important Deadlines**
+**Important Deadlines**   
+
+
 
 Main application deadline for non-EU students (Sept 2026 intake): 1 May 2026
 University of Twente Scholarship (UTS) Rounds: 1 Feb 2026 & 1 May 2026
 
-***Scholarships***
+***Scholarships***   
+
+
 
 University of Twente Scholarship (UTS): €3,000 – €22,000 per year (merit-based, ~50 awarded annually)
-NL Scholarship: €5,000 (one-time for first year)
+NL Scholarship: €5,000 (one-time for first year)   
 
-***Future Enhancements*** (Planned Ideas)
-If we get more time, we plan to implement:
-***High Priority***
 
-Personalized 4-Year Journey Simulator — Quick quiz → custom 4-year roadmap with academics, internships, projects, and career outcomes
-Interactive 3D / Virtual Campus Tour using React Three Fiber
-Live Notices & Events section with dynamic updates
+***Alumni***   
 
-***Medium Priority***
+
+All notable alumni with their photos and field
+Testimonials of alumni   
+
+
+
+***Campus***    
+
+
+map of the campus   
+
+3d tour of the campus   
+
+
+
+***Placements***   
+
+
+Placements stats on 6 bachelor programs
+portal Career prospects based on degree and skills from Twente   
+
+
+***All pages have a unique creative element useful for the user***
+
+
+***Future Enhancements*** (Planned Ideas)   
+
+
+If we get more time, we plan to implement:   
+
+
+***High Priority***  
+
+Connections have to be made to actual files  
+
+Implement actual images(all images in current ones are placeholders)
+
+Personalized 4-Year Journey Simulator — Quick quiz → custom 4-year roadmap with academics, internships, projects, and career outcomes  
+
+
+
+
+***Medium Priority***   
+
+
 
 AI Chatbot for admissions queries
-Full student testimonial carousel and 
-Pdfs in the academic section to be made 
+
+Pdfs in the academic section to be made    
 
 
 
-👥 ***Team***
+👥 ***Team***\
 
-U kruthik - 1st year CSE
-Varun Vaval - 1st Year CSE
-Uttam kumar sinha - 1st year CSE
+
+U kruthik - 1st year CSE  
+
+
+Varun Vaval - 1st Year CSE   
+
+
+Uttam kumar sinha - 1st year CSE   
+
 
 ***Built till now for the Browser Battle Hackathon.***
