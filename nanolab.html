@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>NanoLab Twente | University of Twente</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .editorial-shadow {
+            box-shadow: 0 24px 48px -12px rgba(25, 28, 29, 0.08);
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#ffdbcc",
+                        "primary-fixed": "#d7e3ff",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "on-background": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fa",
+                        "on-tertiary-fixed-variant": "#723615",
+                        "surface-container": "#edeeef",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-primary": "#abc7ff",
+                        "outline": "#747780",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9fa",
+                        "on-secondary-container": "#6b4500",
+                        "tertiary-container": "#511d00",
+                        "surface-container-high": "#e7e8e9",
+                        "outline-variant": "#c4c6d1",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#ffddb4",
+                        "on-secondary-fixed": "#291800",
+                        "secondary": "#835500",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001b3f",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-dim": "#d9dadb",
+                        "primary-container": "#002c5f",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary-container": "#7695ce",
+                        "secondary-fixed-dim": "#ffb955",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#300e00",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#d0815a",
+                        "background": "#f8f9fa",
+                        "primary": "#001839",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#43474f",
+                        "on-primary-fixed-variant": "#25467a",
+                        "primary-fixed-dim": "#abc7ff",
+                        "on-surface": "#191c1d",
+                        "secondary-container": "#feae2c",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-tint": "#3f5e94"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        @media (max-width: 1024px) {
+            .mobile-only {
+                display: block !important;
+            }
+
+            .desktop-only {
+                display: none !important;
+            }
+
+            #mobile-drawer {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 72px);
+                background-color: #002C5F;
+                z-index: 40;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                overflow-y: auto;
+                pointer-events: none;
+            }
+
+            #mobile-drawer.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .drawer-link {
+                display: flex;
+                align-items: center;
+                padding: 1.5rem 2rem;
+                color: white;
+                font-weight: 700;
+                font-size: 1.25rem;
+                border-left: 4px solid transparent;
+                transition: all 0.2s ease;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .drawer-link:hover,
+            .drawer-link.active {
+                border-left-color: #F5A623;
+                color: #F5A623;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            .drawer-icon {
+                color: #C60C30;
+                margin-right: 1rem;
+                font-size: 24px;
+            }
+
+            .drawer-desc {
+                display: block;
+                font-size: 0.75rem;
+                color: #5F6368;
+                font-weight: 400;
+                text-transform: none;
+                letter-spacing: normal;
+                margin-top: 0.25rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-only {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-surface font-body text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+    <!-- TopNavBar -->
+    <header
+        class="sticky top-0 w-full z-50 bg-[#002C5F] dark:bg-[#001839] backdrop-blur-xl bg-opacity-90 shadow-lg shadow-[#001839]/20">
+        <!-- Top Navigation Shell -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-blue-950/80 backdrop-blur-xl shadow-sm">
+        <div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+            <div class="text-xl font-bold text-blue-900 dark:text-white uppercase tracking-wider font-headline cursor-pointer"
+                onclick="showHomepage()">
+                University of Twente
+            </div>
+            <div
+                class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+                <a class="text-blue-900 dark:text-blue-100 border-b-2 border-yellow-500 pb-1 hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#" onclick="showHomepage()">Homepage</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Academics</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Admissions</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Campus</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Placements</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Notable Alumni</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Clubs</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <button
+                    class="px-6 py-3 rounded-[8px] font-headline font-bold tracking-tight hover:translate-y-[-2px] transition-all shadow-md active:scale-95 duration-200 whitespace-nowrap bg-[#002C5F] text-[#F5A623] desktop-only">Apply
+                    Now</button>
+            </div>
+            <button class="mobile-only text-primary dark:text-white p-2 focus:outline-none" id="hamburger-btn">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-only font-headline" id="mobile-drawer">
+        <nav class="flex flex-col py-4">
+            <a class="drawer-link group" href="#" onclick="showHomepage()">
+                <span class="material-symbols-outlined drawer-icon">home</span>
+                <div>
+                    Homepage
+                    <span class="drawer-desc">Back to university main portal</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">school</span>
+                <div>
+                    Academics
+                    <span class="drawer-desc">Faculties and departments</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">login</span>
+                <div>
+                    Admissions
+                    <span class="drawer-desc">Apply for your degree</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">apartment</span>
+                <div>
+                    Campus
+                    <span class="drawer-desc">Student life and facilities</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">work</span>
+                <div>
+                    Placements
+                    <span class="drawer-desc">Career services and industry links</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
+                <div>
+                    Notable Alumni
+                    <span class="drawer-desc">Our global impact makers</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">groups</span>
+                <div>
+                    Clubs
+                    <span class="drawer-desc">Join student organizations</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[819px] flex items-center overflow-hidden bg-primary">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover opacity-60 mix-blend-luminosity"
+                    data-alt="ultra-modern cleanroom laboratory with researchers in white hazmat suits working under bright sterile blue and white lights"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4TnewMxvLFltmwIwFVu-0nIcM1g94gbvK5xhSv4OT0Yf6UUVu75tEqKGTG7u29PlIChmo9X-QGVAoQ9gG-fYCgLEhBxkU-uzgll6-RvEmifI8zMFJssPQKbHpB83SHX6D4cdNndh4ir6RnphYficfK0YUeMI160KY0riFddjk995n1_k2UIL87-xF_PfvMnrCKYWsS0KIVPXox5m7HNQHNJKaIGdM7BvztcvNNm52wrirXib2vecdI2571ycpoHUz8yBMVVDZ7YU" />
+                <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/40 to-transparent"></div>
+            </div>
+            <div class="relative z-10 max-w-screen-2xl mx-auto px-8 w-full">
+                <div class="max-w-3xl">
+                    <span
+                        class="inline-block px-4 py-1.5 mb-6 rounded-full bg-secondary-container text-on-secondary-container text-sm font-semibold tracking-wide uppercase">Research
+                        Excellence</span>
+                    <h1
+                        class="text-6xl md:text-8xl font-headline font-extrabold text-white leading-tight tracking-tighter mb-6">
+                        NanoLab Twente
+                    </h1>
+                    <p class="text-xl md:text-2xl text-white/80 font-medium leading-relaxed max-w-2xl">
+                        World-Class Nanotechnology Research
+                    </p>
+                </div>
+            </div>
+            <div class="absolute bottom-12 right-12 z-10">
+                <div class="flex items-center gap-4 text-white/60">
+                    <span class="h-[1px] w-12 bg-white/40"></span>
+                    <span class="text-sm font-label tracking-widest uppercase">MESA+ Institute for Nanotechnology</span>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section class="py-24 bg-surface">
+            <div class="max-w-screen-2xl mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                    <div class="lg:col-span-5">
+                        <h2 class="text-4xl font-headline font-bold text-primary mb-8 leading-tight">
+                            Pioneering at the <br /><span class="text-secondary">Atomic Scale</span>
+                        </h2>
+                        <div class="space-y-6 text-on-surface-variant leading-relaxed text-lg">
+                            <p>
+                                NanoLab Twente offers a unique ecosystem for high-tech research and development.
+                                Spanning over 1,250 square meters of state-of-the-art infrastructure, our facility
+                                serves as the beating heart of the MESA+ Institute.
+                            </p>
+                            <p>
+                                Designed for precision, the lab provides an environment where researchers can manipulate
+                                matter at the molecular level, enabling breakthroughs in semiconductor technology,
+                                micro-electromechanical systems (MEMS), and quantum computing.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Stats/Quick Info Card -->
+                        <div
+                            class="bg-surface-container-lowest p-8 rounded-xl shadow-lg shadow-on-surface/5 border-l-4 border-secondary">
+                            <h3 class="text-5xl font-headline font-extrabold text-primary mb-2">1,250</h3>
+                            <p class="font-semibold text-primary/60 uppercase tracking-wider text-sm">Square Meters</p>
+                            <p class="mt-4 text-on-surface-variant">Dedicated cleanroom space for high-precision
+                                experimentation and pilot production.</p>
+                        </div>
+                        <div class="bg-primary p-8 rounded-xl shadow-lg shadow-primary/20">
+                            <span class="material-symbols-outlined text-secondary-container text-4xl mb-4">domain</span>
+                            <h3 class="text-2xl font-headline font-bold text-white mb-2">Carré Building</h3>
+                            <p class="text-white/70">Located at the core of the UT campus, fostering cross-disciplinary
+                                collaboration.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Features Grid -->
+        <section class="py-24 bg-surface-container-low">
+            <div class="max-w-screen-2xl mx-auto px-8">
+                <div class="mb-16">
+                    <h2 class="text-3xl font-headline font-bold text-primary mb-4">Technical Infrastructure</h2>
+                    <div class="h-1 w-20 bg-secondary"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+                    <!-- Feature 1 -->
+                    <div
+                        class="group bg-surface-container-lowest p-10 transition-all duration-300 hover:z-10 hover:shadow-2xl">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-6"
+                            style="font-variation-settings: 'FILL' 1;">clean_hands</span>
+                        <h4 class="text-xl font-bold text-primary mb-4">ISO Class 4-7 Cleanrooms</h4>
+                        <p class="text-on-surface-variant leading-relaxed">Highly controlled environments with extreme
+                            filtration to eliminate airborne particles, essential for micro-fabrication.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div
+                        class="group bg-surface-container-lowest p-10 transition-all duration-300 hover:z-10 hover:shadow-2xl">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-6"
+                            style="font-variation-settings: 'FILL' 1;">biotech</span>
+                        <h4 class="text-xl font-bold text-primary mb-4">Electron Microscopes</h4>
+                        <p class="text-on-surface-variant leading-relaxed">Advanced SEM and TEM systems providing
+                            sub-nanometer resolution for material characterization and analysis.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div
+                        class="group bg-surface-container-lowest p-10 transition-all duration-300 hover:z-10 hover:shadow-2xl">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-6"
+                            style="font-variation-settings: 'FILL' 1;">layers</span>
+                        <h4 class="text-xl font-bold text-primary mb-4">Lithography Systems</h4>
+                        <p class="text-on-surface-variant leading-relaxed">State-of-the-art E-beam and optical
+                            lithography for patterning circuit designs at the smallest possible scales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Research Areas - Asymmetric Layout -->
+        <section class="py-24 bg-surface overflow-hidden">
+            <div class="max-w-screen-2xl mx-auto px-8">
+                <div class="flex flex-col md:flex-row gap-16">
+                    <div class="w-full md:w-1/3">
+                        <div class="sticky top-32">
+                            <h2 class="text-4xl font-headline font-bold text-primary mb-6">Core Research Domains</h2>
+                            <p class="text-on-surface-variant text-lg">We bridge the gap between fundamental science and
+                                industrial application across three primary pillars.</p>
+                            <a class="inline-flex items-center gap-2 mt-8 text-primary font-bold group" href="#">
+                                View all publications
+                                <span
+                                    class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-2/3 space-y-12">
+                        <!-- Area 1 -->
+                        <div
+                            class="flex flex-col md:flex-row gap-8 items-center bg-surface-container-low rounded-xl overflow-hidden group">
+                            <div class="w-full md:w-1/2 h-64 overflow-hidden">
+                                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                    data-alt="shimmering blue and purple silicon wafer with intricate microcircuitry designs reflecting light"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnCFnH-w33csDawhQddiQif48XSOymYpO7FVus51NxmJR_rAscUGx8V4iFpuHdWxTuRTncorbM5La59KtOuDqkIeTn91ZOBD8h-RAx-gMnpUZ_q8iIEaIKokstgqD9vB06QO2qIj9NaARg3yZhbhexASNNz63Y3cBxr6PaB1V0EfK8-nwBCG2Z2vAkkfCXjU-eXGDvW6XK6JZFaEJO7DwEhbsa8CAm2hh07KEirN89pD3_6wiu53MMYyTZs2I-W-DsT8VoYKK5p5M" />
+                            </div>
+                            <div class="w-full md:w-1/2 p-8 pr-12">
+                                <h3 class="text-2xl font-bold text-primary mb-3">Nanotechnology</h3>
+                                <p class="text-on-surface-variant">Exploring the fundamental properties of matter at the
+                                    nanoscale to create materials with novel functions.</p>
+                            </div>
+                        </div>
+                        <!-- Area 2 -->
+                        <div
+                            class="flex flex-col md:flex-row-reverse gap-8 items-center bg-surface-container-low rounded-xl overflow-hidden group">
+                            <div class="w-full md:w-1/2 h-64 overflow-hidden">
+                                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                    data-alt="optical fibers glowing with bright pulses of light in a dark laboratory setting"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0GBYC4sMeAWMzFkc12xux2-yXyk_ioo1Xq_x__SAuXLYPRT6aN-NiU-PIVsdeGqlfxQG0Yn2tN87hH2rACe-ftsvFr2qWzJLLVYy1z1QaANbzKF0im2QhOVBzUqP0C56VX4PpyMKg02e55kAn5sphE5AyFHxsPqVw_ZL0I0gadteg3WP77uNh5NPfGIcbwlRWhv31RojYu81_JwwJkwVLyq27CDAIJoM8bS6wwsvdB0lyMmNQbmjGBt922bC158AWkw3y63CgfKo" />
+                            </div>
+                            <div class="w-full md:w-1/2 p-8 pl-12">
+                                <h3 class="text-2xl font-bold text-primary mb-3">Photonics</h3>
+                                <p class="text-on-surface-variant">Harnessing the power of light for ultra-fast
+                                    communication and high-precision sensing technologies.</p>
+                            </div>
+                        </div>
+                        <!-- Area 3 -->
+                        <div
+                            class="flex flex-col md:flex-row gap-8 items-center bg-surface-container-low rounded-xl overflow-hidden group">
+                            <div class="w-full md:w-1/2 h-64 overflow-hidden">
+                                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                    data-alt="abstract microscopic view of biological cells and neural structures in glowing fluorescent colors"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Ft3f0xs1yjXsc7NmlOnbWj4XqbAPIEnpcOZY5lAqJWC5-dC4RvDcR6YlaqEHckfSodv7_gWUOT3IrDs3dZBJvt6NVzBkYaNn4vvA0im52NZ0BWMPJEiHXS5vqVST9dUuvRWJcIbYGrNDh3vve3tTcG5VZxSneSfe-E37A5vLrilWg9CD0ugRbFrBwmt0IDCTtlMO05kOQWf8JIznWehVZsmtoiBKKdNqZtXrVyYdtFp0PDcyC1zOmzi5I-AXMhrE82-FxgnBToo" />
+                            </div>
+                            <div class="w-full md:w-1/2 p-8 pr-12">
+                                <h3 class="text-2xl font-bold text-primary mb-3">Biomedical</h3>
+                                <p class="text-on-surface-variant">Developing lab-on-a-chip devices and advanced drug
+                                    delivery systems for personalized healthcare.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="py-24 bg-primary relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-0 left-0 w-96 h-96 bg-secondary rounded-full blur-[120px]"></div>
+                <div class="absolute bottom-0 right-0 w-96 h-96 bg-on-primary-container rounded-full blur-[120px]">
+                </div>
+            </div>
+            <div class="max-w-screen-xl mx-auto px-8 text-center relative z-10">
+                <h2 class="text-4xl md:text-5xl font-headline font-extrabold text-white mb-8 tracking-tight">Ready to
+                    Explore the Campus?</h2>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <button
+                        class="px-10 py-4 bg-secondary-container text-on-secondary-container rounded-lg font-bold text-lg hover:-translate-y-1 transition-all shadow-xl shadow-black/20">
+                        Back to Campus Page
+                    </button>
+                    <button
+                        class="px-10 py-4 bg-white/10 text-white rounded-lg font-bold text-lg hover:bg-white/20 transition-all backdrop-blur-md">
+                        Contact Lab Management
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Location Section -->
+        <section class="py-24 bg-surface-container-lowest">
+            <div class="max-w-screen-2xl mx-auto px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div
+                            class="flex items-center gap-3 text-secondary font-bold uppercase tracking-widest text-sm mb-4">
+                            <span class="material-symbols-outlined">location_on</span>
+                            Facility Location
+                        </div>
+                        <h2 class="text-3xl font-headline font-bold text-primary mb-6">Carré Building, UT Campus</h2>
+                        <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                            Hallenweg 23, 7522 NH Enschede, The Netherlands. <br />
+                            Visit us to see science in action. Guided tours for academic and industry partners are
+                            available upon request.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 text-on-surface">
+                                <span
+                                    class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">directions_bus</span>
+                                </span>
+                                <span>Nearest stop: UT/Hallenweg</span>
+                            </div>
+                            <div class="flex items-center gap-4 text-on-surface">
+                                <span
+                                    class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">local_parking</span>
+                                </span>
+                                <span>Visitor parking: P2 or P3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="h-[400px] rounded-2xl overflow-hidden shadow-2xl relative grayscale hover:grayscale-0 transition-all duration-700">
+                        <img class="w-full h-full object-cover"
+                            data-alt="overhead map view of a modern university campus with structured buildings and green spaces"
+                            data-location="Enschede"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL4LqJa1gsNyww8uEfc1KUyMFjeFyoElyWkYITz5Z2vGyuZgzqGjngHwZuHPtGTZ-U7mCgwDMvBQ-D9ClFfPLduN47zMVgqLhD0cgKCFA2ynOUQNPkJP3-Z4XooON_h7E7TJYp4iXFgi1KO3qsJzrc3DurIXiDrhx0hUDi2AWSAAbKodgHVSFVCJyrNZERDTjHuFv49vGdN8KZ5aKHNQ0YBBDKCGs1kh1JUY7U91v128wwymuefcZsn5x7R7vD7A90pTMeJJcfH3o" />
+                        <div class="absolute inset-0 border-[16px] border-white/20 pointer-events-none"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full pt-16 pb-8 bg-blue-950 dark:bg-slate-950 tonal-transition-top">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-7xl mx-auto">
+            <div>
+                <div class="text-2xl font-black text-white mb-4">UT</div>
+                <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-blue-100/80 mb-6">
+                    A research university where technology and social sciences go hand in hand. High Tech, Human Touch.
+                </p>
+                <div class="flex space-x-4">
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">public</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">alternate_email</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">share</span></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">UT
+                    Branding</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Brand Identity</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Style Guides</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Press Materials</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Merchandise</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">Quick
+                    Links</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Canvas</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Osiris Student</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Library Services</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Employee Portal</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">
+                    Contact Details</h4>
+                <div class="font-['Plus_Jakarta_Sans'] text-sm text-blue-100/80 space-y-4">
+                    <p>Drienerlolaan 5<br />7522 NB Enschede<br />The Netherlands</p>
+                    <p>T: +31 (0)53 489 9111<br />E: info@utwente.nl</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 pt-8 border-t border-white/5 text-center">
+            <p class="font-['Plus_Jakarta_Sans'] text-xs text-blue-100/40">© 2024 University of Twente. The Digital
+                Polymath Excellence.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            if(pageId === 'main-homepage') { window.location.href = 'index.html'; }
+        }
+        function showHomepage() { window.location.href = 'index.html'; }
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        if (hamburgerBtn && mobileDrawer) {
+            hamburgerBtn.addEventListener('click', () => {
+                mobileDrawer.classList.toggle('active');
+            });
+        }
+    </script>
+
+</body>
+
+</html>

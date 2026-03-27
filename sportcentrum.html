@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sportcentrum UT | University of Twente</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#ffdbcc",
+                        "primary-fixed": "#d7e3ff",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "on-background": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fa",
+                        "on-tertiary-fixed-variant": "#723615",
+                        "surface-container": "#edeeef",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-primary": "#abc7ff",
+                        "outline": "#747780",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9fa",
+                        "on-secondary-container": "#6b4500",
+                        "tertiary-container": "#511d00",
+                        "surface-container-high": "#e7e8e9",
+                        "outline-variant": "#c4c6d1",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#ffddb4",
+                        "on-secondary-fixed": "#291800",
+                        "secondary": "#835500",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001b3f",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-dim": "#d9dadb",
+                        "primary-container": "#002c5f",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary-container": "#7695ce",
+                        "secondary-fixed-dim": "#ffb955",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#300e00",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#d0815a",
+                        "background": "#f8f9fa",
+                        "primary": "#001839",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#43474f",
+                        "on-primary-fixed-variant": "#25467a",
+                        "primary-fixed-dim": "#abc7ff",
+                        "on-surface": "#191c1d",
+                        "secondary-container": "#feae2c",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-tint": "#3f5e94"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+
+    <style>
+        @media (max-width: 1024px) {
+            .mobile-only {
+                display: block !important;
+            }
+
+            .desktop-only {
+                display: none !important;
+            }
+
+            #mobile-drawer {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 72px);
+                background-color: #002C5F;
+                z-index: 40;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                overflow-y: auto;
+                pointer-events: none;
+            }
+
+            #mobile-drawer.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .drawer-link {
+                display: flex;
+                align-items: center;
+                padding: 1.5rem 2rem;
+                color: white;
+                font-weight: 700;
+                font-size: 1.25rem;
+                border-left: 4px solid transparent;
+                transition: all 0.2s ease;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .drawer-link:hover,
+            .drawer-link.active {
+                border-left-color: #F5A623;
+                color: #F5A623;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            .drawer-icon {
+                color: #C60C30;
+                margin-right: 1rem;
+                font-size: 24px;
+            }
+
+            .drawer-desc {
+                display: block;
+                font-size: 0.75rem;
+                color: #5F6368;
+                font-weight: 400;
+                text-transform: none;
+                letter-spacing: normal;
+                margin-top: 0.25rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-only {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface selection:bg-secondary-container/30">
+    <!-- TopNavBar -->
+    <header
+        class="sticky top-0 w-full z-50 bg-[#002C5F] dark:bg-[#001839] backdrop-blur-xl bg-opacity-90 shadow-lg shadow-[#001839]/20">
+        <!-- Top Navigation Shell -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-blue-950/80 backdrop-blur-xl shadow-sm">
+        <div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+            <div class="text-xl font-bold text-blue-900 dark:text-white uppercase tracking-wider font-headline cursor-pointer"
+                onclick="showHomepage()">
+                University of Twente
+            </div>
+            <div
+                class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+                <a class="text-blue-900 dark:text-blue-100 border-b-2 border-yellow-500 pb-1 hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#" onclick="showHomepage()">Homepage</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Academics</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Admissions</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Campus</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Placements</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Notable Alumni</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Clubs</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <button
+                    class="px-6 py-3 rounded-[8px] font-headline font-bold tracking-tight hover:translate-y-[-2px] transition-all shadow-md active:scale-95 duration-200 whitespace-nowrap bg-[#002C5F] text-[#F5A623] desktop-only">Apply
+                    Now</button>
+            </div>
+            <button class="mobile-only text-primary dark:text-white p-2 focus:outline-none" id="hamburger-btn">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-only font-headline" id="mobile-drawer">
+        <nav class="flex flex-col py-4">
+            <a class="drawer-link group" href="#" onclick="showHomepage()">
+                <span class="material-symbols-outlined drawer-icon">home</span>
+                <div>
+                    Homepage
+                    <span class="drawer-desc">Back to university main portal</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">school</span>
+                <div>
+                    Academics
+                    <span class="drawer-desc">Faculties and departments</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">login</span>
+                <div>
+                    Admissions
+                    <span class="drawer-desc">Apply for your degree</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">apartment</span>
+                <div>
+                    Campus
+                    <span class="drawer-desc">Student life and facilities</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">work</span>
+                <div>
+                    Placements
+                    <span class="drawer-desc">Career services and industry links</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
+                <div>
+                    Notable Alumni
+                    <span class="drawer-desc">Our global impact makers</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">groups</span>
+                <div>
+                    Clubs
+                    <span class="drawer-desc">Join student organizations</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[819px] w-full flex items-center overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent z-10"></div>
+            <img alt="Sportcentrum UT" class="absolute inset-0 w-full h-full object-cover"
+                data-alt="Modern high-tech sports facility interior with athletic track and large windows allowing natural light during sunset"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXGJPVfIpMI8e8FS_cWzT5wHtcVSU0OgSxUO-L87-KO_MkZ6lwYXfvO9MtxMmZKY0itkc6FlWsNITnmgXYZVITBWWeRPoWrUn4I_jk7vLXb1yHmwFpwJA-HJrmQ9SVG8S-WKQlgRcQ7N5U-r-lT8dVwiPOA8IKjzn8d0HIpA2G1m4tmAaQq7J-fuS22Wey4rWmuwo2F8D-eNTJdZiI-FGAjQQ-tBBvxtbkP3c4CbB8oTx-_Drw5VMduOxYF16yE8LKrutOiuNWt68" />
+            <div class="relative z-20 max-w-screen-2xl mx-auto px-8 w-full">
+                <div class="max-w-3xl">
+                    <span
+                        class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase mb-6">Facility
+                        Detail</span>
+                    <h1 class="text-6xl md:text-8xl font-extrabold text-white tracking-tighter mb-4 leading-[0.9]">
+                        Sportcentrum <span class="text-secondary-container">UT</span>
+                    </h1>
+                    <p class="text-2xl md:text-3xl text-white/80 font-headline font-light tracking-tight mb-12">
+                        Train. Compete. Thrive.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button
+                            class="px-8 py-4 bg-secondary-container text-on-secondary-container font-bold rounded-xl flex items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-secondary-container/20 active:scale-95">
+                            Book a Court
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                        <button
+                            class="px-8 py-4 bg-white/10 glass-effect border border-white/20 text-white font-bold rounded-xl transition-all duration-300 hover:bg-white/20">
+                            Download Schedule
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Info Bar -->
+        <section class="bg-surface-container-lowest border-y border-outline-variant/10">
+            <div class="max-w-screen-2xl mx-auto px-8 py-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                    <div class="flex items-center gap-6">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-primary-container/10 flex items-center justify-center text-primary-container">
+                            <span class="material-symbols-outlined text-3xl">schedule</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-outline uppercase tracking-wider mb-1">Opening Hours</p>
+                            <p class="text-on-surface font-medium">Mon-Fri: 7am - 11pm</p>
+                            <p class="text-on-surface font-medium">Sat-Sun: 9am - 9pm</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-primary-container/10 flex items-center justify-center text-primary-container">
+                            <span class="material-symbols-outlined text-3xl" data-icon="location_on">location_on</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-outline uppercase tracking-wider mb-1">Location</p>
+                            <p class="text-on-surface font-medium">Sports Centre, Campus North</p>
+                            <p class="text-secondary font-semibold hover:underline cursor-pointer">View on Campus Map
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-primary-container/10 flex items-center justify-center text-primary-container">
+                            <span class="material-symbols-outlined text-3xl">sports_handball</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-outline uppercase tracking-wider mb-1">Capacity</p>
+                            <p class="text-on-surface font-medium">40+ Sports disciplines</p>
+                            <p class="text-on-surface font-medium">800+ Daily Visitors</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About & Features Section -->
+        <section class="py-24 bg-surface">
+            <div class="max-w-screen-2xl mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                    <!-- Left: About Content -->
+                    <div class="lg:col-span-5">
+                        <h2 class="text-4xl font-bold tracking-tight text-primary mb-8 leading-tight">Elite Training
+                            Ground for the Digital Polymath</h2>
+                        <div class="space-y-6 text-on-surface-variant leading-relaxed text-lg">
+                            <p>
+                                At the University of Twente, we believe physical excellence is the perfect partner to
+                                academic rigor. The Sportcentrum UT is a state-of-the-art hub designed to cater to
+                                everyone—from recreational hobbyists to elite student-athletes.
+                            </p>
+                            <p>
+                                With facilities for over 40 sports, including specialized equipment for swimming and a
+                                world-class indoor climbing wall, we provide the infrastructure needed to push your
+                                limits.
+                            </p>
+                        </div>
+                        <div
+                            class="mt-12 p-8 bg-surface-container-low rounded-3xl border-l-4 border-secondary-container">
+                            <p class="font-headline italic text-primary font-medium text-xl">
+                                "High tech meets high performance. The facilities here are among the best in the
+                                Netherlands."
+                            </p>
+                            <p class="mt-4 font-bold text-sm text-outline">— Director of Campus Sports</p>
+                        </div>
+                    </div>
+                    <!-- Right: Features Bento Grid -->
+                    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Pool -->
+                        <div
+                            class="group relative overflow-hidden rounded-3xl bg-surface-container-lowest shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                            <div class="aspect-square md:aspect-auto md:h-64 overflow-hidden">
+                                <img alt="Pool"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    data-alt="Crystal clear 25-meter indoor swimming pool with blue lane markers and bright overhead lighting"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0Tmtm1dAJyI8Z5d-saPKt5HPr8vlXiuDFZP5K7cQcQoYoTtrMz8wPXIvbEqQYfw0B3bG7WKS2cNmi4LH11y8fVbsP04HrYscXaLCsu-s3FS_ns4z6aAI6ZGHrdwuy_1-MxAqZu3yCeM3d99dlhGdBqjtubFPVwh0AXXKwlGMTMFpaGh_jsG3RZtaRwE6_ylX8jK9_6fRTDbB08RGX5p8-26_SVbveZlkmv-UXFAjH8CqsZpvbY4IMHO34ovWx2itH2eZohVEq72c" />
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold text-primary">25m Pool</h3>
+                                    <span class="material-symbols-outlined text-secondary-container"
+                                        data-icon="pool">pool</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant">Temperature controlled lanes for training and
+                                    leisure.</p>
+                            </div>
+                        </div>
+                        <!-- Climbing Wall -->
+                        <div
+                            class="group relative overflow-hidden rounded-3xl bg-surface-container-lowest shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                            <div class="aspect-square md:aspect-auto md:h-64 overflow-hidden">
+                                <img alt="Climbing"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    data-alt="Colorful indoor climbing wall with various holds and ropes, featuring a climber in mid-ascent"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT0g3tdJiZJ1W2OH0gA0bTFeegiSIZ-Mz4TxcOCHq13D6W36fccLtNRESmNlfJGiOGP3GKFf4hgdvnOd3LDBejDffMVK_nyG2RtEji-evgGa442qPGgMEJhIU304h0FNeaVbemv1RNHly-Rtmq76OP81Yh9u8ZhNgJCEY_vs_Yo7PfP4li5ygjEX2nCQ9_t0IRzSCpJez7sITbtat_sMIc3Kx7FjARLsq8Eb8dG4tXGQRNnAU70jd7a2Pp7OUCnRlou5gM5dxceew" />
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold text-primary">Climbing Wall</h3>
+                                    <span class="material-symbols-outlined text-secondary-container">elevation</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant">12-meter tall wall with routes for all skill
+                                    levels.</p>
+                            </div>
+                        </div>
+                        <!-- Fitness -->
+                        <div
+                            class="group relative overflow-hidden rounded-3xl bg-surface-container-lowest shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                            <div class="aspect-square md:aspect-auto md:h-64 overflow-hidden">
+                                <img alt="Fitness"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    data-alt="Spacious modern gym with rows of cardio machines and a dedicated free-weights area"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXIDnX2XMchn75zQ9dNfZD_SXGijtxCSjhznR9ZJ9oQWmXf2L26Hpc2tGfuRqiJZegYCh9r98F1h9eNqPUQxFAouv6e21SipccGklkOWTdQ6aysSzKyQrASgXdv3lJbBADOUWus1QYhaTSqOF-06tQ_O3l0YLkHcW5vW5-s9cWEUYv7b4KRUkAspb2Uo33Jnv0xS8XTWMSxQwTwjz5MuT8IwiKiVHduzEBwXEnD7nE3qPYG-NiJr_lGbMp8EzXF4yEw6r141GHlGU" />
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold text-primary">Fitness Centre</h3>
+                                    <span
+                                        class="material-symbols-outlined text-secondary-container">fitness_center</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant">Professional grade equipment and dedicated
+                                    trainers.</p>
+                            </div>
+                        </div>
+                        <!-- Tennis -->
+                        <div
+                            class="group relative overflow-hidden rounded-3xl bg-surface-container-lowest shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                            <div class="aspect-square md:aspect-auto md:h-64 overflow-hidden">
+                                <img alt="Tennis"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    data-alt="Outdoor green tennis courts with clean white lines under a clear blue sky"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv1h2cO1QVhrjWczQsmF2jRDXDDUGsknmMzMjQQf83jqvmlxH4CPg4HYNmBpteWUSfiJ-2CcmEFznUdxzNRKKk4_2PGHbxMPWrPJQl208O9Aw3-neqy77B67lxx0o73XVCkHtXDnt19C6mDiV82yLAzOt-qR5cD0P1QzZNLc4eimBiEnf4zZ-Bjr0fSVzgrm17si9qx9ocw37_ZdnZJz6rLjtSJEzO-s18Xw4lVWB2Jv-Wtf3rVrmeyxQW0jcCC_UybNommuX6GT8" />
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold text-primary">Tennis Courts</h3>
+                                    <span
+                                        class="material-symbols-outlined text-secondary-container">sports_tennis</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant">8 all-weather courts available for booking
+                                    year-round.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="py-20 bg-primary overflow-hidden relative">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-secondary-container rounded-full blur-[120px]"></div>
+                <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary-container rounded-full blur-[120px]"></div>
+            </div>
+            <div class="max-w-screen-2xl mx-auto px-8 relative z-10 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Explore the rest of our campus</h2>
+                <p class="text-white/60 text-lg max-w-2xl mx-auto mb-12">The Sportcentrum is just one part of the
+                    vibrant UT ecosystem. Discover our labs, libraries, and student hubs.</p>
+                <a class="inline-flex items-center gap-3 px-10 py-5 border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-primary transition-all duration-300"
+                    href="#">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    Back to Campus Page
+                </a>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full pt-16 pb-8 bg-blue-950 dark:bg-slate-950 tonal-transition-top">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-7xl mx-auto">
+            <div>
+                <div class="text-2xl font-black text-white mb-4">UT</div>
+                <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-blue-100/80 mb-6">
+                    A research university where technology and social sciences go hand in hand. High Tech, Human Touch.
+                </p>
+                <div class="flex space-x-4">
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">public</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">alternate_email</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">share</span></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">UT
+                    Branding</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Brand Identity</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Style Guides</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Press Materials</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Merchandise</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">Quick
+                    Links</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Canvas</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Osiris Student</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Library Services</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Employee Portal</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">
+                    Contact Details</h4>
+                <div class="font-['Plus_Jakarta_Sans'] text-sm text-blue-100/80 space-y-4">
+                    <p>Drienerlolaan 5<br />7522 NB Enschede<br />The Netherlands</p>
+                    <p>T: +31 (0)53 489 9111<br />E: info@utwente.nl</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 pt-8 border-t border-white/5 text-center">
+            <p class="font-['Plus_Jakarta_Sans'] text-xs text-blue-100/40">© 2024 University of Twente. The Digital
+                Polymath Excellence.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            if(pageId === 'main-homepage') { window.location.href = 'index.html'; }
+        }
+        function showHomepage() { window.location.href = 'index.html'; }
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        if (hamburgerBtn && mobileDrawer) {
+            hamburgerBtn.addEventListener('click', () => {
+                mobileDrawer.classList.toggle('active');
+            });
+        }
+    </script>
+
+</body>
+
+</html>

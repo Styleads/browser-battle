@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The Waaier Canteen | University of Twente</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#ffdbcc",
+                        "primary-fixed": "#d7e3ff",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "on-background": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fa",
+                        "on-tertiary-fixed-variant": "#723615",
+                        "surface-container": "#edeeef",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-primary": "#abc7ff",
+                        "outline": "#747780",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9fa",
+                        "on-secondary-container": "#6b4500",
+                        "tertiary-container": "#511d00",
+                        "surface-container-high": "#e7e8e9",
+                        "outline-variant": "#c4c6d1",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#ffddb4",
+                        "on-secondary-fixed": "#291800",
+                        "secondary": "#835500",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001b3f",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-dim": "#d9dadb",
+                        "primary-container": "#002c5f",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#300e00",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#d0815a",
+                        "background": "#f8f9fa",
+                        "primary": "#001839",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#43474f",
+                        "on-primary-fixed-variant": "#25467a",
+                        "primary-fixed-dim": "#abc7ff",
+                        "on-surface": "#191c1d",
+                        "secondary-container": "#feae2c",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-tint": "#3f5e94"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0, 24, 57, 0.85) 0%, rgba(0, 44, 95, 0.6) 100%);
+        }
+    </style>
+
+    <style>
+        @media (max-width: 1024px) {
+            .mobile-only {
+                display: block !important;
+            }
+
+            .desktop-only {
+                display: none !important;
+            }
+
+            #mobile-drawer {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 72px);
+                background-color: #002C5F;
+                z-index: 40;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                overflow-y: auto;
+                pointer-events: none;
+            }
+
+            #mobile-drawer.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .drawer-link {
+                display: flex;
+                align-items: center;
+                padding: 1.5rem 2rem;
+                color: white;
+                font-weight: 700;
+                font-size: 1.25rem;
+                border-left: 4px solid transparent;
+                transition: all 0.2s ease;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .drawer-link:hover,
+            .drawer-link.active {
+                border-left-color: #F5A623;
+                color: #F5A623;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            .drawer-icon {
+                color: #C60C30;
+                margin-right: 1rem;
+                font-size: 24px;
+            }
+
+            .drawer-desc {
+                display: block;
+                font-size: 0.75rem;
+                color: #5F6368;
+                font-weight: 400;
+                text-transform: none;
+                letter-spacing: normal;
+                margin-top: 0.25rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-only {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+    <!-- TopNavBar Component -->
+    <!-- Top Navigation Shell -->
+    <!-- Top Navigation Shell -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-blue-950/80 backdrop-blur-xl shadow-sm">
+        <div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+            <div class="text-xl font-bold text-blue-900 dark:text-white uppercase tracking-wider font-headline cursor-pointer"
+                onclick="showHomepage()">
+                University of Twente
+            </div>
+            <div
+                class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+                <a class="text-blue-900 dark:text-blue-100 border-b-2 border-yellow-500 pb-1 hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#" onclick="showHomepage()">Homepage</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Academics</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Admissions</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Campus</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Placements</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Notable Alumni</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Clubs</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <button
+                    class="px-6 py-3 rounded-[8px] font-headline font-bold tracking-tight hover:translate-y-[-2px] transition-all shadow-md active:scale-95 duration-200 whitespace-nowrap bg-[#002C5F] text-[#F5A623] desktop-only">Apply
+                    Now</button>
+            </div>
+            <button class="mobile-only text-primary dark:text-white p-2 focus:outline-none" id="hamburger-btn">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-only font-headline" id="mobile-drawer">
+        <nav class="flex flex-col py-4">
+            <a class="drawer-link group" href="#" onclick="showHomepage()">
+                <span class="material-symbols-outlined drawer-icon">home</span>
+                <div>
+                    Homepage
+                    <span class="drawer-desc">Back to university main portal</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">school</span>
+                <div>
+                    Academics
+                    <span class="drawer-desc">Faculties and departments</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">login</span>
+                <div>
+                    Admissions
+                    <span class="drawer-desc">Apply for your degree</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">apartment</span>
+                <div>
+                    Campus
+                    <span class="drawer-desc">Student life and facilities</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">work</span>
+                <div>
+                    Placements
+                    <span class="drawer-desc">Career services and industry links</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
+                <div>
+                    Notable Alumni
+                    <span class="drawer-desc">Our global impact makers</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">groups</span>
+                <div>
+                    Clubs
+                    <span class="drawer-desc">Join student organizations</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <div class="mobile-only font-headline" id="mobile-drawer">
+        <nav class="flex flex-col py-4">
+            <a class="drawer-link group" href="#" onclick="showHomepage()">
+                <span class="material-symbols-outlined drawer-icon">home</span>
+                <div>
+                    Homepage
+                    <span class="drawer-desc">Back to university main portal</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">school</span>
+                <div>
+                    Academics
+                    <span class="drawer-desc">Faculties and departments</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">login</span>
+                <div>
+                    Admissions
+                    <span class="drawer-desc">Apply for your degree</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">apartment</span>
+                <div>
+                    Campus
+                    <span class="drawer-desc">Student life and facilities</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">work</span>
+                <div>
+                    Placements
+                    <span class="drawer-desc">Career services and industry links</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
+                <div>
+                    Notable Alumni
+                    <span class="drawer-desc">Our global impact makers</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">groups</span>
+                <div>
+                    Clubs
+                    <span class="drawer-desc">Join student organizations</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[716px] w-full overflow-hidden">
+            <div class="absolute inset-0 bg-primary">
+                <img alt="The Waaier Canteen Interior" class="w-full h-full object-cover mix-blend-overlay opacity-60"
+                    data-alt="Modern spacious university canteen with floor to ceiling windows, sleek wooden tables, and contemporary lighting during a bright afternoon"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhLrI5oxWxKenEyrUQ49GkfzPhySMAdA3NRJOykr3ClQvD7QFSH05Ii5qSSqP864kdB0kG1kxWBNFoNr-Wm3G6Se2xExNSe09InFBdfnVh12es7n3RKG6ofHFoF_iVb3dLQa53BosQ6MGh1vDhNvRgmoOjJAbbLdddGa-XZzAQyj01O0dBh-jTwsgtO6DHBRtxbphkjz22Yk9FQUC5w12jDbYAE2OPpjq7Vi90wK46g4ruFBa5wV8GZkrfj_JG1mCef_rU-w_MU0c" />
+            </div>
+            <div class="absolute inset-0 hero-gradient"></div>
+            <div class="relative h-full max-w-screen-2xl mx-auto px-8 flex flex-col justify-center">
+                <div class="max-w-3xl">
+                    <span
+                        class="inline-block px-4 py-1.5 bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase rounded-full mb-6">FACILITY
+                        DETAIL</span>
+                    <h1
+                        class="text-6xl md:text-8xl font-headline font-extrabold text-white tracking-tighter mb-6 leading-none">
+                        The Waaier Canteen</h1>
+                    <p class="text-xl md:text-2xl text-on-primary-container font-light max-w-2xl leading-relaxed">Where
+                        Campus Life Comes Together</p>
+                </div>
+            </div>
+        </section>
+        <!-- Main Content Grid -->
+        <section class="max-w-screen-2xl mx-auto px-8 py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                <!-- Left Column: About & Features -->
+                <div class="lg:col-span-8 space-y-20">
+                    <div>
+                        <h2 class="text-4xl font-headline font-bold text-primary mb-8 tracking-tight">About the Venue
+                        </h2>
+                        <div class="prose prose-lg text-on-surface-variant leading-relaxed max-w-none">
+                            <p class="mb-4">Located at the heart of the University of Twente campus, The Waaier Canteen
+                                serves as a dynamic hub for students, researchers, and faculty alike. Our modern dining
+                                hall isn't just a place to eat—it's a space designed for collaboration, relaxation, and
+                                high-quality nourishment.</p>
+                            <p>We pride ourselves on offering an <strong>international organic cuisine</strong> that
+                                celebrates global flavors while respecting local sustainability. Every dish is crafted
+                                with precision to provide the energy needed for a rigorous academic day.</p>
+                        </div>
+                    </div>
+                    <!-- Features Bento Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div
+                            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-secondary-container">
+                            <span
+                                class="material-symbols-outlined text-secondary-container text-4xl mb-4">restaurant_menu</span>
+                            <h3 class="text-xl font-headline font-bold text-primary mb-2">Hot Meals</h3>
+                            <p class="text-on-surface-variant">Daily changing menu featuring seasonal ingredients and
+                                chef-inspired international recipes.</p>
+                        </div>
+                        <div
+                            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-secondary-container">
+                            <span
+                                class="material-symbols-outlined text-secondary-container text-4xl mb-4">potted_plant</span>
+                            <h3 class="text-xl font-headline font-bold text-primary mb-2">Vegan Options</h3>
+                            <p class="text-on-surface-variant">A wide array of plant-based delights that never
+                                compromise on taste or nutritional value.</p>
+                        </div>
+                        <div
+                            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-secondary-container">
+                            <span class="material-symbols-outlined text-secondary-container text-4xl mb-4">coffee</span>
+                            <h3 class="text-xl font-headline font-bold text-primary mb-2">Barista Coffee</h3>
+                            <p class="text-on-surface-variant">Premium fair-trade beans expertly prepared by our trained
+                                baristas for the perfect study break.</p>
+                        </div>
+                        <div
+                            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-secondary-container">
+                            <span class="material-symbols-outlined text-secondary-container text-4xl mb-4">deck</span>
+                            <h3 class="text-xl font-headline font-bold text-primary mb-2">Outdoor Terrace</h3>
+                            <p class="text-on-surface-variant">Enjoy your meal al fresco with stunning views of the lush
+                                green campus landscapes.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column: Info Sidebar -->
+                <div class="lg:col-span-4 space-y-8 sticky top-32">
+                    <!-- Opening Hours Card -->
+                    <div class="bg-primary text-white p-8 rounded-xl shadow-2xl overflow-hidden relative">
+                        <div class="absolute -right-8 -top-8 w-32 h-32 bg-secondary-container/10 rounded-full blur-3xl">
+                        </div>
+                        <h3 class="text-2xl font-headline font-bold mb-8 flex items-center gap-3">
+                            <span class="material-symbols-outlined">schedule</span>
+                            Opening Hours
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex justify-between items-center pb-4 border-b border-white/10">
+                                <span class="text-on-primary-container">Mon - Fri</span>
+                                <span class="font-bold">7:30am - 7:00pm</span>
+                            </li>
+                            <li class="flex justify-between items-center">
+                                <span class="text-on-primary-container">Saturday</span>
+                                <span class="font-bold">10:00am - 4:00pm</span>
+                            </li>
+                            <li class="flex justify-between items-center pt-4 opacity-50">
+                                <span class="text-on-primary-container">Sunday</span>
+                                <span class="font-bold italic">Closed</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Location Card -->
+                    <div class="bg-surface-container-low p-8 rounded-xl">
+                        <h3 class="text-xl font-headline font-bold text-primary mb-6 flex items-center gap-3">
+                            <span class="material-symbols-outlined">location_on</span>
+                            Location
+                        </h3>
+                        <p class="text-on-surface-variant mb-6">Waaier Building, Central Campus Square.<br />Enschede,
+                            The Netherlands</p>
+                        <div
+                            class="w-full h-48 bg-surface-container-highest rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+                            <img alt="Campus Map" class="w-full h-full object-cover"
+                                data-alt="Stylized architectural site plan map of a university campus showing building clusters and green pathways"
+                                data-location="Enschede"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz2z5kAM0rJ5GzEIGMl5aJEl0xiQsLZXca1jusn-KZj7j4JzlRKsgqM3BGGtvBUluby-w36ckaTwVmJAGYx4GmcxSAGT9E-mV-PuNO07eSQXcpd_4HX7-h9-hFnWCtta5VJHxh0G_ix8keQqrJBTzUDBFsdY4VVL1pHRrrjHWp7K-QZQ5JCMSiwD6zzxYPShHB7xS3sKJ-tnY255p5yZi24kJZf4ntD6wF_5rCVNWWbjGH22N1ezaFSm-ymTW_VxuJ4LnBBO5PJdY" />
+                        </div>
+                    </div>
+                    <!-- Navigation CTA -->
+                    <a class="group flex items-center justify-between w-full p-6 bg-secondary-container text-on-secondary-container rounded-xl font-bold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                        href="#">
+                        <span>Back to Campus Page</span>
+                        <span
+                            class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Quote / Testimonial Tonal Shift -->
+        <section class="bg-surface-container-low py-24">
+            <div class="max-w-4xl mx-auto px-8 text-center">
+                <span class="material-symbols-outlined text-secondary-container text-6xl mb-8"
+                    style="font-variation-settings: 'FILL' 1;">format_quote</span>
+                <p class="text-3xl font-headline font-medium text-primary leading-tight italic mb-8">"The Waaier Canteen
+                    is where our best research ideas happen—over a cup of barista coffee and a healthy organic lunch."
+                </p>
+                <div class="h-1 w-24 bg-secondary-container mx-auto rounded-full"></div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer Component -->
+    <!-- Footer -->
+    <footer class="w-full pt-16 pb-8 bg-blue-950 dark:bg-slate-950 tonal-transition-top">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-7xl mx-auto">
+            <div>
+                <div class="text-2xl font-black text-white mb-4">UT</div>
+                <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-blue-100/80 mb-6">
+                    A research university where technology and social sciences go hand in hand. High Tech, Human Touch.
+                </p>
+                <div class="flex space-x-4">
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">public</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">alternate_email</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">share</span></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">UT
+                    Branding</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Brand Identity</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Style Guides</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Press Materials</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Merchandise</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">Quick
+                    Links</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Canvas</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Osiris Student</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Library Services</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Employee Portal</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">
+                    Contact Details</h4>
+                <div class="font-['Plus_Jakarta_Sans'] text-sm text-blue-100/80 space-y-4">
+                    <p>Drienerlolaan 5<br />7522 NB Enschede<br />The Netherlands</p>
+                    <p>T: +31 (0)53 489 9111<br />E: info@utwente.nl</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 pt-8 border-t border-white/5 text-center">
+            <p class="font-['Plus_Jakarta_Sans'] text-xs text-blue-100/40">© 2024 University of Twente. The Digital
+                Polymath Excellence.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            if(pageId === 'main-homepage') { window.location.href = 'index.html'; }
+        }
+        function showHomepage() { window.location.href = 'index.html'; }
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        if (hamburgerBtn && mobileDrawer) {
+            hamburgerBtn.addEventListener('click', () => {
+                mobileDrawer.classList.toggle('active');
+            });
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Vrijhof Library | University of Twente</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#ffdbcc",
+                        "primary-fixed": "#d7e3ff",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "on-background": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fa",
+                        "on-tertiary-fixed-variant": "#723615",
+                        "surface-container": "#edeeef",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-primary": "#abc7ff",
+                        "outline": "#747780",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9fa",
+                        "on-secondary-container": "#6b4500",
+                        "tertiary-container": "#511d00",
+                        "surface-container-high": "#e7e8e9",
+                        "outline-variant": "#c4c6d1",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#ffddb4",
+                        "on-secondary-fixed": "#291800",
+                        "secondary": "#835500",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001b3f",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-dim": "#d9dadb",
+                        "primary-container": "#002c5f",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-primary-container": "#7695ce",
+                        "secondary-fixed-dim": "#ffb955",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#300e00",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#d0815a",
+                        "background": "#f8f9fa",
+                        "primary": "#001839",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#43474f",
+                        "on-primary-fixed-variant": "#25467a",
+                        "primary-fixed-dim": "#abc7ff",
+                        "on-surface": "#191c1d",
+                        "secondary-container": "#feae2c",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-tint": "#3f5e94"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0, 24, 57, 0.9) 0%, rgba(0, 44, 95, 0.7) 100%);
+        }
+    </style>
+
+    <style>
+        @media (max-width: 1024px) {
+            .mobile-only {
+                display: block !important;
+            }
+
+            .desktop-only {
+                display: none !important;
+            }
+
+            #mobile-drawer {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 72px);
+                background-color: #002C5F;
+                z-index: 40;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                overflow-y: auto;
+                pointer-events: none;
+            }
+
+            #mobile-drawer.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .drawer-link {
+                display: flex;
+                align-items: center;
+                padding: 1.5rem 2rem;
+                color: white;
+                font-weight: 700;
+                font-size: 1.25rem;
+                border-left: 4px solid transparent;
+                transition: all 0.2s ease;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .drawer-link:hover,
+            .drawer-link.active {
+                border-left-color: #F5A623;
+                color: #F5A623;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            .drawer-icon {
+                color: #C60C30;
+                margin-right: 1rem;
+                font-size: 24px;
+            }
+
+            .drawer-desc {
+                display: block;
+                font-size: 0.75rem;
+                color: #5F6368;
+                font-weight: 400;
+                text-transform: none;
+                letter-spacing: normal;
+                margin-top: 0.25rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-only {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+    <!-- Top Navigation Shell -->
+    <!-- Top Navigation Shell -->
+    <!-- Top Navigation Shell -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-blue-950/80 backdrop-blur-xl shadow-sm">
+        <div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+            <div class="text-xl font-bold text-blue-900 dark:text-white uppercase tracking-wider font-headline cursor-pointer"
+                onclick="showHomepage()">
+                University of Twente
+            </div>
+            <div
+                class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+                <a class="text-blue-900 dark:text-blue-100 border-b-2 border-yellow-500 pb-1 hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#" onclick="showHomepage()">Homepage</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Academics</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Admissions</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Campus</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Placements</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Notable Alumni</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Clubs</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <button
+                    class="px-6 py-3 rounded-[8px] font-headline font-bold tracking-tight hover:translate-y-[-2px] transition-all shadow-md active:scale-95 duration-200 whitespace-nowrap bg-[#002C5F] text-[#F5A623] desktop-only">Apply
+                    Now</button>
+            </div>
+            <button class="mobile-only text-primary dark:text-white p-2 focus:outline-none" id="hamburger-btn">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-only font-headline" id="mobile-drawer">
+        <nav class="flex flex-col py-4">
+            <a class="drawer-link group" href="#" onclick="showHomepage()">
+                <span class="material-symbols-outlined drawer-icon">home</span>
+                <div>
+                    Homepage
+                    <span class="drawer-desc">Back to university main portal</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">school</span>
+                <div>
+                    Academics
+                    <span class="drawer-desc">Faculties and departments</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">login</span>
+                <div>
+                    Admissions
+                    <span class="drawer-desc">Apply for your degree</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">apartment</span>
+                <div>
+                    Campus
+                    <span class="drawer-desc">Student life and facilities</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">work</span>
+                <div>
+                    Placements
+                    <span class="drawer-desc">Career services and industry links</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
+                <div>
+                    Notable Alumni
+                    <span class="drawer-desc">Our global impact makers</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">groups</span>
+                <div>
+                    Clubs
+                    <span class="drawer-desc">Join student organizations</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <div class="mobile-only font-headline" id="mobile-drawer">
+        <nav class="flex flex-col py-4">
+            <a class="drawer-link group" href="#" onclick="showHomepage()">
+                <span class="material-symbols-outlined drawer-icon">home</span>
+                <div>
+                    Homepage
+                    <span class="drawer-desc">Back to university main portal</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">school</span>
+                <div>
+                    Academics
+                    <span class="drawer-desc">Faculties and departments</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">login</span>
+                <div>
+                    Admissions
+                    <span class="drawer-desc">Apply for your degree</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">apartment</span>
+                <div>
+                    Campus
+                    <span class="drawer-desc">Student life and facilities</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">work</span>
+                <div>
+                    Placements
+                    <span class="drawer-desc">Career services and industry links</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
+                <div>
+                    Notable Alumni
+                    <span class="drawer-desc">Our global impact makers</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">groups</span>
+                <div>
+                    Clubs
+                    <span class="drawer-desc">Join student organizations</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <div class="mobile-only font-headline" id="mobile-drawer">
+        <nav class="flex flex-col py-4">
+            <a class="drawer-link group" href="#" onclick="showHomepage()">
+                <span class="material-symbols-outlined drawer-icon">home</span>
+                <div>
+                    Homepage
+                    <span class="drawer-desc">Back to university main portal</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">school</span>
+                <div>
+                    Academics
+                    <span class="drawer-desc">Faculties and departments</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">login</span>
+                <div>
+                    Admissions
+                    <span class="drawer-desc">Apply for your degree</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">apartment</span>
+                <div>
+                    Campus
+                    <span class="drawer-desc">Student life and facilities</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">work</span>
+                <div>
+                    Placements
+                    <span class="drawer-desc">Career services and industry links</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
+                <div>
+                    Notable Alumni
+                    <span class="drawer-desc">Our global impact makers</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">groups</span>
+                <div>
+                    Clubs
+                    <span class="drawer-desc">Join student organizations</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[716px] w-full overflow-hidden flex items-center">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover"
+                    data-alt="Modern minimalist library interior with expansive glass windows, warm wooden bookshelves, and students studying in soft natural afternoon light"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZfw6bzxWzKrZ6n1Zo9ERbhHfucHXE6a0GtAtAv1BONo0CljfvkoHaBVaZxQYh5N09XmKNfWceEKWnAmZ1u1bDGh77HbKjiuAUv8KKbIOAORpkwjd2JlIJZvTO6ZsAAIAZ2f13-QbVudj8K4ZG1NUWEH2czz3U-aYqeO0Z3BI0QWBKIau9Tfc8NYHkikrp-rRI7rUhJ-zvEp4Z5I73_iqWc2rF5IhQIK2T6_oZ8WPQhsrdi2BUW4sr8eK1bzPX-ItEzMgsd5ZGI2o" />
+                <div class="absolute inset-0 hero-gradient"></div>
+            </div>
+            <div class="relative z-10 max-w-screen-2xl mx-auto px-8 w-full">
+                <div class="max-w-3xl">
+                    <nav
+                        class="flex items-center space-x-2 text-on-primary-container mb-6 text-sm font-medium uppercase tracking-widest">
+                        <span>Campus</span>
+                        <span class="material-symbols-outlined text-xs">chevron_right</span>
+                        <span class="text-white">Facilities</span>
+                    </nav>
+                    <h1
+                        class="text-6xl md:text-8xl font-headline font-extrabold text-white tracking-tighter mb-6 leading-none">
+                        Vrijhof Library
+                    </h1>
+                    <p class="text-xl md:text-2xl text-on-primary-container font-light max-w-xl">
+                        Your Gateway to Knowledge
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Info Bar (Quick Stats) -->
+        <section
+            class="bg-surface-container-lowest relative z-20 -mt-16 mx-8 max-w-screen-2xl xl:mx-auto rounded-xl shadow-xl shadow-on-surface/5">
+            <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-outline-variant/20">
+                <div class="p-8 flex items-start space-x-4">
+                    <div class="bg-secondary-container/20 p-3 rounded-xl text-secondary">
+                        <span class="material-symbols-outlined">schedule</span>
+                    </div>
+                    <div>
+                        <p class="text-sm text-outline font-semibold uppercase tracking-wider mb-1">Opening Hours</p>
+                        <p class="text-on-surface font-medium">Mon-Fri 8am-10pm</p>
+                        <p class="text-on-surface font-medium">Sat-Sun 10am-6pm</p>
+                    </div>
+                </div>
+                <div class="p-8 flex items-start space-x-4">
+                    <div class="bg-primary-container/10 p-3 rounded-xl text-primary">
+                        <span class="material-symbols-outlined">location_on</span>
+                    </div>
+                    <div>
+                        <p class="text-sm text-outline font-semibold uppercase tracking-wider mb-1">Location</p>
+                        <p class="text-on-surface font-medium">Vrijhof Building</p>
+                        <p class="text-on-surface-variant text-sm">Central Campus North</p>
+                    </div>
+                </div>
+                <div class="p-8 flex items-start space-x-4">
+                    <div class="bg-tertiary-fixed-dim/20 p-3 rounded-xl text-tertiary-container">
+                        <span class="material-symbols-outlined">support_agent</span>
+                    </div>
+                    <div>
+                        <p class="text-sm text-outline font-semibold uppercase tracking-wider mb-1">Support Desk</p>
+                        <p class="text-on-surface font-medium">Research &amp; IT Assistance</p>
+                        <p class="text-on-surface-variant text-sm">Available during all hours</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section class="py-24 px-8 max-w-screen-2xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-7">
+                    <h2 class="text-4xl font-headline font-bold text-primary mb-8 tracking-tight">The Academic Heart of
+                        Campus</h2>
+                    <div class="space-y-6 text-lg text-on-surface-variant leading-relaxed">
+                        <p>
+                            The Vrijhof Library stands as the University of Twente's central knowledge hub, meticulously
+                            designed to support the academic excellence of our "High Tech Human Touch" community.
+                        </p>
+                        <p>
+                            We provide seamless access to vast digital and physical collections, ranging from
+                            specialized engineering journals to extensive humanities archives. Understanding the rigors
+                            of academic life, we offer <span class="text-primary font-bold">24/7 exam access</span>
+                            during peak study periods, ensuring our students have the space they need to succeed when it
+                            matters most.
+                        </p>
+                    </div>
+                    <div class="mt-10">
+                        <button
+                            class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl font-bold flex items-center space-x-3 hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-secondary-container/20">
+                            <span>Explore Digital Collections</span>
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-2xl overflow-hidden aspect-square shadow-2xl">
+                        <img class="w-full h-full object-cover"
+                            data-alt="Macro shot of library book spines on a shelf, showing a mix of classic academic texts and modern research publications in a soft-focus laboratory environment"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnj5YcgUcCpM9TgwbUvwO4zHqN7UmxTNWQch3qmjpWCufWCz66OMAtQgLwHdMKzUJgf3YxVyxyFfHRpyQv0bjrrFuke7mqlEUK6RDKd1M2m3_LVtvW2xu0WAJ6UNAk-gDr_gtVOo6Z7zF3ON2GH4UubFNH2FIu1vG2qd12Ot-bx1_i-rKMoxWPWLrOxRpvb0ZPHY_Xefm2fGknlsVXeyUuhZALkVvRY76EcAaG-SucuNdZ_IH-BobiVpX2z4xlsRzGnx7RENEjmSw" />
+                        <div
+                            class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-primary/80 to-transparent">
+                            <p class="text-white font-medium text-lg italic">"A sanctuary for focused research and
+                                collaborative innovation."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Features Bento Grid -->
+        <section class="py-24 bg-surface-container-low">
+            <div class="max-w-screen-2xl mx-auto px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-sm font-bold text-secondary tracking-[0.2em] uppercase mb-4">Core Facilities</h2>
+                    <p class="text-4xl font-headline font-extrabold text-primary tracking-tight">Designed for Every
+                        Study Style</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-auto md:h-[600px]">
+                    <!-- Digital Resources -->
+                    <div
+                        class="md:col-span-2 md:row-span-1 bg-surface-container-lowest p-8 rounded-2xl flex flex-col justify-between hover:shadow-xl transition-shadow group">
+                        <div>
+                            <span class="material-symbols-outlined text-primary text-4xl mb-4"
+                                style="font-variation-settings: 'FILL' 1;">dataset</span>
+                            <h3 class="text-2xl font-bold text-primary mb-2">Digital Resources</h3>
+                            <p class="text-on-surface-variant">Instant access to over 500,000 journals, e-books, and
+                                global research databases from any campus location.</p>
+                        </div>
+                        <div
+                            class="mt-4 flex items-center text-primary font-semibold group-hover:translate-x-2 transition-transform">
+                            Learn more <span class="material-symbols-outlined ml-2">chevron_right</span>
+                        </div>
+                    </div>
+                    <!-- Group Study Rooms -->
+                    <div
+                        class="md:col-span-1 md:row-span-2 bg-primary text-white p-8 rounded-2xl flex flex-col justify-end relative overflow-hidden group">
+                        <img class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-500"
+                            data-alt="Four students working together in a modern glass-walled study room with a whiteboard and laptop, high-key lighting"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAArRF8XXBFX87jE9Jm9O6SFIuE7QkimlJmIxNoWHaoDN9B1p_mTeYVFZpDE0soXceMxCIDmyN2Mx27lPgIjGxy4huTPK80pcQOZhlFIqQdO3W16QGosAMUJgWBP9iZGO5YAhBGW1ccSXSuj3rUaFnEmtoAKWKmOr_PFsf6B0ezIlbzZ9nBaSjpYhPPxabO8ufePDmmV13NdQTbjXlh2E7Tiwb34H9QDtDNuzkAtGezqgiWbftgR2Ie3G6ihXRV6AYvpKSe8wBLHz0" />
+                        <div class="relative z-10">
+                            <h3 class="text-2xl font-bold mb-2">Group Study Rooms</h3>
+                            <p class="text-white/80 mb-6">40+ bookable soundproof pods equipped with interactive screens
+                                and smart-whiteboards.</p>
+                            <button class="w-full py-3 bg-white text-primary font-bold rounded-lg text-sm">Reserve a
+                                Room</button>
+                        </div>
+                    </div>
+                    <!-- Media Labs -->
+                    <div
+                        class="md:col-span-1 md:row-span-1 bg-secondary-container p-8 rounded-2xl flex flex-col justify-center text-on-secondary-container">
+                        <span class="material-symbols-outlined text-4xl mb-4">video_settings</span>
+                        <h3 class="text-xl font-extrabold mb-1">Media Labs</h3>
+                        <p class="text-sm opacity-90">High-performance workstations for video editing, 3D modeling, and
+                            data visualization.</p>
+                    </div>
+                    <!-- Research Desk -->
+                    <div
+                        class="md:col-span-2 md:row-span-1 bg-surface-container-highest p-8 rounded-2xl flex items-center space-x-8">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Research Desk</h3>
+                            <p class="text-on-surface-variant">One-on-one consultation with specialized librarians for
+                                literature reviews and citation management.</p>
+                        </div>
+                        <div
+                            class="hidden sm:block w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                            <img class="w-full h-full object-cover"
+                                data-alt="Portrait of a friendly female librarian with glasses smiling in a modern library setting"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDorgOTNlg17meeE_NyVcxHputXkG0pY7-Ujp9ImVb2dcaIdL8-_ypmn88Cp8Kt1IQ0HMGV114CKOkgO8K-jeVc9bmQ2mqXjocSpDUd42LQwpPtYzl9LCYz18KeIoFJJPQq6HR3nl_-0zamVfmeXX1GTH99wUDlY3cewDrhYzQFDvMOXHhElGRJV0zRAI8fHo6vesIzFDG-tYtdY_HJoe5edpkXkCUDRD76PMKmlGA1d_ciVPuTwAycQbjuDwEMNDvAkMl82lpjYP8" />
+                        </div>
+                    </div>
+                    <!-- Additional Micro-stat for Media Labs area equivalent space if needed -->
+                    <div
+                        class="md:col-span-1 md:row-span-1 bg-surface-container-low border border-outline-variant/30 p-8 rounded-2xl flex flex-col items-center justify-center text-center">
+                        <p class="text-4xl font-black text-primary">1,200+</p>
+                        <p class="text-xs font-bold text-outline uppercase tracking-widest mt-2">Study Spaces</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Call to Action -->
+        <section class="py-24 px-8 max-w-screen-2xl mx-auto text-center">
+            <div
+                class="bg-surface p-12 md:p-24 rounded-[2rem] border-2 border-primary-container/10 relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-secondary-container/10 rounded-full blur-3xl">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-primary-container/5 rounded-full blur-3xl">
+                </div>
+                <h2 class="text-4xl md:text-5xl font-headline font-bold text-primary mb-6 relative z-10">Plan Your Visit
+                </h2>
+                <p class="text-xl text-on-surface-variant mb-12 max-w-2xl mx-auto relative z-10">
+                    The Vrijhof Library is open to all students, staff, and visitors. Join us to find the perfect
+                    environment for your academic journey.
+                </p>
+                <div
+                    class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 relative z-10">
+                    <a class="inline-flex items-center space-x-2 text-primary font-bold group" href="#">
+                        <span
+                            class="material-symbols-outlined bg-primary text-white p-2 rounded-full group-hover:translate-x-1 transition-transform">arrow_back</span>
+                        <span class="border-b-2 border-transparent group-hover:border-primary transition-all">Back to
+                            Campus Page</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Map Section (Subtle Integration) -->
+        <section class="h-[400px] w-full bg-surface-container relative">
+            <div class="absolute inset-0 grayscale opacity-40 hover:opacity-70 transition-opacity duration-700">
+                <img class="w-full h-full object-cover"
+                    data-alt="Aerial architectural map view of a university campus with clean lines and green spaces"
+                    data-location="Enschede, Netherlands"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCVIPewrDIvXAJpVbkCgxXevKwiXMW8fxFERGTnnJW0CgA-qeUnuand_cuNlJSHnzP4mQXhBTNQMmVnP6uPG_8r7b1rom14sg5eB31eNvSJv4qBFXijqRETEfeaLZdoRoON7d-V5gfxq8IbXwwm9EDgEwHOdEWCye-4NkCw2J_L4zNd3OyCnVVab0buuiK0hiUO9tXC7zkwvOupiRXRaGDsKTJ-iOoMOMhv_vVvtSnOnUWnIof9xt_jmG3tV5EQ70F3uy4xLP9Kgc" />
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div class="bg-white p-6 rounded-2xl shadow-2xl flex items-center space-x-4 pointer-events-auto">
+                    <div class="bg-primary p-3 rounded-lg text-white">
+                        <span class="material-symbols-outlined">map</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-primary">Vrijhof, Building 47</h4>
+                        <p class="text-sm text-on-surface-variant">Drienerlolaan 5, 7522 NB Enschede</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full pt-16 pb-8 bg-blue-950 dark:bg-slate-950 tonal-transition-top">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-7xl mx-auto">
+            <div>
+                <div class="text-2xl font-black text-white mb-4">UT</div>
+                <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-blue-100/80 mb-6">
+                    A research university where technology and social sciences go hand in hand. High Tech, Human Touch.
+                </p>
+                <div class="flex space-x-4">
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">public</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">alternate_email</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">share</span></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">UT
+                    Branding</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Brand Identity</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Style Guides</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Press Materials</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Merchandise</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">Quick
+                    Links</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Canvas</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Osiris Student</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Library Services</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Employee Portal</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">
+                    Contact Details</h4>
+                <div class="font-['Plus_Jakarta_Sans'] text-sm text-blue-100/80 space-y-4">
+                    <p>Drienerlolaan 5<br />7522 NB Enschede<br />The Netherlands</p>
+                    <p>T: +31 (0)53 489 9111<br />E: info@utwente.nl</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 pt-8 border-t border-white/5 text-center">
+            <p class="font-['Plus_Jakarta_Sans'] text-xs text-blue-100/40">© 2024 University of Twente. The Digital
+                Polymath Excellence.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            if(pageId === 'main-homepage') { window.location.href = 'index.html'; }
+        }
+        function showHomepage() { window.location.href = 'index.html'; }
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        if (hamburgerBtn && mobileDrawer) {
+            hamburgerBtn.addEventListener('click', () => {
+                mobileDrawer.classList.toggle('active');
+            });
+        }
+    </script>
+
+</body>
+
+</html>
