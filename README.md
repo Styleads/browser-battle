@@ -18,27 +18,8 @@ The website focuses on helping prospective international students (especially fr
   - Tuition fees & estimated living costs for 2026-2027
   - Scholarships information (UTS & NL Scholarship)
   - **Interactive Admission Probability Estimator** — Users input their scores and instantly see their estimated chance + personalized tips
-
-### Tech Stack
-- **Framework**: Next.js 15 (App Router)
-- **Styling**: Tailwind CSS + shadcn/ui components
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Deployment**: Netlify
-
-## 🛠️ Local Setup Instructions
-Install dependenciesBashnpm install
-Start the development serverBashnpm run dev
-Open http://localhost:3000 in your browser.
-
-### Steps to Run
-
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd utwente-website
-   📊 Key Information Used (2026 Intake)
-***Admission Requirements***(Indian Students)
+ 
+    ***Admission Requirements***(Indian Students)
 
 Bachelor’s: Minimum 75% in Class 12th (with strong Mathematics for technical programs)
 Master’s: 4-year Bachelor’s degree with minimum 75% CGPA (First Class). IIT/NIT students may get slight relaxation in some cases.
@@ -91,6 +72,27 @@ portal Career prospects based on degree and skills from Twente
 
 ***All pages have a unique creative element useful for the user***
 
+### Tech Stack
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Deployment**: Netlify
+
+## 🛠️ Local Setup Instructions
+Install dependenciesBashnpm install
+Start the development serverBashnpm run dev
+Open http://localhost:3000 in your browser.
+
+### Steps to Run
+
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd utwente-website
+   📊 Key Information Used (2026 Intake)
+***Admission Requirements***
+
 
 ***Future Enhancements*** (Planned Ideas)   
 
@@ -101,8 +103,8 @@ If we get more time, we plan to implement:
 ***High Priority***  
 
 Connections have to be made to actual files  
+The backend needs to be responsive for the forms  
 
-Implement actual images(all images in current ones are placeholders)
 
 Personalized 4-Year Journey Simulator — Quick quiz → custom 4-year roadmap with academics, internships, projects, and career outcomes  
 
@@ -114,22 +116,14 @@ Footer contents such as merchandise and student portals are intentional. We need
 ***Medium Priority***   
 
 
-
-AI Chatbot for admissions queries
-
 Pdfs in the academic section to be made    
 
 
 
-👥 ***Team***\
-
+👥 ***Team***   
 
 U kruthik - 1st year CSE  
-
-
 Varun Vaval - 1st Year CSE   
-
-
 Uttam kumar sinha - 1st year CSE   
 
 
