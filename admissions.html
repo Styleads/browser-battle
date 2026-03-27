@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admissions | University of Twente</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #001839 0%, #002c5f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .primary-gradient {
+            background: linear-gradient(135deg, #001839 0%, #002c5f 100%);
+        }
+
+        /* Custom scrollbar for a premium feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f3f4f5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #002c5f;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 1024px) {
+            .mobile-only {
+                display: block !important;
+            }
+
+            .desktop-only {
+                display: none !important;
+            }
+
+            #mobile-drawer {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 72px);
+                background-color: #002C5F;
+                z-index: 40;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                overflow-y: auto;
+                pointer-events: none;
+            }
+
+            #mobile-drawer.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .drawer-link {
+                display: flex;
+                align-items: center;
+                padding: 1.5rem 2rem;
+                color: white;
+                font-weight: 700;
+                font-size: 1.25rem;
+                border-left: 4px solid transparent;
+                transition: all 0.2s ease;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .drawer-link:hover,
+            .drawer-link.active {
+                border-left-color: #F5A623;
+                color: #F5A623;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            .drawer-icon {
+                color: #C60C30;
+                margin-right: 1rem;
+                font-size: 24px;
+            }
+
+            .drawer-desc {
+                display: block;
+                font-size: 0.75rem;
+                color: #5F6368;
+                font-weight: 400;
+                text-transform: none;
+                letter-spacing: normal;
+                margin-top: 0.25rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-only {
+                display: none !important;
+            }
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#ffb693",
+                        "primary-fixed-dim": "#abc7ff",
+                        "on-secondary-fixed": "#291800",
+                        "primary": "#001839",
+                        "secondary-fixed-dim": "#ffb955",
+                        "surface-dim": "#d9dadb",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-container": "#edeeef",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#ffddb4",
+                        "outline-variant": "#c4c6d1",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary-fixed": "#001b3f",
+                        "on-surface-variant": "#43474f",
+                        "error": "#ba1a1a",
+                        "secondary": "#835500",
+                        "on-background": "#191c1d",
+                        "on-primary-fixed-variant": "#25467a",
+                        "on-primary-container": "#7695ce",
+                        "surface-bright": "#f8f9fa",
+                        "background": "#f8f9fa",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed": "#351000",
+                        "tertiary": "#300e00",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#abc7ff",
+                        "on-secondary-container": "#6b4500",
+                        "outline": "#747780",
+                        "secondary-container": "#feae2c",
+                        "tertiary-container": "#511d00",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-tertiary-fixed-variant": "#723615",
+                        "on-surface": "#191c1d",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#d7e3ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-tint": "#3f5e94",
+                        "on-tertiary-container": "#d0815a",
+                        "primary-container": "#002c5f",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e1e3e4",
+                        "tertiary-fixed": "#ffdbcc",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface": "#f8f9fa"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-surface font-body text-on-surface">
+    <!-- Top Navigation Shell -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-blue-950/80 backdrop-blur-xl shadow-sm">
+        <div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+            <div class="text-xl font-bold text-blue-900 dark:text-white uppercase tracking-wider font-headline">
+                University of Twente
+            </div>
+            <div
+                class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="index.html">Homepage</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="academics.html">Academics</a>
+                <a class="text-blue-900 dark:text-blue-100 border-b-2 border-yellow-500 pb-1 hover:translate-y-[-1px] transition-transform duration-300"
+                    href="admissions.html">Admissions</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Campus</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Placements</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Notable Alumni</a><a
+                    class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Clubs</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <button
+                    class="px-6 py-3 rounded-[8px] font-headline font-bold tracking-tight hover:translate-y-[-2px] transition-all shadow-md active:scale-95 duration-200 whitespace-nowrap bg-[#002C5F] text-[#F5A623] desktop-only">Apply
+                    Now</button>
+            </div><button class="mobile-only text-primary dark:text-white p-2 focus:outline-none" id="hamburger-btn">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-only font-headline" id="mobile-drawer">
+        <nav class="flex flex-col py-4">
+            <a class="drawer-link group" href="index.html">
+                <span class="material-symbols-outlined drawer-icon">home</span>
+                <div>
+                    Homepage
+                    <span class="drawer-desc">Back to university main portal</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="academics.html">
+                <span class="material-symbols-outlined drawer-icon">school</span>
+                <div>
+                    Academics
+                    <span class="drawer-desc">Faculties and departments</span>
+                </div>
+            </a>
+            <a class="drawer-link group active" href="admissions.html">
+                <span class="material-symbols-outlined drawer-icon">login</span>
+                <div>
+                    Admissions
+                    <span class="drawer-desc">Apply for your degree</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">apartment</span>
+                <div>
+                    Campus
+                    <span class="drawer-desc">Student life and facilities</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">work</span>
+                <div>
+                    Placements
+                    <span class="drawer-desc">Career services and industry links</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
+                <div>
+                    Notable Alumni
+                    <span class="drawer-desc">Our global impact makers</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">groups</span>
+                <div>
+                    Clubs
+                    <span class="drawer-desc">Join student organizations</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <!-- Hero Section -->
+    <section class="relative h-[921px] flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img alt="UT Campus" class="w-full h-full object-cover"
+                data-alt="Modern architectural glass building of a university campus surrounded by lush green trees under a clear blue sky"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTyHpH1HELxVBLNJHueHazzsV5SZ0JrZg1ySYshwNGQ4fu4nbWAvXeijsE0bPzW0P1F98wNuwWVIS35medcqCUsOlB2jQLl8jrVi7VbAq6BN1Egspuh3WFfHLtY1Tbp7Ee85XEYP-fQOXuhT2aKeRF4mLv4gi3ibtsCPeLQ2BVxCIri6lVLPB25AjjV9R5mNOY6PgP5Kd0vJCs7p7q4qBiqA4br5fu1mKh8O-ctCaGpqZdbw4oYrPngSCUuPkq8tOtoylQJMe2vPkR" />
+            <div class="absolute inset-0 bg-primary/40 backdrop-brightness-75"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+            <div class="max-w-3xl">
+                <span
+                    class="inline-block bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">Admissions
+                    2026</span>
+                <h1
+                    class="text-6xl md:text-7xl font-headline font-extrabold text-white mb-6 leading-tight tracking-tighter">
+                    Admissions at <br /><span class="text-secondary-container">University of Twente</span>
+                </h1>
+                <p class="text-xl text-white/90 mb-10 leading-relaxed max-w-2xl font-light">
+                    Your Gateway to Innovation in the Netherlands. Join a global community of thinkers and makers in our
+                    English-taught programs for the September 2026 intake.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button
+                        class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl font-headline font-bold text-lg hover:translate-y-[-2px] transition-all shadow-xl shadow-black/20">
+                        Start Your Application
+                    </button>
+                    <button
+                        class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-xl font-headline font-bold text-lg hover:bg-white/20 transition-all">
+                        View Programs
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Admission Requirements -->
+    <section class="py-24 bg-surface-container-low">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-headline font-extrabold text-primary mb-4 tracking-tight">Admission
+                    Requirements</h2>
+                <p class="text-on-surface-variant max-w-2xl mx-auto">Specific criteria tailored for international
+                    applicants from India, focusing on academic excellence and English proficiency.</p>
+            </div>
+            <!-- Bento-style Requirement Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Bachelor's Card -->
+                <div
+                    class="lg:col-span-6 bg-surface-container-lowest p-10 rounded-xl shadow-sm border-b-4 border-secondary-container">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary">school</span>
+                        </div>
+                        <h3 class="text-2xl font-headline font-bold text-primary">Bachelor's Programs</h3>
+                    </div>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <span class="material-symbols-outlined text-secondary pt-1">check_circle</span>
+                            <div>
+                                <p class="font-bold text-primary">Academic Standing</p>
+                                <p class="text-sm text-on-surface-variant">Minimum 75% in 12th Standard from a
+                                    recognized board (CBSE/ICSE/State Boards).</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="material-symbols-outlined text-secondary pt-1">check_circle</span>
+                            <div>
+                                <p class="font-bold text-primary">English Proficiency</p>
+                                <p class="text-sm text-on-surface-variant">IELTS 6.0 overall or TOEFL iBT 80. Exemptions
+                                    available for specific curricula.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Master's Card -->
+                <div
+                    class="lg:col-span-6 bg-surface-container-lowest p-10 rounded-xl shadow-sm border-b-4 border-primary">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-secondary">workspace_premium</span>
+                        </div>
+                        <h3 class="text-2xl font-headline font-bold text-primary">Master's Programs</h3>
+                    </div>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <span class="material-symbols-outlined text-secondary pt-1">check_circle</span>
+                            <div>
+                                <p class="font-bold text-primary">Academic Standing</p>
+                                <p class="text-sm text-on-surface-variant">75% CGPA required. Preference for IIT/NIT
+                                    graduates with minimum 70% CGPA.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="material-symbols-outlined text-secondary pt-1">check_circle</span>
+                            <div>
+                                <p class="font-bold text-primary">English Proficiency</p>
+                                <p class="text-sm text-on-surface-variant">IELTS 6.5 overall (no sub-score below 6.0) or
+                                    TOEFL iBT 90.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Comparison Table -->
+                <div class="lg:col-span-12 mt-8 overflow-hidden rounded-xl bg-surface-container-lowest shadow-sm">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-primary text-white">
+                                <th class="p-6 font-headline font-bold">Feature</th>
+                                <th class="p-6 font-headline font-bold text-center">Bachelor's</th>
+                                <th class="p-6 font-headline font-bold text-center">Master's</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-surface-container">
+                            <tr>
+                                <td class="p-6 font-medium text-primary">Minimum Grade</td>
+                                <td class="p-6 text-center text-on-surface-variant">75% (Class 12)</td>
+                                <td class="p-6 text-center text-on-surface-variant">75% CGPA (70% for IIT/NIT)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-6 font-medium text-primary">IELTS Score</td>
+                                <td class="p-6 text-center text-on-surface-variant">6.0</td>
+                                <td class="p-6 text-center text-on-surface-variant">6.5</td>
+                            </tr>
+                            <tr>
+                                <td class="p-6 font-medium text-primary">Standardized Tests</td>
+                                <td class="p-6 text-center text-on-surface-variant">Math Entrance Test (if req.)</td>
+                                <td class="p-6 text-center text-on-surface-variant">GRE/GMAT (for specific tracks)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Application Process -->
+    <section class="py-24 bg-surface">
+        <div class="max-w-7xl mx-auto px-8">
+            <h2 class="text-4xl font-headline font-extrabold text-primary mb-16 tracking-tight">Your Path to UT</h2>
+            <div class="relative">
+                <!-- Timeline Connector Line -->
+                <div
+                    class="absolute left-[31px] top-0 bottom-0 w-1 bg-primary-container/20 md:left-1/2 md:-translate-x-1/2">
+                </div>
+                <div class="space-y-16">
+                    <!-- Step 1 -->
+                    <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                        <div class="md:w-[45%] mb-4 md:mb-0 md:text-right order-2 md:order-1">
+                            <h4 class="text-xl font-bold text-primary mb-2">Check Eligibility</h4>
+                            <p class="text-on-surface-variant">Verify academic requirements and deadlines for your
+                                specific program on our website.</p>
+                        </div>
+                        <div
+                            class="z-10 flex items-center justify-center w-16 h-16 rounded-full bg-primary border-4 border-white shadow-lg order-1 md:order-2">
+                            <span class="material-symbols-outlined text-white">fact_check</span>
+                        </div>
+                        <div class="md:w-[45%] hidden md:block order-3"></div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                        <div class="md:w-[45%] hidden md:block order-1"></div>
+                        <div
+                            class="z-10 flex items-center justify-center w-16 h-16 rounded-full bg-secondary-container border-4 border-white shadow-lg order-1 md:order-2">
+                            <span class="material-symbols-outlined text-on-secondary-container">language</span>
+                        </div>
+                        <div class="md:w-[45%] mb-4 md:mb-0 order-2 md:order-3">
+                            <h4 class="text-xl font-bold text-primary mb-2">Studielink.nl</h4>
+                            <p class="text-on-surface-variant">Create an account on the Dutch national platform to
+                                officially start your registration.</p>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                        <div class="md:w-[45%] mb-4 md:mb-0 md:text-right order-2 md:order-1">
+                            <h4 class="text-xl font-bold text-primary mb-2">OSIRIS Portal</h4>
+                            <p class="text-on-surface-variant">Submit your documents and fill in specific details in the
+                                UT applicant portal.</p>
+                        </div>
+                        <div
+                            class="z-10 flex items-center justify-center w-16 h-16 rounded-full bg-primary border-4 border-white shadow-lg order-1 md:order-2">
+                            <span class="material-symbols-outlined text-white">upload_file</span>
+                        </div>
+                        <div class="md:w-[45%] hidden md:block order-3"></div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                        <div class="md:w-[45%] hidden md:block order-1"></div>
+                        <div
+                            class="z-10 flex items-center justify-center w-16 h-16 rounded-full bg-secondary-container border-4 border-white shadow-lg order-1 md:order-2">
+                            <span class="material-symbols-outlined text-on-secondary-container">payments</span>
+                        </div>
+                        <div class="md:w-[45%] mb-4 md:mb-0 order-2 md:order-3">
+                            <h4 class="text-xl font-bold text-primary mb-2">Decision &amp; Visa</h4>
+                            <p class="text-on-surface-variant">Receive your offer, pay the tuition fee, and start the
+                                visa/housing procedure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Interactive Probabilty Estimator -->
+    <section class="py-24 bg-primary text-white overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-white/5 skew-x-12 -mr-20"></div>
+        <div class="max-w-7xl mx-auto px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-headline font-extrabold mb-6 tracking-tight">Admission Probability
+                        Estimator</h2>
+                    <p class="text-white/80 text-lg mb-10 leading-relaxed">
+                        Curious about your chances? Use our high-tech estimator tool to get an instant indication based
+                        on your current profile. This tool uses historical data from previous Indian cohorts.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-white/10 border border-white/20">
+                            <span class="material-symbols-outlined text-secondary-container">bolt</span>
+                            <span class="text-sm font-medium">Instant Academic Assessment</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-white/10 border border-white/20">
+                            <span class="material-symbols-outlined text-secondary-container">shield</span>
+                            <span class="text-sm font-medium">100% Privacy - No data stored</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-2xl text-on-surface" id="estimator-card">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-bold text-primary mb-2">Education Level</label>
+                            <select
+                                class="w-full bg-surface-container border-none rounded-lg focus:ring-2 focus:ring-primary p-3"
+                                id="edu-level">
+                                <option>Bachelor's Degree</option>
+                                <option>Master's Degree</option>
+                            </select>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-sm font-bold text-primary">Academic Percentage / CGPA</label>
+                                <span class="text-xs font-bold bg-primary text-white px-2 py-1 rounded"
+                                    id="range-value">75%</span>
+                            </div>
+                            <input
+                                class="w-full h-2 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary"
+                                id="academic-range" max="95" min="70" type="range" value="75" />
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold text-primary mb-2">IELTS Score</label>
+                                <input
+                                    class="w-full bg-surface-container border-none rounded-lg focus:ring-2 focus:ring-primary p-3"
+                                    id="ielts-score" max="8.0" min="5.5" placeholder="6.5" step="0.5" type="number"
+                                    value="6.5" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-primary mb-2">IIT/NIT Alumni?</label>
+                                <div class="flex items-center gap-4 h-[48px]">
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input class="sr-only peer" id="iit-status" type="checkbox" value="" />
+                                        <div
+                                            class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary">
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full primary-gradient text-white py-4 rounded-xl font-headline font-bold text-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
+                            id="calculate-btn" type="button">
+                            <span class="material-symbols-outlined">calculate</span>
+                            Estimate Probability
+                        </button>
+                    </form>
+                    <div class="hidden opacity-0 transform translate-y-4 transition-all duration-500 flex flex-col items-center text-center"
+                        id="results-view">
+                        <div class="relative w-48 h-48 mb-6">
+                            <svg class="w-full h-full" viewbox="0 0 100 100">
+                                <circle class="text-surface-container-high" cx="50" cy="50" fill="transparent" r="40"
+                                    stroke="currentColor" stroke-width="8"></circle>
+                                <circle class="text-primary transition-all duration-1000 ease-out" cx="50" cy="50"
+                                    fill="transparent" id="progress-ring" r="40" stroke="currentColor"
+                                    stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                                    stroke-width="8"></circle>
+                            </svg>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                <span class="text-4xl font-extrabold text-primary font-headline"
+                                    id="result-percentage">0%</span>
+                                <span
+                                    class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Probability</span>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold text-primary mb-6 px-4" id="result-message"></h4>
+                        <div class="w-full text-left space-y-3 mb-8">
+                            <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Expert
+                                Tips for you:</p>
+                            <div class="flex gap-3 items-start p-3 bg-primary/5 rounded-lg border border-primary/10">
+                                <span class="material-symbols-outlined text-primary text-sm">star</span>
+                                <p class="text-xs text-on-surface-variant">Apply early for UTS Scholarship to maximize
+                                    funding chances.</p>
+                            </div>
+                            <div class="flex gap-3 items-start p-3 bg-primary/5 rounded-lg border border-primary/10">
+                                <span class="material-symbols-outlined text-primary text-sm">edit_note</span>
+                                <p class="text-xs text-on-surface-variant">Prepare a strong motivation letter focusing
+                                    on your technical goals.</p>
+                            </div>
+                            <div class="flex gap-3 items-start p-3 bg-primary/5 rounded-lg border border-primary/10">
+                                <span class="material-symbols-outlined text-primary text-sm">work</span>
+                                <p class="text-xs text-on-surface-variant">Highlight any relevant projects or
+                                    internships in your CV.</p>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full outline outline-1 outline-primary text-primary py-3 rounded-xl font-bold text-sm hover:bg-primary hover:text-white transition-all"
+                            id="recalculate-btn">
+                            Recalculate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Required Documents & Fees -->
+    <section class="py-24 bg-surface-container-low">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Documents Accordion -->
+                <div>
+                    <h3 class="text-3xl font-headline font-extrabold text-primary mb-8 tracking-tight">Required
+                        Documents</h3>
+                    <div class="space-y-3" id="docs-accordion">
+                        <!-- Academic Transcripts -->
+                        <div
+                            class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-transparent transition-all duration-300">
+                            <button
+                                class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container transition-colors accordion-trigger"
+                                data-target="docs-1">
+                                <span class="font-bold text-primary flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-on-surface-variant">description</span>
+                                    Academic Transcripts &amp; Certificates
+                                </span>
+                                <span
+                                    class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+                            </button>
+                            <div class="hidden px-6 pb-6 text-sm text-on-surface-variant" id="docs-1">
+                                <p>Please provide scanned copies of your official transcripts and graduation
+                                    certificates from all secondary and post-secondary institutions attended. Documents
+                                    must be in English or accompanied by a certified translation.</p>
+                            </div>
+                        </div>
+                        <!-- English Proficiency -->
+                        <div
+                            class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-transparent transition-all duration-300">
+                            <button
+                                class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container transition-colors accordion-trigger"
+                                data-target="docs-2">
+                                <span class="font-bold text-primary flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-on-surface-variant">translate</span>
+                                    English Proficiency Test Result
+                                </span>
+                                <span
+                                    class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+                            </button>
+                            <div class="hidden px-6 pb-6 text-sm text-on-surface-variant" id="docs-2">
+                                <p>Submit your official IELTS or TOEFL score reports. Ensure the results are no older
+                                    than two years at the time of your application.</p>
+                                <div
+                                    class="mt-4 border-2 border-dashed border-outline-variant/50 rounded-xl p-8 flex flex-col items-center justify-center bg-surface-container-low/30 hover:bg-surface-container-low transition-colors group cursor-pointer">
+                                    <span
+                                        class="material-symbols-outlined text-4xl text-on-surface-variant mb-2 group-hover:text-primary transition-colors">upload_file</span>
+                                    <label class="text-sm font-bold text-primary mb-1">Upload Test Result</label>
+                                    <p class="text-xs text-on-surface-variant mb-4">PDF, JPG (Max 5MB)</p>
+                                    <button
+                                        class="bg-primary text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-primary/90 transition-all">Select
+                                        Test Result</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Motivation Letter -->
+                        <div
+                            class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-transparent transition-all duration-300">
+                            <button
+                                class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container transition-colors accordion-trigger"
+                                data-target="docs-3">
+                                <span class="font-bold text-primary flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-on-surface-variant">draw</span>
+                                    Motivation Letter (Max 500 words)
+                                </span>
+                                <span
+                                    class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+                            </button>
+                            <div class="hidden px-6 pb-6 text-sm text-on-surface-variant" id="docs-3">
+                                <p>Your motivation letter should explain why you chose this program, your academic
+                                    interests, and your future career goals. Keep it concise and impactful.</p>
+                                <div
+                                    class="mt-4 border-2 border-dashed border-outline-variant/50 rounded-xl p-8 flex flex-col items-center justify-center bg-surface-container-low/30 hover:bg-surface-container-low transition-colors group cursor-pointer">
+                                    <span
+                                        class="material-symbols-outlined text-4xl text-on-surface-variant mb-2 group-hover:text-primary transition-colors">upload_file</span>
+                                    <label class="text-sm font-bold text-primary mb-1">Upload Motivation Letter</label>
+                                    <p class="text-xs text-on-surface-variant mb-4">PDF, DOCX (Max 5MB)</p>
+                                    <button
+                                        class="bg-primary text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-primary/90 transition-all">Select
+                                        Motivation Letter</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CV / Resume with Upload -->
+                        <div
+                            class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-transparent transition-all duration-300">
+                            <button
+                                class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container transition-colors accordion-trigger"
+                                data-target="docs-cv">
+                                <span class="font-bold text-primary flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-on-surface-variant">contact_page</span>
+                                    Curriculum Vitae (CV)
+                                </span>
+                                <span
+                                    class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+                            </button>
+                            <div class="hidden px-6 pb-6" id="docs-cv">
+                                <p class="text-sm text-on-surface-variant mb-4">Include your educational background,
+                                    work experience, projects, and relevant skills.</p>
+                                <div
+                                    class="border-2 border-dashed border-outline-variant/50 rounded-xl p-8 flex flex-col items-center justify-center bg-surface-container-low/30 hover:bg-surface-container-low transition-colors group cursor-pointer">
+                                    <span
+                                        class="material-symbols-outlined text-4xl text-on-surface-variant mb-2 group-hover:text-primary transition-colors">upload_file</span>
+                                    <label class="text-sm font-bold text-primary mb-1">Upload CV</label>
+                                    <p class="text-xs text-on-surface-variant mb-4">PDF, DOCX (Max 5MB)</p>
+                                    <button
+                                        class="bg-primary text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-primary/90 transition-all">Select
+                                        File</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fees Cards -->
+                <div>
+                    <h3 class="text-3xl font-headline font-extrabold text-primary mb-8 tracking-tight">Financial
+                        Overview</h3>
+                    <div class="grid gap-6">
+                        <div
+                            class="bg-surface-container-lowest p-8 rounded-2xl flex items-center justify-between group hover:bg-primary transition-all duration-300 cursor-default shadow-sm border border-outline-variant/10">
+                            <div>
+                                <p
+                                    class="text-xs font-bold uppercase tracking-wider mb-1 text-on-surface-variant group-hover:text-white/60">
+                                    Bachelor's Tuition</p>
+                                <h4 class="text-2xl font-bold text-primary group-hover:text-white">€12,300 — €16,400
+                                </h4>
+                                <p class="text-xs text-on-surface-variant group-hover:text-white/60 mt-2">Per academic
+                                    year</p>
+                            </div>
+                            <span class="material-symbols-outlined text-4xl text-secondary-container">euro</span>
+                        </div>
+                        <div
+                            class="bg-surface-container-lowest p-8 rounded-2xl flex items-center justify-between group hover:bg-primary transition-all duration-300 cursor-default shadow-sm border border-outline-variant/10">
+                            <div>
+                                <p
+                                    class="text-xs font-bold uppercase tracking-wider mb-1 text-on-surface-variant group-hover:text-white/60">
+                                    Master's Tuition</p>
+                                <h4 class="text-2xl font-bold text-primary group-hover:text-white">€18,200 — €21,700
+                                </h4>
+                                <p class="text-xs text-on-surface-variant group-hover:text-white/60 mt-2">Per academic
+                                    year</p>
+                            </div>
+                            <span class="material-symbols-outlined text-4xl text-secondary-container">euro_symbol</span>
+                        </div>
+                        <div
+                            class="bg-surface-container-lowest p-8 rounded-2xl flex items-center justify-between group hover:bg-primary transition-all duration-300 cursor-default shadow-sm border border-outline-variant/10">
+                            <div>
+                                <p
+                                    class="text-xs font-bold uppercase tracking-wider mb-1 text-on-surface-variant group-hover:text-white/60">
+                                    Living Expenses</p>
+                                <h4 class="text-2xl font-bold text-primary group-hover:text-white">€10,000 — €12,000
+                                </h4>
+                                <p class="text-xs text-on-surface-variant group-hover:text-white/60 mt-2">Estimated per
+                                    year</p>
+                            </div>
+                            <span class="material-symbols-outlined text-4xl text-secondary-container">apartment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Scholarships -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div class="max-w-xl">
+                    <h2 class="text-4xl font-headline font-extrabold text-primary mb-4 tracking-tight">University
+                        Scholarships</h2>
+                    <p class="text-on-surface-variant">We offer significant financial aid for high-achieving
+                        international students from outside the EU/EEA.</p>
+                </div>
+                <button class="text-primary font-bold flex items-center gap-2 hover:translate-x-1 transition-transform">
+                    View All Scholarships <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div
+                    class="relative overflow-hidden group rounded-2xl aspect-[16/9] flex flex-col justify-end p-8 text-white">
+                    <img alt="UTS scholarship"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Student studying in a modern library with futuristic lighting and ergonomic furniture"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCr4_j8CGT_kFRkjTz5Nef9lbhSTgVEqfkNuiZ-x5_gHHnsYmHlGLmk3l0CAd67XRwz1cu15bYt9j93sCo4sME1LToCGkQNDlMe2eDiDMNRLHP3ue5_A6RZGwI4wdNZxjj2upuT5oBJnRfm25JF6NwAoebcPTJzGCVjGrxtsfaahujNaaXwZEQiO-vMjZNKfTzx-7NjH1AzFB67ibOuxIOHNKlAEgjqyNA4vTTCoJP1oFQyzfjMt2Z4pvSyZKo2ruscuz7nGV3N8za" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent"></div>
+                    <div class="relative">
+                        <h4 class="text-3xl font-headline font-bold mb-2">University of Twente Scholarship (UTS)</h4>
+                        <p class="text-white/80 mb-6">A scholarship for excellent students from both EU/EEA and
+                            non-EU/EEA countries.</p>
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                            <div class="flex items-center gap-2 text-2xl font-bold text-secondary-container">
+                                €3,000 — €22,000 <span class="text-sm text-white/60 font-medium">per year</span>
+                            </div>
+                            <button
+                                class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-lg font-bold text-sm hover:scale-105 hover:shadow-lg transition-all active:scale-95 scholarship-apply-btn">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="relative overflow-hidden group rounded-2xl aspect-[16/9] flex flex-col justify-end p-8 text-white">
+                    <img alt="NL scholarship"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Aerial view of the Netherlands landscape with traditional wind turbines and modern canals"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPoRJx3PbpRnFkWwXO7zuTT0lO38x0axxKYeaCrBThxO8D4n2h9WYuBCGPHQEKdSfprcLwTadfnO9VfuGvW5ug6LuU0_oE4lZUi1qRTKG7SA7Q1FEkTaY47r9H_xVbuUQHzD5MrNswS4bc0p34SiopMW7VLbCsctVKC7z94A4Pn2Pq97Sy-WC1Uo0_AIKAOEgig4lBgrwadCk6_BCIEo1_9kp-NZ76iUiX1HykKKn4DkEz_Juby084_w174NWd5IJhoHBO9_SFP5o_" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent"></div>
+                    <div class="relative">
+                        <h4 class="text-3xl font-headline font-bold mb-2">NL Scholarship</h4>
+                        <p class="text-white/80 mb-6">Financed by the Dutch Ministry of Education and the University of
+                            Twente.</p>
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                            <div class="flex items-center gap-2 text-2xl font-bold text-white">
+                                €5,000 <span class="text-sm text-white/60 font-medium">One-time payment</span>
+                            </div>
+                            <button
+                                class="bg-white text-primary px-6 py-2 rounded-lg font-bold text-sm hover:scale-105 hover:shadow-lg transition-all active:scale-95 scholarship-apply-btn">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- After Admission Info -->
+    <section class="py-24 bg-surface-container">
+        <div class="max-w-7xl mx-auto px-8">
+            <h2 class="text-4xl font-headline font-extrabold text-primary mb-12 tracking-tight text-center">Beyond the
+                Acceptance Letter</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-xl bg-surface-container-lowest shadow-sm">
+                    <span class="material-symbols-outlined text-4xl text-primary mb-6">passkey</span>
+                    <h4 class="text-xl font-bold text-primary mb-4">Visa &amp; Residency</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Our dedicated Visa Team handles your
+                        application with the Dutch Immigration Service (IND). We guide you through every step of the MVV
+                        and VVR process.</p>
+                </div>
+                <div class="p-8 rounded-xl bg-surface-container-lowest shadow-sm">
+                    <span class="material-symbols-outlined text-4xl text-primary mb-6">home_work</span>
+                    <h4 class="text-xl font-bold text-primary mb-4">Guaranteed Housing</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">International students are prioritized
+                        for on-campus housing. Modern studios and shared apartments are available at the heart of our
+                        campus ecosystem.</p>
+                </div>
+                <div class="p-8 rounded-xl bg-surface-container-lowest shadow-sm">
+                    <span class="material-symbols-outlined text-4xl text-primary mb-6">diversity_3</span>
+                    <h4 class="text-xl font-bold text-primary mb-4">Buddy Program</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Get paired with a current student who
+                        will help you settle into Dutch life, show you around Enschede, and introduce you to student
+                        associations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Final CTA Section -->
+    <section class="py-32 relative overflow-hidden bg-primary">
+        <div class="absolute inset-0 z-0">
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/10 blur-[120px] rounded-full">
+            </div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+            <h2 class="text-5xl font-headline font-extrabold text-white mb-8 tracking-tighter">Ready to Start Your
+                Journey?</h2>
+            <p class="text-xl text-white/80 mb-12 leading-relaxed">Join the next generation of global innovators at the
+                University of Twente. Your future in the Netherlands starts here.</p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <button
+                    class="bg-secondary-container text-on-secondary-container px-10 py-5 rounded-xl font-headline font-bold text-xl hover:shadow-2xl hover:shadow-secondary-container/20 transition-all active:scale-95">
+                    Apply for Sept 2026
+                </button>
+                <button
+                    class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-5 rounded-xl font-headline font-bold text-xl hover:bg-white/20 transition-all">
+                    Contact Admissions
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="w-full pt-16 pb-8 bg-blue-950 dark:bg-slate-950 tonal-transition-top">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-7xl mx-auto">
+            <div>
+                <div class="text-2xl font-black text-white mb-4">UT</div>
+                <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-blue-100/80 mb-6">
+                    A research university where technology and social sciences go hand in hand. High Tech, Human Touch.
+                </p>
+                <div class="flex space-x-4">
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">public</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">alternate_email</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">share</span></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">UT
+                    Branding</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Brand Identity</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Style Guides</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Press Materials</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Merchandise</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">Quick
+                    Links</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="index.html">Homepage</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="academics.html">Academics</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="admissions.html">Admissions</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="study-programme.html">Study Programmes</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">
+                    Contact Details</h4>
+                <div class="font-['Plus_Jakarta_Sans'] text-sm text-blue-100/80 space-y-4">
+                    <p>Drienerlolaan 5<br />7522 NB Enschede<br />The Netherlands</p>
+                    <p>T: +31 (0)53 489 9111<br />E: info@utwente.nl</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 pt-8 border-t border-white/5 text-center">
+            <p class="font-['Plus_Jakarta_Sans'] text-xs text-blue-100/40">© 2024 University of Twente. The Digital
+                Polymath Excellence.</p>
+        </div>
+    </footer>
+    <script>
+            (function () {
+                const estimatorCard = document.getElementById('estimator-card');
+                const form = estimatorCard.querySelector('form');
+                const resultsView = document.getElementById('results-view');
+                const rangeInput = document.getElementById('academic-range');
+                const rangeValueDisplay = document.getElementById('range-value');
+                const calculateBtn = document.getElementById('calculate-btn');
+                const recalculateBtn = document.getElementById('recalculate-btn');
+
+                const ieltsInput = document.getElementById('ielts-score');
+                const iitToggle = document.getElementById('iit-status');
+                const progressRing = document.getElementById('progress-ring');
+                const percentageDisplay = document.getElementById('result-percentage');
+                const messageDisplay = document.getElementById('result-message');
+
+                rangeInput.addEventListener('input', (e) => {
+                    rangeValueDisplay.textContent = e.target.value + '%';
+                });
+
+                calculateBtn.addEventListener('click', () => {
+                    const academicPct = parseFloat(rangeInput.value);
+                    const ieltsScore = parseFloat(ieltsInput.value) || 6.5;
+                    const isIIT = iitToggle.checked;
+
+                    // Calculation Logic
+                    let baseScore = (academicPct * 0.6) + (ieltsScore * 10 * 0.3);
+                    if (isIIT) baseScore += 8;
+
+                    // Clamp between 55 and 95
+                    const finalScore = Math.min(Math.max(Math.round(baseScore), 55), 95);
+
+                    // UI Transition
+                    form.classList.add('hidden');
+                    resultsView.classList.remove('hidden');
+
+                    setTimeout(() => {
+                        resultsView.classList.remove('opacity-0', 'translate-y-4');
+
+                        // Animate progress ring
+                        const radius = 40;
+                        const circumference = 2 * Math.PI * radius;
+                        const offset = circumference - (finalScore / 100) * circumference;
+                        progressRing.style.strokeDasharray = `${circumference} ${circumference}`;
+                        progressRing.style.strokeDashoffset = offset;
+
+                        // Text Logic
+                        percentageDisplay.textContent = finalScore + '%';
+
+                        if (finalScore >= 85) {
+                            messageDisplay.textContent = "Excellent! You're a very strong candidate.";
+                        } else if (finalScore >= 70) {
+                            messageDisplay.textContent = "Good chance. Strengthen your motivation letter.";
+                        } else {
+                            messageDisplay.textContent = "Consider improving your scores or applying for scholarships.";
+                        }
+                    }, 50);
+                });
+
+                recalculateBtn.addEventListener('click', () => {
+                    resultsView.classList.add('opacity-0', 'translate-y-4');
+                    setTimeout(() => {
+                        resultsView.classList.add('hidden');
+                        form.classList.remove('hidden');
+                        progressRing.style.strokeDashoffset = '251.2';
+                    }, 500);
+                });
+            })();
+    </script>
+    <script>
+        (function () {
+            // Accordion Logic
+            const triggers = document.querySelectorAll('.accordion-trigger');
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const targetId = trigger.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+                    const icon = trigger.querySelector('.material-symbols-outlined:last-child');
+
+                    // Toggle hidden class
+                    const isHidden = targetContent.classList.contains('hidden');
+
+                    // Close others (optional, for accordion feel)
+                    // document.querySelectorAll('[id^="docs-"]').forEach(c => c.classList.add('hidden'));
+                    // document.querySelectorAll('.accordion-trigger .material-symbols-outlined:last-child').forEach(i => i.style.transform = '');
+
+                    if (isHidden) {
+                        targetContent.classList.remove('hidden');
+                        icon.style.transform = 'rotate(180deg)';
+                        trigger.parentElement.classList.add('ring-2', 'ring-primary/20', 'border-primary/20');
+                    } else {
+                        targetContent.classList.add('hidden');
+                        icon.style.transform = '';
+                        trigger.parentElement.classList.remove('ring-2', 'ring-primary/20', 'border-primary/20');
+                    }
+                });
+            });
+
+            // Scholarship Success Message
+            const scholarshipButtons = document.querySelectorAll('.scholarship-apply-btn');
+            scholarshipButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const originalText = btn.textContent;
+                    btn.disabled = true;
+                    btn.innerHTML = '<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">check_circle</span> Success</span>';
+                    btn.classList.add('bg-green-500', 'text-white');
+
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.disabled = false;
+                        btn.classList.remove('bg-green-500', 'text-white');
+                    }, 3000);
+                });
+            });
+        })();
+    </script>
+    <script>
+        (function () {
+            const btn = document.getElementById('hamburger-btn');
+            const drawer = document.getElementById('mobile-drawer');
+            const links = drawer.querySelectorAll('.drawer-link');
+            const icon = btn.querySelector('.material-symbols-outlined');
+
+            if (btn && drawer) {
+                btn.addEventListener('click', () => {
+                    const isOpen = drawer.classList.toggle('active');
+                    icon.textContent = isOpen ? 'close' : 'menu';
+                    document.body.style.overflow = isOpen ? 'hidden' : '';
+                });
+
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        drawer.classList.remove('active');
+                        icon.textContent = 'menu';
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>
