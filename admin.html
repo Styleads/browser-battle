@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UT Admissions Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-[#f8f9fa] font-['Plus_Jakarta_Sans'] p-8">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex justify-between items-center mb-10">
+            <h1 class="text-3xl font-extrabold text-[#001839]">Application Submissions</h1>
+            <button onclick="downloadCSV()"
+                class="bg-[#002C5F] text-[#F5A623] px-6 py-3 rounded-lg font-bold shadow-lg hover:-translate-y-1 transition-all">
+                Download All as CSV
+            </button>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <table class="w-full text-left">
+                <thead class="bg-gray-50 border-b border-gray-200">
+                    <tr>
+                        <th class="p-4 font-bold text-sm text-gray-600">Name</th>
+                        <th class="p-4 font-bold text-sm text-gray-600">Email</th>
+                        <th class="p-4 font-bold text-sm text-gray-600">Program</th>
+                        <th class="p-4 font-bold text-sm text-gray-600">Faculty</th>
+                        <th class="p-4 font-bold text-sm text-gray-600">Date</th>
+                    </tr>
+                </thead>
+                <tbody id="submissionTable" class="divide-y divide-gray-100">
+                    <!-- Data will be injected here -->
+                </tbody>
+            </table>
+        <div class="mt-8 text-center text-gray-400 text-sm italic">
+            Note: This admin portal is still under construction.
+        </div>
+    </div>
+
+    <script>
+        const apps = JSON.parse(localStorage.getItem('applications') || '[]');
+        const table = document.getElementById('submissionTable');
+
+        if (apps.length === 0) {
+            table.innerHTML = '<tr><td colspan="5" class="p-10 text-center text-gray-400">No applications found in local storage.</td></tr>';
+        } else {
+            apps.reverse().forEach(app => {
+                const row = `
+                    <tr class="hover:bg-gray-50 transition-colors">
+                        <td class="p-4 font-bold text-[#001839]">${app.fullName}</td>
+                        <td class="p-4 text-gray-600">${app.email}</td>
+                        <td class="p-4 text-gray-600">${app.program}</td>
+                        <td class="p-4 text-gray-600">${app.faculty}</td>
+                        <td class="p-4 text-xs text-gray-400">${new Date(app.timestamp).toLocaleDateString()}</td>
+                    </tr>
+                `;
+                table.innerHTML += row;
+            });
+        }
+
+        function downloadCSV() {
+            if (apps.length === 0) return alert('No data to export');
+
+            const headers = Object.keys(apps[0]);
+            const rows = apps.map(obj => headers.map(header => `"${obj[header]}"`).join(','));
+            const csvContent = [headers.join(','), ...rows].join('\n');
+
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('href', url);
+            a.setAttribute('download', `UT_Applications_${new Date().toISOString().split('T')[0]}.csv`);
+            a.click();
+        }
+    </script>
+</body>
+
+</html>

@@ -274,11 +274,10 @@
                 class="bg-surface-container-lowest rounded-xl p-8 mb-12 shadow-sm border border-outline-variant/15 relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-1.5 h-full bg-secondary-container"></div>
                 <div class="relative z-10">
-                    <p class="font-headline font-bold text-primary text-xl mb-2">Hello Alex Vanderwaal,</p>
+                    <p class="font-headline font-bold text-primary text-xl mb-2" id="successGreeting">Hello Applicant,</p>
                     <p class="text-on-surface-variant leading-relaxed">
-                        We have received your application for the <span class="text-primary font-semibold">MSc Computer
-                            Science: Software Technology</span> program. Your application reference ID is <span
-                            class="font-mono text-secondary font-bold">UT-2024-89021</span>.
+                        We have received your application. Your application reference ID is <span
+                            class="font-mono text-secondary font-bold">UT-2026-89021</span>.
                     </p>
                 </div>
             </div>
@@ -319,7 +318,7 @@
                     <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
                     Go to Dashboard
                 </button>
-                <button
+                <button onclick="alert('Admins can access CSV files through the admin.html nav.')"
                     class="w-full sm:w-auto px-8 py-4 border-2 border-outline-variant text-primary font-headline font-bold rounded-lg transition-all duration-300 ease-in-out hover:bg-surface-container-low hover:border-primary flex items-center justify-center gap-2">
                     <span class="material-symbols-outlined" data-icon="download">download</span>
                     Download Application PDF
@@ -395,6 +394,15 @@
             hamburgerBtn.addEventListener('click', () => {
                 mobileDrawer.classList.toggle('active');
             });
+        }
+
+        // Get Name from localStorage if available
+        const applications = JSON.parse(localStorage.getItem('applications') || '[]');
+        if (applications.length > 0) {
+            const lastApp = applications[applications.length - 1];
+            if (lastApp.fullName) {
+                document.getElementById('successGreeting').textContent = `Hello ${lastApp.fullName},`;
+            }
         }
     </script>
 </body>
