@@ -1,6 +1,6 @@
 # browser-battle
 A modern, immersive website for **University of Twente** (Netherlands):
-https://styleads.github.io/browser-battle/admissions.html ✨ Project Overview
+https://styleads.github.io/browser-battle/index.html ✨ Project Overview
 
 We created a premium digital experience for University of Twente — one of Europe's innovative technical universities known for its green campus, strong engineering & technology programs, and excellent employability.
 
