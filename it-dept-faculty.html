@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Information Technology Faculty | University of Twente
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#d9dadb",
+                        "outline": "#747780",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#25467a",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#edeeef",
+                        "primary": "#001839",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#6b4500",
+                        "on-surface": "#191c1d",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "secondary": "#835500",
+                        "surface-container-high": "#e7e8e9",
+                        "surface": "#f8f9fa",
+                        "tertiary-fixed": "#ffdbcc",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary-container": "#7695ce",
+                        "primary-container": "#002c5f",
+                        "on-tertiary-fixed-variant": "#723615",
+                        "on-error-container": "#93000a",
+                        "on-background": "#191c1d",
+                        "inverse-primary": "#abc7ff",
+                        "tertiary": "#300e00",
+                        "surface-tint": "#3f5e94",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#291800",
+                        "primary-fixed": "#d7e3ff",
+                        "outline-variant": "#c4c6d1",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-container": "#d0815a",
+                        "secondary-fixed": "#ffddb4",
+                        "tertiary-container": "#511d00",
+                        "surface-bright": "#f8f9fa",
+                        "background": "#f8f9fa",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary-fixed-dim": "#abc7ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#001b3f",
+                        "secondary-fixed-dim": "#ffb955",
+                        "secondary-container": "#feae2c",
+                        "surface-variant": "#e1e3e4",
+                        "on-surface-variant": "#43474f",
+                        "on-primary": "#ffffff",
+                        "ut-navy": "#002C5F",
+                        "ut-orange": "#F5A623"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "space": ["Space Grotesk"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #001839 0%, #002c5f 100%);
+        }
+    </style>
+</head>
+<body class="bg-[#f8f9fa] text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+    <!-- Top Navigation Shell -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-blue-950/80 backdrop-blur-xl shadow-sm">
+        <div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+            <div class="text-xl font-bold text-blue-900 dark:text-white uppercase tracking-wider font-headline cursor-pointer"
+                onclick="showHomepage()">
+                University of Twente
+            </div>
+            <div
+                class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+                <a class="text-blue-900 dark:text-blue-100 border-b-2 border-yellow-500 pb-1 hover:translate-y-[-1px] transition-transform duration-300"
+                    href="index.html" onclick="showHomepage()">Homepage</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="academics.html">Academics</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="admissions.html">Admissions</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Campus</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Placements</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Notable Alumni</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Clubs</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <button
+                    class="px-6 py-3 rounded-[8px] font-headline font-bold tracking-tight hover:translate-y-[-2px] transition-all shadow-md active:scale-95 duration-200 whitespace-nowrap bg-[#002C5F] text-[#F5A623] desktop-only">Apply
+                    Now</button>
+            </div>
+            <button class="mobile-only text-primary dark:text-white p-2 focus:outline-none" id="hamburger-btn">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-only font-headline" id="mobile-drawer">
+        <nav class="flex flex-col py-4">
+            <a class="drawer-link group" href="index.html" onclick="showHomepage()">
+                <span class="material-symbols-outlined drawer-icon">home</span>
+                <div>
+                    Homepage
+                    <span class="drawer-desc">Back to university main portal</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="academics.html">
+                <span class="material-symbols-outlined drawer-icon">school</span>
+                <div>
+                    Academics
+                    <span class="drawer-desc">Faculties and departments</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="admissions.html">
+                <span class="material-symbols-outlined drawer-icon">login</span>
+                <div>
+                    Admissions
+                    <span class="drawer-desc">Apply for your degree</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">apartment</span>
+                <div>
+                    Campus
+                    <span class="drawer-desc">Student life and facilities</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">work</span>
+                <div>
+                    Placements
+                    <span class="drawer-desc">Career services and industry links</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
+                <div>
+                    Notable Alumni
+                    <span class="drawer-desc">Our global impact makers</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">groups</span>
+                <div>
+                    Clubs
+                    <span class="drawer-desc">Join student organizations</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <main>
+        <section class="pt-40 pb-20 bg-[#f8f9fa]">
+            <div class="max-w-7xl mx-auto px-8 text-center">
+                <span class="inline-block px-4 py-1.5 mb-6 bg-[#F5A623]/10 text-[#F5A623] rounded-full text-xs font-bold tracking-widest uppercase">Our Experts</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-[#002C5F] font-headline tracking-tight mb-6">Information Technology Faculty</h1>
+                <p class="text-xl text-[#191c1d]/70 max-w-3xl mx-auto">Meet the brilliant minds and dedicated educators guiding interdisciplinary research and next-generation learning.</p>
+            </div>
+        </section>
+
+        <section class="py-16 bg-[#f3f4f5] min-h-screen">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-transparent outline-none hover:shadow-xl hover:scale-[1.02] hover:shadow-[#F5A623]/30 transition-all duration-300 text-center flex flex-col items-center group">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 shadow-lg border-2 border-transparent group-hover:border-[#F5A623] transition-colors">
+                            <img class="w-full h-full object-cover" src="https://thispersondoesnotexist.com?field=it-dept_fac_1" alt="Dr. David Lefevre" />
+                        </div>
+                        <h3 class="text-lg font-bold text-[#002C5F] font-headline w-full truncate">Dr. David Lefevre</h3>
+                        <p class="text-sm text-[#191c1d]/70 mb-6">Senior Lecturer in Information Technology</p>
+                        <div class="mt-auto flex gap-4 w-full justify-center border-t border-[#c4c6d1]/20 pt-4">
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#F5A623] transition-colors"><span class="material-symbols-outlined text-xl">mail</span></a>
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#002C5F] transition-colors"><span class="material-symbols-outlined text-xl">article</span></a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-transparent outline-none hover:shadow-xl hover:scale-[1.02] hover:shadow-[#F5A623]/30 transition-all duration-300 text-center flex flex-col items-center group">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 shadow-lg border-2 border-transparent group-hover:border-[#F5A623] transition-colors">
+                            <img class="w-full h-full object-cover" src="https://thispersondoesnotexist.com?field=it-dept_fac_2" alt="Dr. Charlotte Gupta" />
+                        </div>
+                        <h3 class="text-lg font-bold text-[#002C5F] font-headline w-full truncate">Dr. Charlotte Gupta</h3>
+                        <p class="text-sm text-[#191c1d]/70 mb-6">Professor of Information Technology</p>
+                        <div class="mt-auto flex gap-4 w-full justify-center border-t border-[#c4c6d1]/20 pt-4">
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#F5A623] transition-colors"><span class="material-symbols-outlined text-xl">mail</span></a>
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#002C5F] transition-colors"><span class="material-symbols-outlined text-xl">article</span></a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-transparent outline-none hover:shadow-xl hover:scale-[1.02] hover:shadow-[#F5A623]/30 transition-all duration-300 text-center flex flex-col items-center group">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 shadow-lg border-2 border-transparent group-hover:border-[#F5A623] transition-colors">
+                            <img class="w-full h-full object-cover" src="https://thispersondoesnotexist.com?field=it-dept_fac_3" alt="Dr. David Lefevre" />
+                        </div>
+                        <h3 class="text-lg font-bold text-[#002C5F] font-headline w-full truncate">Dr. David Lefevre</h3>
+                        <p class="text-sm text-[#191c1d]/70 mb-6">Senior Lecturer in Information Technology</p>
+                        <div class="mt-auto flex gap-4 w-full justify-center border-t border-[#c4c6d1]/20 pt-4">
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#F5A623] transition-colors"><span class="material-symbols-outlined text-xl">mail</span></a>
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#002C5F] transition-colors"><span class="material-symbols-outlined text-xl">article</span></a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-transparent outline-none hover:shadow-xl hover:scale-[1.02] hover:shadow-[#F5A623]/30 transition-all duration-300 text-center flex flex-col items-center group">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 shadow-lg border-2 border-transparent group-hover:border-[#F5A623] transition-colors">
+                            <img class="w-full h-full object-cover" src="https://thispersondoesnotexist.com?field=it-dept_fac_4" alt="Dr. Daniel Williams" />
+                        </div>
+                        <h3 class="text-lg font-bold text-[#002C5F] font-headline w-full truncate">Dr. Daniel Williams</h3>
+                        <p class="text-sm text-[#191c1d]/70 mb-6">Research Fellow in Information Technology</p>
+                        <div class="mt-auto flex gap-4 w-full justify-center border-t border-[#c4c6d1]/20 pt-4">
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#F5A623] transition-colors"><span class="material-symbols-outlined text-xl">mail</span></a>
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#002C5F] transition-colors"><span class="material-symbols-outlined text-xl">article</span></a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-transparent outline-none hover:shadow-xl hover:scale-[1.02] hover:shadow-[#F5A623]/30 transition-all duration-300 text-center flex flex-col items-center group">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 shadow-lg border-2 border-transparent group-hover:border-[#F5A623] transition-colors">
+                            <img class="w-full h-full object-cover" src="https://thispersondoesnotexist.com?field=it-dept_fac_5" alt="Dr. Elijah Gupta" />
+                        </div>
+                        <h3 class="text-lg font-bold text-[#002C5F] font-headline w-full truncate">Dr. Elijah Gupta</h3>
+                        <p class="text-sm text-[#191c1d]/70 mb-6">Assistant Professor of Information Technology</p>
+                        <div class="mt-auto flex gap-4 w-full justify-center border-t border-[#c4c6d1]/20 pt-4">
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#F5A623] transition-colors"><span class="material-symbols-outlined text-xl">mail</span></a>
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#002C5F] transition-colors"><span class="material-symbols-outlined text-xl">article</span></a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-transparent outline-none hover:shadow-xl hover:scale-[1.02] hover:shadow-[#F5A623]/30 transition-all duration-300 text-center flex flex-col items-center group">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 shadow-lg border-2 border-transparent group-hover:border-[#F5A623] transition-colors">
+                            <img class="w-full h-full object-cover" src="https://thispersondoesnotexist.com?field=it-dept_fac_6" alt="Dr. Elena Jones" />
+                        </div>
+                        <h3 class="text-lg font-bold text-[#002C5F] font-headline w-full truncate">Dr. Elena Jones</h3>
+                        <p class="text-sm text-[#191c1d]/70 mb-6">Professor of Information Technology</p>
+                        <div class="mt-auto flex gap-4 w-full justify-center border-t border-[#c4c6d1]/20 pt-4">
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#F5A623] transition-colors"><span class="material-symbols-outlined text-xl">mail</span></a>
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#002C5F] transition-colors"><span class="material-symbols-outlined text-xl">article</span></a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-transparent outline-none hover:shadow-xl hover:scale-[1.02] hover:shadow-[#F5A623]/30 transition-all duration-300 text-center flex flex-col items-center group">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 shadow-lg border-2 border-transparent group-hover:border-[#F5A623] transition-colors">
+                            <img class="w-full h-full object-cover" src="https://thispersondoesnotexist.com?field=it-dept_fac_7" alt="Dr. Elena Vance" />
+                        </div>
+                        <h3 class="text-lg font-bold text-[#002C5F] font-headline w-full truncate">Dr. Elena Vance</h3>
+                        <p class="text-sm text-[#191c1d]/70 mb-6">Research Fellow in Information Technology</p>
+                        <div class="mt-auto flex gap-4 w-full justify-center border-t border-[#c4c6d1]/20 pt-4">
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#F5A623] transition-colors"><span class="material-symbols-outlined text-xl">mail</span></a>
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#002C5F] transition-colors"><span class="material-symbols-outlined text-xl">article</span></a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-transparent outline-none hover:shadow-xl hover:scale-[1.02] hover:shadow-[#F5A623]/30 transition-all duration-300 text-center flex flex-col items-center group">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 shadow-lg border-2 border-transparent group-hover:border-[#F5A623] transition-colors">
+                            <img class="w-full h-full object-cover" src="https://thispersondoesnotexist.com?field=it-dept_fac_8" alt="Dr. Benjamin Garcia" />
+                        </div>
+                        <h3 class="text-lg font-bold text-[#002C5F] font-headline w-full truncate">Dr. Benjamin Garcia</h3>
+                        <p class="text-sm text-[#191c1d]/70 mb-6">Senior Lecturer in Information Technology</p>
+                        <div class="mt-auto flex gap-4 w-full justify-center border-t border-[#c4c6d1]/20 pt-4">
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#F5A623] transition-colors"><span class="material-symbols-outlined text-xl">mail</span></a>
+                            <a href="#" class="text-[#191c1d]/60 hover:text-[#002C5F] transition-colors"><span class="material-symbols-outlined text-xl">article</span></a>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="mt-20 text-center">
+                    <a href="it-dept.html" class="inline-flex items-center text-[#002C5F] font-bold hover:text-[#F5A623] transition-colors">
+                        <span class="material-symbols-outlined mr-2">arrow_back</span>
+                        Back to Department Overview
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+<!-- Footer -->
+    <footer class="w-full pt-16 pb-8 bg-blue-950 dark:bg-slate-950 tonal-transition-top">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-7xl mx-auto">
+            <div>
+                <div class="text-2xl font-black text-white mb-4">UT</div>
+                <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-blue-100/80 mb-6">
+                    A research university where technology and social sciences go hand in hand. High Tech, Human Touch.
+                </p>
+                <div class="flex space-x-4">
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">public</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">alternate_email</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">share</span></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">UT
+                    Branding</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Brand Identity</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Style Guides</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Press Materials</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Merchandise</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">Quick
+                    Links</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Canvas</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Osiris Student</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Library Services</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Employee Portal</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">
+                    Contact Details</h4>
+                <div class="font-['Plus_Jakarta_Sans'] text-sm text-blue-100/80 space-y-4">
+                    <p>Drienerlolaan 5<br />7522 NB Enschede<br />The Netherlands</p>
+                    <p>T: +31 (0)53 489 9111<br />E: info@utwente.nl</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 pt-8 border-t border-white/5 text-center">
+            <p class="font-['Plus_Jakarta_Sans'] text-xs text-blue-100/40">© 2024 University of Twente. The Digital
+                Polymath Excellence.</p>
+        </div>
+    </footer>
+    <script>function showPage(pageId) {
+            const pages = ['main-homepage', 'newsroom-page', 'event1', 'event2', 'event3'];
+            pages.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'none';
+            });
+            const target = document.getElementById(pageId);
+            if (target) {
+                target.style.display = 'block';
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // Add helper for nav links if needed
+        function showHomepage() { showPage('main-homepage'); }
+
+        // Handle mobile menu
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        if (hamburgerBtn && mobileDrawer) {
+            hamburgerBtn.addEventListener('click', () => {
+                mobileDrawer.classList.toggle('active');
+            });
+        }
+
+        // Handle tab switching
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+
+                // Toggle active class on buttons
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+
+                // Hide all content divs
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+
+                // Show the targeted content div
+                document.getElementById(targetId).classList.remove('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>

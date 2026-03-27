@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Notable Alumni | University of Twente</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "ut-orange": "#F5A623",
+                        "ut-blue": "#002C5F",
+                        "on-primary-fixed-variant": "#25467a",
+                        "tertiary-fixed": "#ffdbcc",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary-container": "#7695ce",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#43474f",
+                        "surface": "#f8f9fa",
+                        "inverse-primary": "#abc7ff",
+                        "tertiary": "#300e00",
+                        "on-secondary-fixed": "#291800",
+                        "secondary-container": "#feae2c",
+                        "surface-tint": "#3f5e94",
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-fixed": "#ffddb4",
+                        "surface-container-high": "#e7e8e9",
+                        "outline": "#747780",
+                        "primary-fixed-dim": "#abc7ff",
+                        "inverse-surface": "#2e3132",
+                        "secondary": "#835500",
+                        "on-background": "#191c1d",
+                        "outline-variant": "#c4c6d1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-tertiary-fixed": "#351000",
+                        "on-primary-fixed": "#001b3f",
+                        "surface-dim": "#d9dadb",
+                        "secondary-fixed-dim": "#ffb955",
+                        "on-tertiary-fixed-variant": "#723615",
+                        "surface-container": "#edeeef",
+                        "surface-bright": "#f8f9fa",
+                        "primary-fixed": "#d7e3ff",
+                        "primary-container": "#002c5f",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#d0815a",
+                        "on-secondary": "#ffffff",
+                        "primary": "#001839",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-container": "#6b4500",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#511d00",
+                        "background": "#f8f9fa"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                    scale: {
+                        '102': '1.02',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .alumni-card {
+            transition: all 0.3s ease-in-out;
+            border: 1px solid #E2E8F0;
+        }
+
+        .alumni-card:hover {
+            transform: scale(1.02);
+            border-color: transparent;
+            box-shadow: 0 20px 25px -5px rgba(0, 44, 95, 0.2), 0 10px 10px -5px rgba(245, 166, 35, 0.1);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #001839 0%, #002c5f 100%);
+        }
+
+        @media (max-width: 1024px) {
+            .mobile-only {
+                display: block !important;
+            }
+
+            .desktop-only {
+                display: none !important;
+            }
+
+            #mobile-drawer {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 72px);
+                background-color: #002C5F;
+                z-index: 40;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                overflow-y: auto;
+                pointer-events: none;
+            }
+
+            #mobile-drawer.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .drawer-link {
+                display: flex;
+                align-items: center;
+                padding: 1.5rem 2rem;
+                color: white;
+                font-weight: 700;
+                font-size: 1.25rem;
+                border-left: 4px solid transparent;
+                transition: all 0.2s ease;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .drawer-link:hover,
+            .drawer-link.active {
+                border-left-color: #F5A623;
+                color: #F5A623;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            .drawer-icon {
+                color: #C60C30;
+                margin-right: 1rem;
+                font-size: 24px;
+            }
+
+            .drawer-desc {
+                display: block;
+                font-size: 0.75rem;
+                color: #5F6368;
+                font-weight: 400;
+                text-transform: none;
+                letter-spacing: normal;
+                margin-top: 0.25rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-only {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+    <!-- Top Navigation Shell -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-blue-950/80 backdrop-blur-xl shadow-sm">
+        <div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+            <div class="text-xl font-bold text-blue-900 dark:text-white uppercase tracking-wider font-headline cursor-pointer"
+                onclick="showHomepage()">
+                University of Twente
+            </div>
+            <div
+                class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+                <a class="text-blue-900 dark:text-blue-100 border-b-2 border-yellow-500 pb-1 hover:translate-y-[-1px] transition-transform duration-300"
+                    href="index.html" onclick="showHomepage()">Homepage</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="academics.html">Academics</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="admissions.html">Admissions</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Campus</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Placements</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Notable Alumni</a>
+                <a class="text-blue-800/70 dark:text-blue-200/70 hover:text-blue-900 dark:hover:text-white transition-colors hover:translate-y-[-1px] transition-transform duration-300"
+                    href="#">Clubs</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <button
+                    class="px-6 py-3 rounded-[8px] font-headline font-bold tracking-tight hover:translate-y-[-2px] transition-all shadow-md active:scale-95 duration-200 whitespace-nowrap bg-[#002C5F] text-[#F5A623] desktop-only">Apply
+                    Now</button>
+            </div>
+            <button class="mobile-only text-primary dark:text-white p-2 focus:outline-none" id="hamburger-btn">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-only font-headline" id="mobile-drawer">
+        <nav class="flex flex-col py-4">
+            <a class="drawer-link group" href="index.html" onclick="showHomepage()">
+                <span class="material-symbols-outlined drawer-icon">home</span>
+                <div>
+                    Homepage
+                    <span class="drawer-desc">Back to university main portal</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="academics.html">
+                <span class="material-symbols-outlined drawer-icon">school</span>
+                <div>
+                    Academics
+                    <span class="drawer-desc">Faculties and departments</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="admissions.html">
+                <span class="material-symbols-outlined drawer-icon">login</span>
+                <div>
+                    Admissions
+                    <span class="drawer-desc">Apply for your degree</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">apartment</span>
+                <div>
+                    Campus
+                    <span class="drawer-desc">Student life and facilities</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">work</span>
+                <div>
+                    Placements
+                    <span class="drawer-desc">Career services and industry links</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">person_celebrate</span>
+                <div>
+                    Notable Alumni
+                    <span class="drawer-desc">Our global impact makers</span>
+                </div>
+            </a>
+            <a class="drawer-link group" href="#">
+                <span class="material-symbols-outlined drawer-icon">groups</span>
+                <div>
+                    Clubs
+                    <span class="drawer-desc">Join student organizations</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <!-- Page Header Hero -->
+    <section class="hero-gradient py-24 px-8 md:px-12 flex flex-col items-center justify-center text-center">
+        <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase mb-6">
+            NOTABLE ALUMNI
+        </h1>
+        <p class="text-primary-fixed max-w-2xl text-lg opacity-90 leading-relaxed font-light">
+            Celebrating the global impact of University of Twente graduates who are shaping the future of technology,
+            policy, and society through High Tech, Human Touch.
+        </p>
+    </section>
+    <!-- Alumni Grid Section -->
+    <main class="max-w-7xl mx-auto px-8 py-20">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Card 1 -->
+            <div class="alumni-card bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col h-full group">
+                <div class="aspect-[4/5] bg-surface-container-high relative overflow-hidden">
+                    <img alt="Geert-Jan Bruinsma" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7vx39BTzldicnT1j0DEKSMxrmM3MQSrGVWXLYARtYr1F2B5mGcu5hwbmW7ZCFgUvidHHPflhgf3EiTO-lnru1Znz5VACzYTjEPQO-axdUM5-aLwCYwJ0x96AnrelnT2yLtQ5j6RuaeWVvPF4NGJp9qdarhrZw_Pyn5e-s_5MT1tpd-3m_1g2pr7LKpmfwb3PoavgSZ2ca87TdAMgI9OEBLrsEnseZfEImg0-O0zNn23KB_wyOyxQHNgpvlXOdFtpZnMnI9X3SzDI" />
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-headline font-bold text-xl text-primary leading-tight">Geert-Jan Bruinsma</h3>
+                    <span class="text-[#F5A623] text-[14px] font-semibold mb-2">Class of 1993</span>
+                    <p class="text-outline text-sm font-medium mt-auto">Founder of Booking.com</p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="alumni-card bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col h-full group">
+                <div class="aspect-[4/5] bg-surface-container-high relative overflow-hidden">
+                    <img alt="Prince Constantijn" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFarrAj4J8pZkbexGN_mfBtsFiW99pEaeXM_04GYlMrl5rPg5xkLEQ-NJmMK-fys6u-qEmX1vXbUy8rcFXJ8EIDALcKaJBINwQiXG-6RCMsKcy-bJnaN18Cnc9Msw3ifO5oC8TglqBwL7bsiBWQErz_UpyJED1cH_jAk0GVIEffyDetcYK61c5oDWH8gNLeER5Kup149JmKKBG9JaqnVO27eu1ln6_Gq4N8ptGzzvXyQw6AkB8KVTyFkBiMaso_nFw4D3k2TuATmY" />
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-headline font-bold text-xl text-primary leading-tight">Prince Constantijn of the
+                        Netherlands</h3>
+                    <span class="text-[#F5A623] text-[14px] font-semibold mb-2">Class of 1995</span>
+                    <p class="text-outline text-sm font-medium mt-auto">Special Envoy for TechLeap.nl</p>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="alumni-card bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col h-full group">
+                <div class="aspect-[4/5] bg-surface-container-high relative overflow-hidden">
+                    <img alt="Ank Bijleveld" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2fVBkzBThmFIOCrj2MdBljTjXQ1iYHpWS2L82N43r-cl-bI6A_Awr59VpsU7yn89s7izVvSsmo7QSTUtFGtPWrA7tH_2vFNlY0r8a6O7swVK8kNRRF5zystcPv6RRWOOPwgaydP3ZhqVn6EhmZ1AqDJRmcmrHSgSrxqO1OYIrZmakix265b2eO7CqMcn1WPz6r8v4muMNdZMtdUH9iT6hPZqH2lOblc-Cb-EIXWKraJvr_odxjvWVimiEh-MquE17QrFwSkjljXM" />
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-headline font-bold text-xl text-primary leading-tight">Ank Bijleveld</h3>
+                    <span class="text-[#F5A623] text-[14px] font-semibold mb-2">Class of 1986</span>
+                    <p class="text-outline text-sm font-medium mt-auto">Former Minister of Defence</p>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="alumni-card bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col h-full group">
+                <div class="aspect-[4/5] bg-surface-container-high relative overflow-hidden">
+                    <img alt="Frank Slootman" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHlcuqLEiM_6nQVIWEIWmNKdIS7CilbE346O1g3CKe56_mDiLhie0Civ_ob0eR5QY0lXkMD7OP3cfjhPVhQVKICqd5-rlktxGx3BT4TSDH625g6G9EKVGl1fhHpUdJ9gPhkoof3IvqsXOQ1f7yVnMEOu52NTrjCeN9CdI9GgGs2iVdLrC_ctaAIIPIZyRDyLONOa4MSHHTq3mNAPAUSgSyIEk-MMIu39xCE9_DKRffqJezLBPn_XZST-Rffd4hSk_12p3rIjNFlnQ" />
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-headline font-bold text-xl text-primary leading-tight">Frank Slootman</h3>
+                    <span class="text-[#F5A623] text-[14px] font-semibold mb-2">Class of 1982</span>
+                    <p class="text-outline text-sm font-medium mt-auto">CEO of Snowflake</p>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="alumni-card bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col h-full group">
+                <div class="aspect-[4/5] bg-surface-container-high relative overflow-hidden">
+                    <img alt="Yasemin Çegerek" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAitQBjp9Hr2FzNEiS7pxqd4G9qXeQGK2BiL72aGFsBjGR8lYLw_Di4C1oXkfCjnqtDcEDI6FNj0Wdqu780J4GO50tOvNvC0B9HbHti2GxZnU9bE6k_q93yicSdFAeKEOmoOeVzevI4vI6pwh81WTPfj9odpubTdGZKE6N1EL5D0z-IdP56k0K-BoUIMYjM5beOpWjOIOmHTbr1UxbY_hkoGDBY2iaUbBzfVOg-BJCAH6CZOXjsDGbCU4qkFaMngsa04_vnWvax6E" />
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-headline font-bold text-xl text-primary leading-tight">Yasemin Çegerek</h3>
+                    <span class="text-[#F5A623] text-[14px] font-semibold mb-2">Class of 2002</span>
+                    <p class="text-outline text-sm font-medium mt-auto">Member of the House of Representatives</p>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="alumni-card bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col h-full group">
+                <div class="aspect-[4/5] bg-surface-container-high relative overflow-hidden">
+                    <img alt="Jaap Beernink" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP86Co8SUONTCbaa1xXQyPJQCgwLaJ_5ZzusVgTpbCmIg7OFk_zTtWPtjV2cJjqFcGlNqKSBm3KDU0zQ5cm6syJ7Eeh6CxUXscCav5g4-ymZsKSlcyrfhprxTgXXC-9c4qQMlwtKKH4qoLaRRBSKAUOObB6yn-RsIniRhfp13QtgtMMwq6Lavack6w-xzVWofOuO2IC8J0ENyv-9YxK3Q62mtRHeqDyuhGm07Gia7b16OCIiWEj2S7ZzTCrVn0_2PXKyjoQDhl25M" />
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-headline font-bold text-xl text-primary leading-tight">Jaap Beernink</h3>
+                    <span class="text-[#F5A623] text-[14px] font-semibold mb-2">Class of 1998</span>
+                    <p class="text-outline text-sm font-medium mt-auto">Director of Novel-T</p>
+                </div>
+            </div>
+            <!-- Card 7 -->
+            <div class="alumni-card bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col h-full group">
+                <div class="aspect-[4/5] bg-surface-container-high relative overflow-hidden">
+                    <img alt="Han Polman" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh2LxsyoYmmbpuBUZg7ZhkaeC6JmW9Kk1IHPNA0vBj3oyTjnqtSaGn40xbChui1BmpSZ5kpBE3LqB8RHd5mImvAsS7fJav__1_RsxZIxrthRCL4pQWBNoPCiBqT5M_ged5IkRv4aPXf5pErDPpX726uxdmu7XxmjDnTeuu5EmgxdKfilr8xJim8aKxtO32EV7rJZAhso-s-x8i-Lgo9344vxoRzR_KyCLzYBNyc5YfAGIenUbpT56lWrus7GdX4q7C35Hc_gS4gbE" />
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-headline font-bold text-xl text-primary leading-tight">Han Polman</h3>
+                    <span class="text-[#F5A623] text-[14px] font-semibold mb-2">Class of 1988</span>
+                    <p class="text-outline text-sm font-medium mt-auto">King's Commissioner of Zeeland</p>
+                </div>
+            </div>
+            <!-- Card 8 -->
+            <div class="alumni-card bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col h-full group">
+                <div class="aspect-[4/5] bg-surface-container-high relative overflow-hidden">
+                    <img alt="Fred J. Teeven" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCHd3HVT7EQRslTGs5XNF1gYouN3I5LVBKamCxJSOSl5zj0P4ZG9Et3j4xTmj8fFmZhRyIn6QUlTiR3hPf8cEIIVISS8MJHPngzY45nbhx7NYd6d3LBvX5qbaHpUFqPjgjxcWxDV8C8N5qqwLWyuT9mQZNkUYar1gq22ypDxeUooqtsAdCjdXg0XwUEDa0p3jHXvgigea3V6vlj43vgxZBuakzdLkv-7mLVJJSAAWNSr1weFWkQ1I3OGjWwhxpB6xBVB_fLG3lpHg" />
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-headline font-bold text-xl text-primary leading-tight">Fred J. Teeven</h3>
+                    <span class="text-[#F5A623] text-[14px] font-semibold mb-2">Class of 1991</span>
+                    <p class="text-outline text-sm font-medium mt-auto">Former State Secretary</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Alumni Experiences Section -->
+    <section class="bg-[#f7f9ff] py-24" id="alumni-stories">
+        <div class="max-w-7xl mx-auto px-8">
+            <h2 class="font-display font-bold text-4xl text-ut-blue text-center mb-16 uppercase tracking-tight">Alumni
+                Experiences</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col">
+                    <div class="flex text-ut-orange mb-4">
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                    </div>
+                    <blockquote class="text-on-surface-variant italic mb-8 flex-grow">
+                        "The 'High Tech Human Touch' philosophy wasn't just a slogan; it defined my approach to
+                        engineering. At UT, I learned that technology only matters when it serves society."
+                    </blockquote>
+                    <div class="flex items-center gap-4">
+                        <img alt="Alumnus 1" class="w-12 h-12 rounded-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7vx39BTzldicnT1j0DEKSMxrmM3MQSrGVWXLYARtYr1F2B5mGcu5hwbmW7ZCFgUvidHHPflhgf3EiTO-lnru1Znz5VACzYTjEPQO-axdUM5-aLwCYwJ0x96AnrelnT2yLtQ5j6RuaeWVvPF4NGJp9qdarhrZw_Pyn5e-s_5MT1tpd-3m_1g2pr7LKpmfwb3PoavgSZ2ca87TdAMgI9OEBLrsEnseZfEImg0-O0zNn23KB_wyOyxQHNgpvlXOdFtpZnMnI9X3SzDI" />
+                        <div>
+                            <p class="font-bold text-ut-blue text-sm">Mark van der Drift</p>
+                            <p class="text-xs text-outline">BSc Computer Science, 2012</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col">
+                    <div class="flex text-ut-orange mb-4">
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                    </div>
+                    <blockquote class="text-on-surface-variant italic mb-8 flex-grow">
+                        "My time at Twente was transformative. The interdisciplinary projects gave me the technical
+                        depth and the human perspective needed to lead in a global market."
+                    </blockquote>
+                    <div class="flex items-center gap-4">
+                        <img alt="Alumna 2" class="w-12 h-12 rounded-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2fVBkzBThmFIOCrj2MdBljTjXQ1iYHpWS2L82N43r-cl-bI6A_Awr59VpsU7yn89s7izVvSsmo7QSTUtFGtPWrA7tH_2vFNlY0r8a6O7swVK8kNRRF5zystcPv6RRWOOPwgaydP3ZhqVn6EhmZ1AqDJRmcmrHSgSrxqO1OYIrZmakix265b2eO7CqMcn1WPz6r8v4muMNdZMtdUH9iT6hPZqH2lOblc-Cb-EIXWKraJvr_odxjvWVimiEh-MquE17QrFwSkjljXM" />
+                        <div>
+                            <p class="font-bold text-ut-blue text-sm">Sarah de Vries</p>
+                            <p class="text-xs text-outline">MSc Public Administration, 2015</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col">
+                    <div class="flex text-ut-orange mb-4">
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                    </div>
+                    <blockquote class="text-on-surface-variant italic mb-8 flex-grow">
+                        "UTwente provides a unique ecosystem for innovation. The balance of high-tech research and
+                        human-centric design is what makes our alumni stand out worldwide."
+                    </blockquote>
+                    <div class="flex items-center gap-4">
+                        <img alt="Alumnus 3" class="w-12 h-12 rounded-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp9ZyxlWGjwpt5Smy85LaSawvoeIsP5FRKyRd1jopQyZ8XCKFXWj9_lw9NepbPDRFm-K2E7dKTxljmWz8bLqQrO3moH6BsZnXtEkWnI04M3g_QdTztFREUFD8_Pk_rGv1TMn1w1rzD7DW2Nz77AHM67l3Zf69v_ZKTlXCWcOF4JhuluCnUKiVYcE48rjZr8upkqzzovoB2LEZ0YwSQ1bcIT914RuhWBBV7aoFjjPmUewIK0wgEtwBaPvwmrg384JXEyAn9QaO57bo" />
+                        <div>
+                            <p class="font-bold text-ut-blue text-sm">Prof. Dr. Jan de Groot</p>
+                            <p class="text-xs text-outline">PhD Nanotechnology, 2008</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="w-full pt-16 pb-8 bg-blue-950 dark:bg-slate-950 tonal-transition-top">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-7xl mx-auto">
+            <div>
+                <div class="text-2xl font-black text-white mb-4">UT</div>
+                <p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-blue-100/80 mb-6">
+                    A research university where technology and social sciences go hand in hand. High Tech, Human Touch.
+                </p>
+                <div class="flex space-x-4">
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">public</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">alternate_email</span></a>
+                    <a class="text-white/60 hover:text-yellow-500 transition-colors" href="#"><span
+                            class="material-symbols-outlined">share</span></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">UT
+                    Branding</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Brand Identity</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Style Guides</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Press Materials</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Merchandise</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">Quick
+                    Links</h4>
+                <ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Canvas</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Osiris Student</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Library Services</a></li>
+                    <li><a class="text-blue-100/80 hover:text-yellow-500 hover:pl-1 transition-all duration-300"
+                            href="#">Employee Portal</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-500 dark:text-yellow-400 font-bold mb-6 text-sm uppercase tracking-widest">
+                    Contact Details</h4>
+                <div class="font-['Plus_Jakarta_Sans'] text-sm text-blue-100/80 space-y-4">
+                    <p>Drienerlolaan 5<br />7522 NB Enschede<br />The Netherlands</p>
+                    <p>T: +31 (0)53 489 9111<br />E: info@utwente.nl</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 pt-8 border-t border-white/5 text-center">
+            <p class="font-['Plus_Jakarta_Sans'] text-xs text-blue-100/40">© 2024 University of Twente. The Digital
+                Polymath Excellence.</p>
+        </div>
+    </footer>
+    <script>function showPage(pageId) {
+            const pages = ['main-homepage', 'newsroom-page', 'event1', 'event2', 'event3'];
+            pages.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'none';
+            });
+            const target = document.getElementById(pageId);
+            if (target) {
+                target.style.display = 'block';
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // Add helper for nav links if needed
+        function showHomepage() { showPage('main-homepage'); }
+
+        // Handle mobile menu
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        if (hamburgerBtn && mobileDrawer) {
+            hamburgerBtn.addEventListener('click', () => {
+                mobileDrawer.classList.toggle('active');
+            });
+        }
+
+        // Handle tab switching
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+
+                // Toggle active class on buttons
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+
+                // Hide all content divs
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+
+                // Show the targeted content div
+                document.getElementById(targetId).classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

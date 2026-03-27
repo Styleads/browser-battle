@@ -360,38 +360,38 @@
                         <!-- Bachelor Content -->
                         <div class="tab-content grid grid-cols-1 md:grid-cols-2 gap-6" id="bachelor-content">
                             <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
-                                href="about:blank" target="_blank"><span
+                                href="bstp.html" target="_blank"><span
                                     class="text-sm font-black text-slate-800 tracking-widest uppercase">Business Studies
                                     and Public Policy</span></a>
                             <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
-                                href="about:blank" target="_blank"><span
+                                href="et.html" target="_blank"><span
                                     class="text-sm font-black text-slate-800 tracking-widest uppercase">Engineering
                                     &amp; Technology</span></a>
                             <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
-                                href="about:blank" target="_blank"><span
+                                href="it.html" target="_blank"><span
                                     class="text-sm font-black text-slate-800 tracking-widest uppercase">Information
                                     Technology (IT)</span></a>
                             <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
-                                href="about:blank" target="_blank"><span
+                                href="lsm.html" target="_blank"><span
                                     class="text-sm font-black text-slate-800 tracking-widest uppercase">Life Sciences
                                     &amp; Medicine</span></a>
                             <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
-                                href="about:blank" target="_blank"><span
+                                href="ns.html" target="_blank"><span
                                     class="text-sm font-black text-slate-800 tracking-widest uppercase">Natural
                                     Sciences</span></a>
                             <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
-                                href="about:blank" target="_blank"><span
+                                href="ss.html" target="_blank"><span
                                     class="text-sm font-black text-slate-800 tracking-widest uppercase">Social
                                     Sciences</span></a>
                         </div>
                         <!-- Master Content -->
                         <div class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6" id="master-content">
                             <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
-                                href="about:blank" target="_blank"><span
+                                href="ap.html" target="_blank"><span
                                     class="text-sm font-black text-slate-800 tracking-widest uppercase">Applied
                                     Physics</span></a>
                             <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
-                                href="about:blank" target="_blank"><span
+                                href="cs.html" target="_blank"><span
                                     class="text-sm font-black text-slate-800 tracking-widest uppercase">Computer
                                     Science</span></a>
                             <a class="program-card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
@@ -562,28 +562,28 @@
         </div>
     </footer>
     <script>
-        (function () {
-            const btn = document.getElementById('hamburger-btn');
-            const drawer = document.getElementById('mobile-drawer');
-            const links = drawer.querySelectorAll('.drawer-link');
-            const icon = btn.querySelector('.material-symbols-outlined');
+            (function () {
+                const btn = document.getElementById('hamburger-btn');
+                const drawer = document.getElementById('mobile-drawer');
+                const links = drawer.querySelectorAll('.drawer-link');
+                const icon = btn.querySelector('.material-symbols-outlined');
 
-            if (btn && drawer) {
-                btn.addEventListener('click', () => {
-                    const isOpen = drawer.classList.toggle('active');
-                    icon.textContent = isOpen ? 'close' : 'menu';
-                    document.body.style.overflow = isOpen ? 'hidden' : '';
-                });
-
-                links.forEach(link => {
-                    link.addEventListener('click', () => {
-                        drawer.classList.remove('active');
-                        icon.textContent = 'menu';
-                        document.body.style.overflow = '';
+                if (btn && drawer) {
+                    btn.addEventListener('click', () => {
+                        const isOpen = drawer.classList.toggle('active');
+                        icon.textContent = isOpen ? 'close' : 'menu';
+                        document.body.style.overflow = isOpen ? 'hidden' : '';
                     });
-                });
-            }
-        })();
+
+                    links.forEach(link => {
+                        link.addEventListener('click', () => {
+                            drawer.classList.remove('active');
+                            icon.textContent = 'menu';
+                            document.body.style.overflow = '';
+                        });
+                    });
+                }
+            })();
 
         document.querySelectorAll('.tab-btn').forEach(button => {
             button.addEventListener('click', () => {
